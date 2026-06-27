@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emprende Seguro™ | Mini App MVP v1.5 Local</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#667085;--brand:#0f766e;--brand2:#134e4a;
+      --green:#16a34a;--yellow:#ca8a04;--orange:#ea580c;--red:#dc2626;--black:#111827;--line:#e5e7eb;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    header{background:linear-gradient(135deg,var(--brand2),var(--brand));color:white;padding:28px 18px}
+    .wrap{max-width:1050px;margin:0 auto}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center}
+    h1{font-size:42px;line-height:1.05;margin:12px 0} h2{font-size:26px;margin:0 0 14px} h3{margin:0 0 10px}.lead{font-size:18px;line-height:1.5;color:#d7fffa}.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 12px;font-weight:700}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 30px rgba(15,23,42,.06);margin:18px 0}
+    .hero .card{color:var(--text)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    label{font-weight:700;font-size:14px;display:block;margin:8px 0 6px} input,select,textarea{width:100%;padding:12px;border:1px solid #cfd7e3;border-radius:12px;font-size:15px;background:white} textarea{min-height:80px}.muted{color:var(--muted)}
+    button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;background:var(--brand);color:white;font-size:15px}.btn-secondary{background:#e6f4f1;color:var(--brand2)}.btn-ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}.btn-premium{background:#111827}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}
+    .stepper{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:16px 0}.bar{height:100%;width:0;background:var(--brand);transition:.3s}.question{border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;background:#fff}.qtitle{font-weight:750;margin-bottom:10px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale label{font-weight:600;margin:0;border:1px solid #d6dde8;border-radius:12px;padding:10px;text-align:center;cursor:pointer;background:#fafafa}.scale input{display:none}.scale label:has(input:checked){border-color:var(--brand);background:#dff7f2;color:var(--brand2)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-weight:800}.status-card{border-radius:18px;padding:18px;border:2px solid var(--line);margin:14px 0}.status-title{font-size:28px;font-weight:950;margin:0 0 5px}.status-sub{margin:0;color:var(--muted)}.status-preparado{background:#dcfce7;border-color:#22c55e;color:#14532d}.status-reforzar{background:#fef9c3;border-color:#eab308;color:#713f12}.status-revisar{background:#ffedd5;border-color:#f97316;color:#7c2d12}.status-detener{background:#fee2e2;border-color:#ef4444;color:#7f1d1d}.route-Verde{background:#dcfce7;color:#166534}.route-Amarilla{background:#fef9c3;color:#854d0e}.route-Naranja{background:#ffedd5;color:#9a3412}.route-Roja{background:#fee2e2;color:#991b1b}.route-Crítica,.route-CríticaMáxima{background:#e5e7eb;color:#111827}.bigscore{font-size:52px;font-weight:900;margin:0}.scorelabel{font-weight:800;color:var(--brand2);margin-top:6px}.scorehint{font-size:13px;color:var(--muted);margin-top:2px}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.metric{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fafafa}.metricbar{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:8px}.metricbar span{display:block;height:100%;background:var(--brand);width:50%}.risklist li{margin:8px 0}.lock{filter:blur(3px);user-select:none}.watermark{position:relative}.watermark:after{content:'Informe Premium';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:900;color:rgba(17,24,39,.28);pointer-events:none}.footer{padding:28px;text-align:center;color:var(--muted)}
+    .print-only{display:none} table{border-collapse:collapse;width:100%;font-size:14px} th,td{border:1px solid var(--line);padding:8px;text-align:left} th{background:#f8fafc}.disclaimer{font-size:12px;color:#475467;background:#f8fafc;border-left:4px solid #94a3b8;padding:12px;border-radius:10px}.pagebreak{break-before:page}
+    @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
+    @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div>
+      <span class="badge">Emprende Seguro™ · Mini App MVP v1.5 Local</span>
+      <h1>Evalúa tu nivel de preparación antes de invertir</h1>
+      <p class="lead">Identifica fortalezas, áreas de atención y próximos pasos antes de comprometer dinero, tiempo o recursos familiares.</p>
+      <div class="actions"><button onclick="go('register')">Evaluar mi emprendimiento</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
+    </div>
+    <div class="card">
+      <h3>Metodología CERE v2.0</h3>
+      <p class="muted">Instrumento validado por expertos, con confiabilidad global excelente en piloto inicial.</p>
+      <ul class="muted"><li>30 ítems</li><li>5 dimensiones</li><li>Motor de escenarios</li><li>Informe automatizado</li></ul>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<section id="landing" class="card">
+  <div class="grid">
+    <div><h3>Conoce tu preparación</h3><p class="muted">Mercado, preparación, finanzas, patrimonio y decisión.</p></div>
+    <div><h3>Reduce incertidumbre</h3><p class="muted">Antes de comprometer recursos significativos.</p></div>
+    <div><h3>Recibe acciones</h3><p class="muted">Plan de 7 y 30 días para reducir incertidumbre.</p></div>
+  </div>
+</section>
+<section id="register" class="card hidden">
+  <h2>1. Registro y emprendimiento</h2>
+  <p class="muted">Estos datos permiten generar tu informe. Para investigación, se pueden anonimizar.</p>
+  <div class="grid2">
+    <div><label>Nombre</label><input id="nombre" placeholder="Tu nombre" /></div>
+    <div><label>Correo</label><input id="correo" type="email" placeholder="correo@email.com" /></div>
+    <div><label>País</label><input id="pais" placeholder="País" /></div>
+    <div><label>Teléfono opcional</label><input id="telefono" placeholder="Opcional" /></div>
+    <div><label>Nombre del emprendimiento</label><input id="proyecto" placeholder="Ej. Café Luna" /></div>
+    <div><label>Sector</label><select id="sector"><option>Comercio</option><option>Servicios</option><option>Tecnología</option><option>Educación</option><option>Salud</option><option>Manufactura</option><option>Alimentos</option><option>Otro</option></select></div>
+    <div><label>Estado actual</label><select id="estado"><option>Idea</option><option>Validando</option><option>Lanzando</option><option>Operando</option></select></div>
+    <div><label>Inversión estimada</label><select id="inversion"><option>Menos de USD 500</option><option>USD 500 - 2,000</option><option>USD 2,001 - 10,000</option><option>Más de USD 10,000</option></select></div>
+  </div>
+  <div class="actions"><button onclick="startQuiz()">Iniciar evaluación</button></div>
+</section>
+<section id="quizSection" class="card hidden">
+  <h2 id="dimTitle"></h2><p id="dimDesc" class="muted"></p><div class="stepper"><div id="progress" class="bar"></div></div><div id="questions"></div>
+  <div class="actions"><button class="btn-secondary" onclick="prevDim()">Anterior</button><button onclick="nextDim()">Siguiente</button></div>
+</section>
+<section id="freeGate" class="card hidden"></section>
+<section id="premium" class="hidden"></section>
+<section id="sample" class="card hidden">
+  <h2>Ejemplo de salida</h2><p class="muted">El usuario ve gratis su semáforo y puede desbloquear el informe completo.</p>
+  <div class="status-card status-revisar"><p class="status-title">🟠 REVISAR</p><p class="status-sub">Se recomienda revisar aspectos críticos antes de invertir.</p></div><p>Área principal de atención: Mercado</p><p class="muted">El informe completo muestra fortalezas, áreas de atención y plan de acción.</p>
+</section>
+<section id="admin" class="card hidden">
+  <h2>Panel local de respuestas</h2>
+  <p class="muted">Modo operativo sin servidor: cada evaluación queda guardada en este navegador. Para venta manual, verifica Yappy/transferencia, busca el código de solicitud y comparte el código de aprobación correspondiente.</p>
+  <div id="adminSummary" class="grid"></div>
+  <div class="actions">
+    <button onclick="downloadCSV()">Descargar base CSV</button>
+    <button class="btn-secondary" onclick="downloadAllJSON()">Descargar base JSON</button>
+    <button class="btn-ghost" onclick="clearLocalData()">Borrar base local</button>
+  </div>
+  <div id="adminTable" style="overflow:auto;margin-top:16px"></div>
+</section>
+
+</main><div class="footer">Emprende Seguro™ · Organización impulsora: Ecomente</div>
+<script>
+const dims=[
+{key:'RF',name:'Riesgo Financiero',desc:'Inversión y estabilidad financiera necesaria para emprender.',items:[
+['RF1','Necesitaría endeudarme para iniciar este emprendimiento.',false],['RF2','Podría iniciar este emprendimiento usando principalmente capital propio.',true],['RF3','Tengo claridad sobre cuánto dinero necesito para iniciar.',true],['RF4','Cuento con un fondo de emergencia independiente del dinero que invertiría.',true],['RF5','Tengo claridad sobre cuánto tiempo tomaría recuperar la inversión realizada.',true]]},
+{key:'CVM',name:'Conocimiento y Validación del Mercado',desc:'Conocimiento del cliente, demanda, competencia y diferenciación.',items:[
+['CVM1','He conversado con posibles clientes antes de decidir invertir.',true],['CVM2','Tengo evidencia de que las personas pagarían por este producto o servicio.',true],['CVM3','Conozco quiénes serían mis clientes principales.',true],['CVM4','He identificado competidores directos o indirectos.',true],['CVM5','Mi propuesta ofrece una diferencia clara frente a lo que ya existe.',true],['CVM6','Tengo claramente identificado el segmento de clientes al que deseo dirigirme.',true],['CVM7','Comprendo cuáles son los principales factores por los que un cliente elegiría mi producto o servicio frente a otras alternativas.',true]]},
+{key:'PN',name:'Preparación del Negocio',desc:'Experiencia, costos, permisos, recursos y conocimiento operativo.',items:[
+['PN1','Tengo experiencia previa en el sector donde deseo emprender.',true],['PN2','Conozco los costos principales de operación de este negocio.',true],['PN3','Sé qué recursos humanos, técnicos o materiales necesitaría.',true],['PN4','Conozco los permisos, normas o requisitos legales aplicables.',true],['PN5','He realizado actividades similares antes, aunque no hayan sido formalmente un negocio.',true],['PN6','Tengo claridad sobre si lo que ofreceré es principalmente un producto o un servicio.',true],['PN7','Tengo identificados los recursos críticos necesarios para operar el negocio.',true]]},
+{key:'RPF',name:'Riesgo Patrimonial y Familiar',desc:'Impacto del emprendimiento sobre patrimonio personal y familiar.',items:[
+['RPF1','La inversión comprometería recursos importantes de mi familia.',false],['RPF2','El emprendimiento pondría en riesgo activos importantes como vehículo, vivienda o ahorros familiares.',false],['RPF3','Tengo una alternativa económica si el emprendimiento no genera ingresos al inicio.',true],['RPF4','Si este emprendimiento fracasa, el impacto económico sobre mi familia sería significativo.',false]]},
+{key:'SEDI',name:'Sesgo Emocional y Decisión Impulsiva',desc:'Forma en que se está tomando la decisión de emprender.',items:[
+['SEDI1','Aunque otras personas cuestionen mi idea, seguiría adelante porque confío mucho en ella.',false],['SEDI2','Me entusiasma tanto este negocio que prefiero empezar rápido antes que seguir analizando.',false],['SEDI3','Si una prueba inicial saliera mal, igual continuaría invirtiendo.',false],['SEDI4','Estoy considerando esta idea principalmente porque necesito resolver una situación económica urgente.',false],['SEDI5','Antes de invertir, estaría dispuesto(a) a cambiar mi idea si la evidencia demuestra que no es viable.',true],['SEDI6','He dedicado tiempo suficiente a analizar esta decisión antes de comprometer recursos económicos.',true],['SEDI7','He buscado opiniones críticas sobre esta idea antes de decidir emprender.',true]]}
+];
+const scenarios={
+'BBBBB':['Verde','Sus respuestas sugieren condiciones favorables en las dimensiones evaluadas. Continúe validando y monitoreando su proyecto.'],
+'MBBBB':['Amarilla','Existen aspectos financieros que conviene revisar antes de invertir recursos significativos.'],
+'BMBBB':['Amarilla','Se recomienda fortalecer la validación del mercado antes de comprometer recursos.'],
+'BBMBB':['Amarilla','Se recomienda fortalecer la preparación operativa y técnica del negocio.'],
+'BBBMB':['Amarilla','Existen factores patrimoniales o familiares que conviene analizar antes de avanzar.'],
+'BBBBM':['Amarilla','Se recomienda revisar la forma en que está tomando la decisión y contrastarla con evidencia adicional.'],
+'ABBBB':['Naranja','Se identifican riesgos financieros relevantes. Revise capital disponible, deuda y retorno esperado.'],
+'BABBB':['Naranja','Se recomienda validar clientes, demanda y competencia antes de invertir.'],
+'BBABB':['Naranja','Se recomienda fortalecer conocimientos, recursos y planificación operativa.'],
+'BBBAB':['Naranja','Se recomienda proteger activos esenciales y evitar comprometer recursos familiares críticos.'],
+'BBBBA':['Naranja','Se recomienda buscar opiniones externas y validar la decisión antes de comprometer recursos.'],
+'AABBB':['Roja','Existe una combinación de riesgo financiero y de mercado. Se recomienda validar la demanda antes de invertir.'],
+'ABABB':['Roja','Existe una combinación de riesgo financiero y baja preparación operativa. Fortalezca ambas áreas antes de avanzar.'],
+'ABBAB':['Roja','Existe una combinación de riesgo financiero y patrimonial. Evite comprometer recursos familiares importantes.'],
+'ABBBA':['Roja','Existe una combinación de presión financiera y posible sesgo decisional. Evite decisiones impulsivas.'],
+'BAABB':['Roja','El mercado no ha sido suficientemente validado y existen brechas de preparación. Se recomienda realizar pruebas antes de invertir.'],
+'BABBA':['Roja','Existe entusiasmo o presión por avanzar sin suficiente evidencia de mercado. Valide primero.'],
+'BBABA':['Roja','Se identifican riesgos asociados a preparación insuficiente y toma de decisiones acelerada.'],
+'BBBAA':['Roja','Existe riesgo patrimonial asociado a una decisión que requiere mayor reflexión y análisis.'],
+'AAABB':['Crítica','Se identifican riesgos elevados en mercado, finanzas y preparación. Se recomienda detener temporalmente la inversión.'],
+'AABAB':['Crítica','Existe una combinación de exposición financiera, patrimonial y mercado no validado. Requiere revisión profunda.'],
+'ABAAB':['Crítica','Se identifican riesgos financieros, patrimoniales y de preparación que podrían comprometer recursos importantes.'],
+'ABBAA':['Crítica','Existe una combinación de riesgo financiero, patrimonial y decisional. Se recomienda construir un plan de mitigación antes de avanzar.'],
+'BAABA':['Crítica','Se identifican riesgos de mercado, preparación y posible sesgo decisional. Valide evidencia antes de invertir.'],
+'BAAAB':['Crítica','El emprendimiento presenta riesgos de mercado, preparación y protección patrimonial. Se recomienda rediseñar la estrategia antes de avanzar.'],
+'AAAAB':['Crítica','Se identifican múltiples factores críticos de riesgo. No se recomienda comprometer recursos en esta etapa.'],
+'AAABA':['Crítica','Existen riesgos elevados en mercado, finanzas, preparación y proceso de decisión. Requiere revisión externa antes de avanzar.'],
+'AABAA':['Crítica','Se identifican riesgos financieros, patrimoniales y de mercado junto con posibles sesgos en la toma de decisiones.'],
+'ABAAA':['Crítica','Se recomienda detener temporalmente la inversión y fortalecer preparación, protección patrimonial y análisis de la decisión.'],
+'BAAAA':['Crítica','Existen riesgos elevados en mercado, preparación, patrimonio y proceso decisional. No se recomienda avanzar sin correcciones previas.'],
+'AAAAA':['CríticaMáxima','Se identifican factores críticos en todas las dimensiones evaluadas. Se recomienda detener temporalmente la inversión, revisar integralmente el proyecto y buscar acompañamiento especializado antes de comprometer recursos.']
+};
+let current=0,answers={};
+function go(id){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function startQuiz(){go('quizSection');current=0;renderDim();}
+function renderDim(){const d=dims[current];document.getElementById('dimTitle').textContent=(current+1)+'. '+d.name;document.getElementById('dimDesc').textContent=d.desc;document.getElementById('progress').style.width=((current)/dims.length*100)+'%';let html='';d.items.forEach(([code,text])=>{html+=`<div class="question"><div class="qtitle">${text}</div><div class="scale">${[1,2,3,4,5].map(v=>`<label><input type="radio" name="${code}" value="${v}" ${answers[code]==v?'checked':''} onchange="answers['${code}']=${v}"><strong>${v}</strong><br><small>${['Totalmente en desacuerdo','En desacuerdo','Ni de acuerdo ni en desacuerdo','De acuerdo','Totalmente de acuerdo'][v-1]}</small></label>`).join('')}</div></div>`});document.getElementById('questions').innerHTML=html;}
+function validateDim(){return dims[current].items.every(([c])=>answers[c]);}
+function nextDim(){if(!validateDim()){alert('Por favor responde todas las preguntas de esta sección.');return;} if(current<dims.length-1){current++;renderDim();}else{showFree();}}
+function prevDim(){if(current>0){current--;renderDim();}else go('register');}
+function adjusted(code,val){const item=dims.flatMap(d=>d.items).find(i=>i[0]===code);return item[2]?6-val:val;}
+function avg(arr){return arr.reduce((a,b)=>a+b,0)/arr.length}
+function level(x){if(x<=1.8)return 'Bajo'; if(x<=2.6)return 'Moderado'; if(x<=3.4)return 'Medio-Alto'; if(x<=4.2)return 'Alto'; return 'Crítico'}
+function functional(x){const l=level(x); if(l==='Bajo'||l==='Moderado')return 'B'; if(l==='Medio-Alto')return 'M'; return 'A'}
+function routeByScore(x){if(x<=1.8)return 'Verde'; if(x<=2.6)return 'Amarilla'; if(x<=3.4)return 'Naranja'; if(x<=4.2)return 'Roja'; return 'Crítica'}
+function prepScore(x){return 6-x}
+function prepLevel(x){const p=prepScore(x); if(p>=4.2)return 'Muy favorable'; if(p>=3.4)return 'Favorable'; if(p>=2.6)return 'En desarrollo'; if(p>=1.8)return 'Requiere atención'; return 'Crítico'}
+function userStatus(route){if(route==='Verde')return ['🟢 PREPARADO','status-preparado','Tu nivel de preparación es favorable para continuar fortaleciendo tu proyecto.']; if(route==='Amarilla')return ['🟡 REFORZAR','status-reforzar','Existen áreas que conviene fortalecer para reducir incertidumbre antes de invertir.']; if(route==='Naranja')return ['🟠 REVISAR','status-revisar','Se recomienda revisar aspectos críticos antes de realizar inversiones significativas.']; return ['🔴 DETENER Y ANALIZAR','status-detener','Se identifican factores relevantes que requieren atención antes de continuar.'];}
+function statusCard(route){const [t,c,sub]=userStatus(route);return `<div class="status-card ${c}"><p class="status-title">${t}</p><p class="status-sub">${sub}</p></div>`}
+function scoreBlock(r){return `<p class="scorelabel">Nivel de Preparación Emprendedora</p><p class="bigscore">${prepScore(r.scores.IRE).toFixed(2)} / 5</p><p class="scorehint">En esta lectura, 5 es mejor. El riesgo técnico queda como dato interno: ${r.scores.IRE.toFixed(2)} / 5, donde menor riesgo es mejor.</p>`}
+function severity(r){return ['Verde','Amarilla','Naranja','Roja','Crítica','CríticaMáxima'].indexOf(r)}
+function calc(){let scores={};dims.forEach(d=>{scores[d.key]=avg(d.items.map(([c])=>adjusted(c,+answers[c])))});scores.IPS=avg([scores.RF,scores.RPF]);scores.IMV=avg([scores.CVM,scores.PN]);scores.IJD=scores.SEDI;scores.IRE=avg([scores.IPS,scores.IMV,scores.IJD]);const key=['RF','CVM','PN','RPF','SEDI'].map(k=>functional(scores[k])).join('');let route=routeByScore(scores.IRE),msg='';if(scenarios[key]){const [sr,sm]=scenarios[key]; if(severity(sr)>severity(route)) route=sr; msg=sm;} else {msg='Se identifican factores que conviene revisar antes de comprometer recursos significativos.'} const dominant=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>scores[b]-scores[a])[0];return {scores,key,route,msg,dominant};}
+function dimName(k){return {RF:'Riesgo Financiero',CVM:'Conocimiento y Validación del Mercado',PN:'Preparación del Negocio',RPF:'Riesgo Patrimonial y Familiar',SEDI:'Sesgo Emocional y Decisión Impulsiva'}[k]||k}
+function showFree(){const r=calc();const payload=saveEvaluation('pendiente_pago');go('freeGate');document.getElementById('freeGate').innerHTML=`<h2>Resultado gratuito</h2>${statusCard(r.route)}${scoreBlock(r)}<p><strong>Lectura rápida:</strong> ${prepLevel(r.scores.IRE)}</p><p><strong>Área principal de atención:</strong> ${dimName(r.dominant)}</p><p>${r.msg}</p><div class="card watermark"><div class="lock"><h3>Informe Premium bloqueado</h3><p>Incluye fortalezas principales, áreas de atención, recomendaciones personalizadas, plan de acción y PDF descargable.</p></div></div><div class="card" style="border:2px dashed var(--brand)"><h3>Desbloqueo manual por pago</h3><p>Para obtener el informe completo, realiza el pago de <strong>USD 9.99</strong> por Yappy o transferencia y envía el comprobante junto con este código:</p><p class="bigscore" style="font-size:30px">${payload.request_code}</p><p class="muted">Cuando el pago sea verificado, recibirás un código de aprobación para desbloquear el informe.</p><label>Código de aprobación</label><input id="approvalCode" placeholder="Ejemplo: ES-123456" maxlength="12"><div class="actions"><button class="btn-premium" onclick="verifyPremiumCode()">🔓 Desbloquear informe completo</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button></div></div><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. Es una orientación basada en las respuestas suministradas.</p>`;}
+function recommendation(k){return {RF:'Revise capital disponible, deuda, fondo de emergencia, monto total requerido y tiempo estimado de recuperación de la inversión.',CVM:'Valide clientes, analice competencia, confirme disposición de pago y defina con claridad el segmento objetivo.',PN:'Fortalezca conocimientos sobre costos, operación, recursos críticos, permisos, requisitos legales y capacidades necesarias.',RPF:'Proteja activos esenciales, evite comprometer recursos familiares críticos y defina un plan de contingencia.',SEDI:'Haga una pausa, busque opiniones críticas, contraste la idea con evidencia y evite decisiones impulsivas.'}[k]}
+function verifyPremiumCode(){const payload=saveEvaluation('intento_desbloqueo');const entered=(val('approvalCode')||'').trim().toUpperCase();const expected=generateApprovalCode(payload);if(entered!==expected){alert('Código incorrecto. Verifica el pago y el código de aprobación recibido.');return}showPremium('premium_aprobado')}
+function showPremium(stage='premium_view'){const r=calc();saveEvaluation(stage);document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));const data={nombre:val('nombre')||'Usuario',proyecto:val('proyecto')||'Proyecto evaluado',pais:val('pais')||'',sector:val('sector')||'',estado:val('estado')||'',inversion:val('inversion')||''};let metrics=['RF','CVM','PN','RPF','SEDI'].map(k=>`<div class="metric"><strong>${dimName(k)}</strong><br><span>Preparación: ${prepScore(r.scores[k]).toFixed(2)} / 5 · Riesgo: ${level(r.scores[k])}</span><div class="metricbar"><span style="width:${prepScore(r.scores[k])/5*100}%"></span></div><p class="scorehint">5 es mejor en la barra de preparación. Riesgo interno: ${r.scores[k].toFixed(2)} / 5.</p><p class="muted">${recommendation(k)}</p></div>`).join('');let sorted=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>r.scores[b]-r.scores[a]);let risks=sorted.slice(0,3).map(k=>`<li><strong>${dimName(k)}</strong>: ${recommendation(k)}</li>`).join('');let strengths=sorted.slice(-3).reverse().map(k=>`<li><strong>${dimName(k)}</strong>: presenta menor nivel de riesgo relativo.</li>`).join('');document.getElementById('premium').classList.remove('hidden');document.getElementById('premium').innerHTML=`<div class="card"><h2>Informe Premium Emprende Seguro™</h2><p><strong>Proyecto:</strong> ${data.proyecto} · <strong>Sector:</strong> ${data.sector} · <strong>Estado:</strong> ${data.estado}</p><div class="resultgrid"><div>${statusCard(r.route)}${scoreBlock(r)}<p><strong>Lectura rápida:</strong> ${prepLevel(r.scores.IRE)}</p><p><strong>Dimensión dominante:</strong> ${dimName(r.dominant)}</p></div><div><h3>Interpretación general</h3><p>${r.msg}</p></div></div><div class="actions no-print"><button onclick="window.print()">Descargar / Imprimir PDF</button><button class="btn-secondary" onclick="exportJSON()">Exportar datos JSON</button><button class="btn-ghost" onclick="location.reload()">Nueva evaluación</button></div></div><div class="card pagebreak"><h2>Perfil de riesgo</h2><div class="grid2">${metrics}</div></div><div class="card pagebreak"><h2>Principales fortalezas relativas</h2><ol class="risklist">${strengths}</ol><h2>Áreas de atención prioritarias</h2><ol class="risklist">${risks}</ol></div><div class="card pagebreak"><h2>Plan de acción recomendado</h2><h3>Próximos 7 días</h3><ul><li>Identificar y documentar los supuestos críticos del negocio.</li><li>Entrevistar al menos 5 clientes potenciales.</li><li>Revisar presupuesto preliminar y monto máximo de pérdida aceptable.</li></ul><h3>Próximos 30 días</h3><ul><li>Realizar una prueba piloto de bajo costo.</li><li>Validar disposición de pago y competencia.</li><li>Definir plan de contingencia financiero y familiar.</li></ul><h3>Antes de invertir</h3><ul><li>Confirmar demanda.</li><li>Calcular recuperación de inversión.</li><li>Proteger activos familiares.</li><li>Repetir la evaluación luego de implementar mejoras.</li></ul></div><div class="card pagebreak"><h2>Advertencia metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+function val(id){const e=document.getElementById(id);return e?e.value:''}
+const STORAGE_KEY='emprendeSeguroEvaluaciones_v1_5';
+const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
+function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
+function buildPayload(stage='completed'){
+  const resultado=calc();
+  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:val('nombre'),correo:val('correo'),pais:val('pais'),telefono:val('telefono')},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado};
+  base.request_code=generateRequestCode(base);
+  base.approval_code=generateApprovalCode(base);
+  return base;
+}
+function generateRequestCode(payload){const correo=(payload.usuario?.correo||'').trim().toLowerCase();const proyecto=(payload.emprendimiento?.nombre||'').trim().toLowerCase();return 'RQ-'+simpleHash(correo+'|'+proyecto+'|'+payload.resultado?.key)}
+function generateApprovalCode(payload){return 'ES-'+simpleHash(APPROVAL_SECRET+'|'+payload.request_code+'|'+(payload.usuario?.correo||'').trim().toLowerCase())}
+function getEvaluations(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return []}}
+function saveEvaluation(stage='completed'){
+  const payload=buildPayload(stage);let data=getEvaluations();
+  const correo=(payload.usuario.correo||'').trim().toLowerCase(); const proyecto=(payload.emprendimiento.nombre||'').trim().toLowerCase();
+  const idx=data.findIndex(x=>(x.usuario?.correo||'').trim().toLowerCase()===correo && (x.emprendimiento?.nombre||'').trim().toLowerCase()===proyecto && correo && proyecto);
+  if(idx>=0){payload.id=data[idx].id;payload.request_code=data[idx].request_code||payload.request_code;payload.approval_code=generateApprovalCode(payload);data[idx]=payload}else{data.push(payload)}
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));return payload;
+}
+function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-seguro-evaluacion.json')}
+function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
+function downloadAllJSON(){downloadJSON(getEvaluations(),'emprende-seguro-base-local.json')}
+function csvEscape(v){v=(v===undefined||v===null)?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
+function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,codigo_aprobacion:x.approval_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
+function downloadCSV(){const rows=getEvaluations().map(flattenRow);if(!rows.length){alert('Aún no hay evaluaciones guardadas en este navegador.');return}const headers=Object.keys(rows[0]);const csv=[headers.join(',')].concat(rows.map(r=>headers.map(h=>csvEscape(r[h])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-base-local.csv';a.click();URL.revokeObjectURL(a.href)}
+function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
+function clearLocalData(){if(confirm('¿Seguro que deseas borrar la base local de este navegador? Primero descarga CSV/JSON si necesitas respaldo.')){localStorage.removeItem(STORAGE_KEY);renderAdmin()}}
+</script>
+</body>
+</html>
