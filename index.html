@@ -89,7 +89,8 @@
 </section>
 <section id="admin" class="card hidden">
   <h2>Panel local de respuestas</h2>
-  <p class="muted">Modo operativo sin servidor: cada evaluación queda guardada en este navegador. Para venta manual, verifica Yappy/transferencia, busca el código de solicitud y comparte el código de desbloqueo correspondiente.</p>
+  <p class="muted"><strong>Operación activa:</strong> esta versión puede registrar automáticamente las evaluaciones en tu Google Sheets cuando pegues la URL del Apps Script.</p>
+  <p class="muted">Modo operativo: guarda respaldo local en este navegador y, con Apps Script configurado, envía cada evaluación a tu panel en Google Sheets para seguimiento y aprobación manual de pagos.</p>
   <div id="adminSummary" class="grid"></div>
   <div class="actions">
     <button onclick="downloadCSV()">Descargar base CSV</button>
@@ -235,7 +236,8 @@ function showPremium(stage='premium_view'){
   <div class="card pagebreak"><h2>Nota metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});
 }
 function val(id){const e=document.getElementById(id);return e?e.value:''}
-const STORAGE_KEY='emprendeSeguroEvaluaciones_comercial_1_0';
+const STORAGE_KEY='emprendeSeguroEvaluaciones_comercial_1_3';
+const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec';
 const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
 function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
 function buildPayload(stage='completed'){
@@ -253,7 +255,15 @@ function saveEvaluation(stage='completed'){
   const correo=(payload.usuario.correo||'').trim().toLowerCase(); const proyecto=(payload.emprendimiento.nombre||'').trim().toLowerCase();
   const idx=data.findIndex(x=>(x.usuario?.correo||'').trim().toLowerCase()===correo && (x.emprendimiento?.nombre||'').trim().toLowerCase()===proyecto && correo && proyecto);
   if(idx>=0){payload.id=data[idx].id;payload.request_code=data[idx].request_code||payload.request_code;payload.approval_code=generateApprovalCode(payload);data[idx]=payload}else{data.push(payload)}
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));return payload;
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+  saveToGoogleSheets(payload);
+  return payload;
+}
+function saveToGoogleSheets(payload){
+  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('PEGA_AQUI')){console.log('Google Sheets no configurado todavía.');return;}
+  try{
+    fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+  }catch(e){console.warn('No se pudo enviar a Google Sheets:',e)}
 }
 function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-seguro-evaluacion.json')}
 function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
