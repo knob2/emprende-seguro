@@ -4,48 +4,67 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Emprende Seguro™ | Diagnóstico Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#667085;--brand:#0f766e;--brand2:#134e4a;
-      --green:#16a34a;--yellow:#ca8a04;--orange:#ea580c;--red:#dc2626;--black:#111827;--line:#e5e7eb;
+      --bg:#f8fafc;--surface:#ffffff;--card:#ffffff;--text:#1f2937;--muted:#64748b;--brand:#0f766e;--brand2:#1e3a5f;
+      --brand-soft:#e6f4f1;--green:#16a34a;--yellow:#f59e0b;--orange:#ea580c;--red:#dc2626;--line:#e2e8f0;
+      --shadow:0 16px 45px rgba(15,23,42,.08);--radius:22px;
     }
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    header{background:linear-gradient(135deg,var(--brand2),var(--brand));color:white;padding:28px 18px}
-    .wrap{max-width:1050px;margin:0 auto}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center}
-    h1{font-size:42px;line-height:1.05;margin:12px 0} h2{font-size:26px;margin:0 0 14px} h3{margin:0 0 10px}.lead{font-size:18px;line-height:1.5;color:#d7fffa}.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 12px;font-weight:700}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 30px rgba(15,23,42,.06);margin:18px 0}
-    .hero .card{color:var(--text)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-    label{font-weight:700;font-size:14px;display:block;margin:8px 0 6px} input,select,textarea{width:100%;padding:12px;border:1px solid #cfd7e3;border-radius:12px;font-size:15px;background:white} textarea{min-height:80px}.muted{color:var(--muted)}
-    button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;background:var(--brand);color:white;font-size:15px}.btn-secondary{background:#e6f4f1;color:var(--brand2)}.btn-ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}.btn-premium{background:#111827}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}
-    .stepper{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:16px 0}.bar{height:100%;width:0;background:var(--brand);transition:.3s}.question{border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;background:#fff}.qtitle{font-weight:750;margin-bottom:10px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale label{font-weight:600;margin:0;border:1px solid #d6dde8;border-radius:12px;padding:10px;text-align:center;cursor:pointer;background:#fafafa}.scale input{display:none}.scale label:has(input:checked){border-color:var(--brand);background:#dff7f2;color:var(--brand2)}
-    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-weight:800}.status-card{border-radius:18px;padding:18px;border:2px solid var(--line);margin:14px 0}.status-title{font-size:28px;font-weight:950;margin:0 0 5px}.status-sub{margin:0;color:var(--muted)}.status-preparado{background:#dcfce7;border-color:#22c55e;color:#14532d}.status-reforzar{background:#fef9c3;border-color:#eab308;color:#713f12}.status-revisar{background:#ffedd5;border-color:#f97316;color:#7c2d12}.status-detener{background:#fee2e2;border-color:#ef4444;color:#7f1d1d}.route-Verde{background:#dcfce7;color:#166534}.route-Amarilla{background:#fef9c3;color:#854d0e}.route-Naranja{background:#ffedd5;color:#9a3412}.route-Roja{background:#fee2e2;color:#991b1b}.route-Crítica,.route-CríticaMáxima{background:#e5e7eb;color:#111827}.bigscore{font-size:52px;font-weight:900;margin:0}.scorelabel{font-weight:800;color:var(--brand2);margin-top:6px}.scorehint{font-size:13px;color:var(--muted);margin-top:2px}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.metric{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fafafa}.metricbar{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:8px}.metricbar span{display:block;height:100%;background:var(--brand);width:50%}.risklist li{margin:8px 0}.lock{filter:blur(3px);user-select:none}.watermark{position:relative}.watermark:after{content:'Informe Premium';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:900;color:rgba(17,24,39,.28);pointer-events:none}.footer{padding:28px;text-align:center;color:var(--muted)}
-    .print-only{display:none}.disclaimer{font-size:12px;color:#475467;background:#f8fafc;border-left:4px solid #94a3b8;padding:12px;border-radius:10px}.pagebreak{break-before:page}
-    @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    header{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 72%,#eef7f5 100%);color:var(--text);padding:22px 18px 48px;border-bottom:1px solid var(--line)}
+    .wrap{max-width:1120px;margin:0 auto}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;padding-top:28px}
+    .brandbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.logo{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--brand2);letter-spacing:.2px}.logo-mark{width:42px;height:42px;border-radius:14px;background:var(--brand);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 10px 25px rgba(15,118,110,.2)}
+    h1,h2,h3{font-family:Poppins,Inter,sans-serif;color:var(--brand2)}
+    h1{font-size:48px;line-height:1.04;margin:12px 0 16px;letter-spacing:-1.2px} h2{font-size:28px;margin:0 0 14px} h3{margin:0 0 10px;font-size:18px}.lead{font-size:19px;line-height:1.65;color:#475569;max-width:690px}.badge{display:inline-flex;align-items:center;gap:8px;background:#eef7f5;border:1px solid #c7e8e3;color:var(--brand);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}
+    .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:'';position:absolute;right:-60px;top:-60px;width:190px;height:190px;border-radius:999px;background:#e6f4f1}.hero-card>*{position:relative}.mini-stat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.mini-stat div{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px}.mini-stat strong{display:block;font-size:24px;color:var(--brand2)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 28px rgba(15,23,42,.045);margin:20px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.benefit{border:1px solid var(--line);background:#fff;border-radius:20px;padding:20px}.benefit-icon{width:42px;height:42px;border-radius:14px;background:var(--brand-soft);display:grid;place-items:center;margin-bottom:10px;font-size:20px}
+    label{font-weight:800;font-size:14px;display:block;margin:8px 0 6px;color:#334155} input,select,textarea{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:14px;font-size:15px;background:white;outline:none} input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(15,118,110,.12)} textarea{min-height:80px}.muted{color:var(--muted)}
+    button{border:0;border-radius:14px;padding:14px 20px;font-weight:900;cursor:pointer;background:var(--brand);color:white;font-size:15px;box-shadow:0 10px 20px rgba(15,118,110,.18);transition:.18s}button:hover{transform:translateY(-1px)}.btn-secondary{background:#e6f4f1;color:var(--brand);box-shadow:none}.btn-ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);box-shadow:none}.btn-premium{background:var(--brand2);box-shadow:0 10px 24px rgba(30,58,95,.22)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
+    .stepper{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:18px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),#14b8a6);transition:.3s}.question{border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;background:#fff}.qtitle{font-weight:800;margin-bottom:12px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale label{font-weight:700;margin:0;border:1px solid #d6dde8;border-radius:14px;padding:11px;text-align:center;cursor:pointer;background:#fafafa;transition:.15s}.scale input{display:none}.scale label:has(input:checked){border-color:var(--brand);background:#e6f4f1;color:var(--brand2);box-shadow:0 0 0 3px rgba(15,118,110,.10)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-weight:900}.status-card{border-radius:22px;padding:20px;border:2px solid var(--line);margin:16px 0}.status-title{font-size:30px;font-weight:950;margin:0 0 6px;color:inherit}.status-sub{margin:0;color:inherit;opacity:.85}.status-preparado{background:#ecfdf5;border-color:#22c55e;color:#14532d}.status-reforzar{background:#fffbeb;border-color:#f59e0b;color:#78350f}.status-revisar{background:#fff7ed;border-color:#f97316;color:#7c2d12}.status-detener{background:#fef2f2;border-color:#ef4444;color:#7f1d1d}.route-Verde{background:#dcfce7;color:#166534}.route-Amarilla{background:#fef9c3;color:#854d0e}.route-Naranja{background:#ffedd5;color:#9a3412}.route-Roja{background:#fee2e2;color:#991b1b}.route-Crítica,.route-CríticaMáxima{background:#e5e7eb;color:#111827}.bigscore{font-size:56px;font-weight:950;margin:0;color:var(--brand2);letter-spacing:-1px}.scorelabel{font-weight:900;color:var(--brand);margin-top:8px;text-transform:uppercase;font-size:12px;letter-spacing:.7px}.scorehint{font-size:13px;color:var(--muted);margin-top:2px}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.metric{padding:16px;border:1px solid var(--line);border-radius:18px;background:#f8fafc}.metricbar{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-top:8px}.metricbar span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#14b8a6);width:50%}.risklist li{margin:10px 0}.lock{filter:blur(3px);user-select:none}.watermark{position:relative;background:#f8fafc}.watermark:after{content:'Informe Profesional';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:950;color:rgba(30,58,95,.22);pointer-events:none}.footer{padding:32px 18px;text-align:center;color:var(--muted);border-top:1px solid var(--line);background:white}.disclaimer{font-size:12px;color:#475467;background:#f8fafc;border-left:4px solid #94a3b8;padding:12px;border-radius:10px}.pagebreak{break-before:page}.print-only{display:none}
+    @media(max-width:850px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:34px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:40px}.brandbar{align-items:flex-start;flex-direction:column}}
     @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
   </style>
 </head>
 <body>
 <header>
-  <div class="wrap hero">
-    <div>
-      <span class="badge">Emprende Seguro™ · Diagnóstico Profesional</span>
-      <h1>Evalúa tu nivel de preparación antes de invertir</h1>
-      <p class="lead">Identifica fortalezas, áreas de atención y próximos pasos antes de comprometer dinero, tiempo o recursos familiares.</p>
-      <div class="actions"><button onclick="go('register')">Evaluar mi emprendimiento</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button></div>
+  <div class="wrap">
+    <div class="brandbar">
+      <div class="logo"><span class="logo-mark">ES</span><span>EMPRENDE SEGURO™</span></div>
+      <span class="badge">Metodología CERE v2.0 · Fase piloto</span>
     </div>
-    <div class="card">
-      <h3>Metodología CERE v2.0</h3>
-      <p class="muted">Instrumento validado por expertos, con confiabilidad global excelente en piloto inicial.</p>
-      <ul class="muted"><li>30 ítems</li><li>5 dimensiones</li><li>Motor de escenarios</li><li>Informe automatizado</li></ul>
+    <div class="hero">
+      <div>
+        <span class="badge">Decisiones inteligentes antes de invertir</span>
+        <h1>Evalúa tu nivel de preparación antes de emprender</h1>
+        <p class="lead">Conoce tus fortalezas, identifica áreas de atención y recibe una orientación inicial antes de comprometer dinero, tiempo o recursos familiares.</p>
+        <div class="actions"><button onclick="go('register')">Comenzar evaluación</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo de resultado</button></div>
+      </div>
+      <div class="hero-card">
+        <h3>Diagnóstico profesional para emprendedores</h3>
+        <p class="muted">Una herramienta estructurada para ayudarte a tomar decisiones con mayor claridad antes de invertir.</p>
+        <div class="mini-stat">
+          <div><strong>30</strong><span class="muted">ítems evaluados</span></div>
+          <div><strong>5</strong><span class="muted">dimensiones clave</span></div>
+          <div><strong>+60</strong><span class="muted">pilotos iniciales</span></div>
+          <div><strong>CERE</strong><span class="muted">v2.0 validado</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 <main class="wrap">
 <section id="landing" class="card">
+  <h2>Una evaluación para decidir mejor</h2>
   <div class="grid">
-    <div><h3>Conoce tu preparación</h3><p class="muted">Mercado, preparación, finanzas, patrimonio y decisión.</p></div>
-    <div><h3>Reduce incertidumbre</h3><p class="muted">Antes de comprometer recursos significativos.</p></div>
-    <div><h3>Recibe acciones</h3><p class="muted">Plan de 7 y 30 días para reducir incertidumbre.</p></div>
+    <div class="benefit"><div class="benefit-icon">🛡️</div><h3>Protege tu inversión</h3><p class="muted">Evalúa exposición financiera, patrimonial y familiar antes de comprometer recursos.</p></div>
+    <div class="benefit"><div class="benefit-icon">📈</div><h3>Fortalece tu preparación</h3><p class="muted">Identifica brechas en mercado, operación y conocimiento del negocio.</p></div>
+    <div class="benefit"><div class="benefit-icon">🧭</div><h3>Toma decisiones con claridad</h3><p class="muted">Recibe una ruta inicial y recomendaciones orientadas a la acción.</p></div>
   </div>
 </section>
 <section id="register" class="card hidden">
@@ -73,7 +92,7 @@
   <h2>Ejemplo de salida</h2><p class="muted">El usuario ve gratis su semáforo y puede desbloquear el informe completo.</p>
   <div class="status-card status-revisar"><p class="status-title">🟠 REVISAR</p><p class="status-sub">Se recomienda revisar aspectos críticos antes de invertir.</p></div><p>Área principal de atención: Mercado</p><p class="muted">El informe completo muestra fortalezas, áreas de atención y plan de acción.</p>
 </section>
-</main><div class="footer">Emprende Seguro™ · Organización impulsora: Ecomente</div>
+</main><div class="footer"><strong>Emprende Seguro™</strong><br>Evaluación de preparación emprendedora · Organización impulsora: Ecomente<br><span class="muted">Herramienta orientativa. No sustituye asesoría financiera, legal o profesional.</span></div>
 <script>
 // ===============================
 // CONFIGURACIÓN MVP
@@ -248,4 +267,3 @@ function exportJSON(){const payload={usuario:{nombre:val('nombre'),correo:val('c
 </script>
 </body>
 </html>
-
