@@ -1,61 +1,277 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Emprende Seguro™ | Panel Administrador</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Emprende Seguro™ | Centro de Inteligencia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8fafc;--card:#fff;--text:#1f2937;--muted:#64748b;--brand:#0f766e;--brand2:#1e3a5f;--line:#e2e8f0;--red:#dc2626;--soft:#e6f4f1;--shadow:0 14px 38px rgba(15,23,42,.07)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-header{background:#fff;color:var(--text);padding:24px 18px;border-bottom:1px solid var(--line)}.wrap{max-width:1160px;margin:0 auto}.brand{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border-radius:14px;background:var(--brand);display:grid;place-items:center;color:white;font-weight:900}h1,h2{font-family:Poppins,Inter,sans-serif;color:var(--brand2)}h1{margin:0;font-size:32px}h2{margin:0 0 12px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow);margin:18px 0}.muted{color:var(--muted)}input,textarea{padding:12px;border:1px solid #cbd5e1;border-radius:14px;width:100%;font-size:15px}input:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(15,118,110,.12)}label{font-weight:800;font-size:14px;display:block;margin:8px 0 6px}button{border:0;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--brand);color:white;font-size:14px}.btn-secondary{background:var(--soft);color:#134e4a}.btn-danger{background:var(--red)}.btn-purple{background:var(--brand2)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{padding:18px;border:1px solid var(--line);border-radius:18px;background:#f8fafc}.metric strong{font-size:32px;color:var(--brand2)}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;background:#fff}th,td{border:1px solid #e5e7eb;padding:8px;text-align:left;font-size:13px}th{background:#f1f5f9}.ok{color:#166534;font-weight:800}.warn{color:#92400e;font-weight:800}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#64748b;--brand:#0f766e;--navy:#1e3a5f;--line:#e2e8f0;--red:#dc2626;--green:#16a34a;--amber:#f59e0b;--shadow:0 16px 40px rgba(15,23,42,.08)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1220px;margin:auto;padding:22px}
+header{background:linear-gradient(135deg,#0f766e,#1e3a5f);color:white;padding:30px 22px}
+.brand{display:flex;gap:14px;align-items:center}
+.mark{width:50px;height:50px;border-radius:16px;background:white;color:#0f766e;display:grid;place-items:center;font-weight:900}
+h1,h2{font-family:Poppins,Inter,sans-serif;margin:0}
+h1{font-size:34px}
+.muted{color:var(--muted)}
+header .muted{color:#dbeafe}
+.card{background:white;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin:18px 0}
+input,textarea{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:14px;font-size:15px}
+label{font-weight:800;font-size:14px;display:block;margin:10px 0 6px}
+button{border:0;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--brand);color:white}
+.btn2{background:#e6f4f1;color:#134e4a}
+.btn3{background:var(--navy)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.metric{background:#f8fafc;border:1px solid var(--line);border-radius:20px;padding:18px}
+.metric span{font-size:13px;color:var(--muted);font-weight:800}
+.metric strong{display:block;font-size:32px;color:var(--navy);margin-top:4px}
+.status{padding:10px 14px;border-radius:14px;background:#f1f5f9;font-weight:800;display:inline-block}
+.ok{color:var(--green);font-weight:900}
+.warn{color:#92400e;font-weight:900}
+.bad{color:var(--red);font-weight:900}
+.tablewrap{overflow:auto;max-height:560px;border-radius:18px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:left;font-size:13px;white-space:nowrap}
+th{background:#f1f5f9;position:sticky;top:0;z-index:1}
+.badge{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:900}
+.b-red{background:#fee2e2;color:#991b1b}
+.b-yellow{background:#fef3c7;color:#92400e}
+.b-green{background:#dcfce7;color:#166534}
+.b-blue{background:#dbeafe;color:#1e3a8a}
+@media(max-width:850px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
+
 <body>
-<header><div class="wrap"><div class="brand"><div class="mark">ES</div><div><h1>Panel Administrador</h1><p class="muted">Emprende Seguro™ · Uso interno de Ecomente. No compartir este enlace con clientes.</p></div></div></div></header>
+<header>
+<div class="wrap">
+<div class="brand">
+<div class="mark">ES</div>
+<div>
+<h1>Centro de Inteligencia</h1>
+<p class="muted">Emprende Seguro™ · Panel Administrador conectado a Google Sheets</p>
+</div>
+</div>
+</div>
+</header>
+
 <main class="wrap">
+
 <section id="login" class="card">
 <h2>Acceso administrador</h2>
-<p class="muted">Protección básica para MVP. En producción debe reemplazarse por login real.</p>
-<label>Clave de acceso</label><input id="pin" type="password" placeholder="Clave" />
-<div class="actions"><button onclick="login()">Entrar</button></div><p id="loginMsg" class="muted"></p>
+<p class="muted">Uso interno. No compartir este enlace.</p>
+<label>Clave de acceso</label>
+<input id="pin" type="password" placeholder="Clave admin"/>
+<div class="actions"><button onclick="login()">Entrar</button></div>
+<p id="loginMsg" class="bad"></p>
 </section>
+
 <section id="admin" class="hidden">
+
 <div class="card">
-<h2>Panel local de respuestas</h2>
-<p><strong>Fuente local:</strong> datos guardados en este navegador. La fuente oficial debe ser Google Sheets.</p>
-<p class="muted">Si deseas que este panel lea Google Sheets directamente, el Apps Script debe tener un endpoint GET que devuelva JSON.</p>
+<h2>Dashboard ejecutivo</h2>
+<p id="sourceStatus" class="status">Conectando con Google Sheets...</p>
+
 <div class="grid">
-<div class="metric">Evaluaciones<br><strong id="mTotal">0</strong></div>
-<div class="metric">Pendientes de pago<br><strong id="mPend">0</strong></div>
-<div class="metric">Premium aprobados<br><strong id="mPrem">0</strong></div>
-<div class="metric">Último registro<br><span id="mLast">-</span></div>
+<div class="metric"><span>Total evaluaciones</span><strong id="mTotal">0</strong></div>
+<div class="metric"><span>Pendientes de pago</span><strong id="mPend">0</strong></div>
+<div class="metric"><span>Premium aprobados</span><strong id="mPrem">0</strong></div>
+<div class="metric"><span>Último registro</span><strong id="mLast" style="font-size:15px">-</strong></div>
 </div>
-<div class="actions"><button onclick="downloadCSV()">Descargar CSV</button><button class="btn-secondary" onclick="downloadJSON()">Descargar JSON</button><button class="btn-danger" onclick="clearLocal()">Borrar base local</button></div>
+
+<div class="grid">
+<div class="metric"><span>Riesgo alto</span><strong id="mRojo">0</strong></div>
+<div class="metric"><span>Riesgo medio</span><strong id="mAmarillo">0</strong></div>
+<div class="metric"><span>Riesgo bajo</span><strong id="mVerde">0</strong></div>
+<div class="metric"><span>Registros cargados</span><strong id="mLoaded">0</strong></div>
 </div>
+
+<div class="actions">
+<button onclick="loadData()">Actualizar datos</button>
+<button class="btn2" onclick="downloadCSV()">Descargar CSV</button>
+<button class="btn3" onclick="downloadJSON()">Descargar JSON</button>
+</div>
+</div>
+
 <div class="card">
 <h2>Enviar código de desbloqueo</h2>
 <p class="muted">Busca el código de solicitud y copia el mensaje para WhatsApp.</p>
-<label>Código de solicitud</label><input id="searchCode" placeholder="Ej. RQ-078509" oninput="findCode()" />
-<div id="codeResult" class="muted"></div>
+<label>Código de solicitud</label>
+<input id="searchCode" placeholder="Ej. RQ-078509" oninput="findCode()"/>
+<div id="codeResult" style="margin-top:14px"></div>
 </div>
+
 <div class="card">
-<h2>Registros locales</h2><div class="tablewrap"><table id="tbl"><thead><tr><th>Fecha</th><th>Etapa</th><th>Solicitud</th><th>Desbloqueo</th><th>Nombre</th><th>Correo</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody></tbody></table></div>
+<h2>Base oficial Google Sheets</h2>
+<div class="tablewrap">
+<table id="tbl">
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Etapa</th>
+<th>Solicitud</th>
+<th>Desbloqueo</th>
+<th>Nombre</th>
+<th>Correo</th>
+<th>Teléfono</th>
+<th>País</th>
+<th>Proyecto</th>
+<th>Sector</th>
+<th>Ruta</th>
+<th>NPE</th>
+<th>Dominante</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
 </div>
+</div>
+
 </section>
 </main>
+
 <script>
 const ADMIN_PIN='ES-ADMIN-2026';
-const STORAGE_KEY='ES_records_v2';
-function login(){if(document.getElementById('pin').value===ADMIN_PIN){document.getElementById('login').classList.add('hidden');document.getElementById('admin').classList.remove('hidden');render()}else document.getElementById('loginMsg').textContent='Clave incorrecta.'}
-function getRecords(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return []}}
-function setRecords(r){localStorage.setItem(STORAGE_KEY,JSON.stringify(r))}
-function render(){const r=getRecords();document.getElementById('mTotal').textContent=r.length;document.getElementById('mPend').textContent=r.filter(x=>x.etapa==='pendiente_pago').length;document.getElementById('mPrem').textContent=r.filter(x=>x.etapa==='premium_aprobado').length;document.getElementById('mLast').textContent=r.length?(r[r.length-1].ultima_actualizacion||r[r.length-1].fecha_registro):'-';document.querySelector('#tbl tbody').innerHTML=r.map(x=>`<tr><td>${x.fecha_registro||''}</td><td>${x.etapa||''}</td><td>${x.codigo_solicitud||''}</td><td>${x.codigo_desbloqueo||''}</td><td>${x.nombre||''}</td><td>${x.correo||''}</td><td>${x.emprendimiento||''}</td><td>${x.ruta||''}</td><td>${x.npe||''}</td><td>${x.dominante||''}</td></tr>`).join('')}
-function findCode(){const code=document.getElementById('searchCode').value.trim().toUpperCase();const r=getRecords().find(x=>String(x.codigo_solicitud||'').toUpperCase()===code);if(!code){document.getElementById('codeResult').innerHTML='';return} if(!r){document.getElementById('codeResult').innerHTML='<span class="warn">No encontrado en la base local. Verificar en Google Sheets.</span>';return} const msg=`Hola ${r.nombre||''}. Gracias por tu pago. Tu código de desbloqueo del Informe Profesional de Emprende Seguro™ es: ${r.codigo_desbloqueo}. Ingresa este código en la aplicación para ver tu informe.`;document.getElementById('codeResult').innerHTML=`<p class="ok">Registro encontrado.</p><p><strong>Desbloqueo:</strong> ${r.codigo_desbloqueo}</p><textarea id="waMsg" style="width:100%;min-height:100px">${msg}</textarea><div class="actions"><button onclick="copyMsg()">Copiar mensaje</button></div>`}
-function copyMsg(){navigator.clipboard.writeText(document.getElementById('waMsg').value);alert('Mensaje copiado')}
-function downloadJSON(){const blob=new Blob([JSON.stringify(getRecords(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-registros.json';a.click()}
-function csvEscape(v){v=v==null?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
-function downloadCSV(){const r=getRecords();const cols=['fecha_registro','ultima_actualizacion','etapa','codigo_solicitud','codigo_desbloqueo','nombre','correo','telefono','pais','emprendimiento','sector','estado_emprendimiento','ruta','npe','dominante','rf','cvm','pn','rpf','sedi','ips','imv','ijd','ire'];const csv=[cols.join(',')].concat(r.map(x=>cols.map(c=>csvEscape(x[c])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-registros.csv';a.click()}
-function clearLocal(){if(confirm('¿Borrar base local de este navegador? No borra Google Sheets.')){localStorage.removeItem(STORAGE_KEY);render()}}
+
+const SHEET_API_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec';
+
+let records=[];
+
+function login(){
+  if(document.getElementById('pin').value===ADMIN_PIN){
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('admin').classList.remove('hidden');
+    loadData();
+  }else{
+    document.getElementById('loginMsg').textContent='Clave incorrecta.';
+  }
+}
+
+async function loadData(){
+  const status=document.getElementById('sourceStatus');
+  status.textContent='Conectando con Google Sheets...';
+  status.className='status warn';
+
+  try{
+    const res=await fetch(SHEET_API_URL);
+    const json=await res.json();
+    records=Array.isArray(json)?json:(json.data||[]);
+    status.textContent='Conectado a Google Sheets · '+records.length+' registros cargados';
+    status.className='status ok';
+    render();
+  }catch(e){
+    console.error(e);
+    status.textContent='No se pudo conectar con Google Sheets. Revisa Apps Script.';
+    status.className='status bad';
+  }
+}
+
+function norm(v){return (v??'').toString().trim();}
+function lower(v){return norm(v).toLowerCase();}
+function get(x,...keys){
+  for(const k of keys){
+    if(x[k]!==undefined&&x[k]!==null&&x[k]!=='') return x[k];
+  }
+  return '';
+}
+
+function badgeEtapa(v){
+  const e=lower(v);
+  if(e.includes('premium')||e.includes('aprobado'))return `<span class="badge b-green">${v}</span>`;
+  if(e.includes('pend'))return `<span class="badge b-yellow">${v}</span>`;
+  if(e.includes('rechaz')||e.includes('cancel'))return `<span class="badge b-red">${v}</span>`;
+  return `<span class="badge b-blue">${v||'registro'}</span>`;
+}
+
+function render(){
+  document.getElementById('mTotal').textContent=records.length;
+  document.getElementById('mPend').textContent=records.filter(x=>lower(get(x,'etapa','Etapa')).includes('pend')).length;
+  document.getElementById('mPrem').textContent=records.filter(x=>lower(get(x,'etapa','Etapa')).includes('premium')||lower(get(x,'etapa','Etapa')).includes('aprob')).length;
+  document.getElementById('mLoaded').textContent=records.length;
+
+  const last=records.length?get(records[records.length-1],'ultima_actualizacion','fecha_registro','Fecha','timestamp'):'-';
+  document.getElementById('mLast').textContent=last||'-';
+
+  document.getElementById('mRojo').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('rojo')||lower(get(x,'ruta','Ruta','semaforo')).includes('alto')).length;
+  document.getElementById('mAmarillo').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('amarillo')||lower(get(x,'ruta','Ruta','semaforo')).includes('medio')).length;
+  document.getElementById('mVerde').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('verde')||lower(get(x,'ruta','Ruta','semaforo')).includes('bajo')).length;
+
+  document.querySelector('#tbl tbody').innerHTML=records.map(x=>`
+  <tr>
+    <td>${get(x,'fecha_registro','Fecha','timestamp')}</td>
+    <td>${badgeEtapa(get(x,'etapa','Etapa'))}</td>
+    <td>${get(x,'codigo_solicitud','Código de solicitud','codigoSolicitud')}</td>
+    <td><strong>${get(x,'codigo_desbloqueo','Código de desbloqueo','codigoDesbloqueo')}</strong></td>
+    <td>${get(x,'nombre','Nombre')}</td>
+    <td>${get(x,'correo','Correo','email')}</td>
+    <td>${get(x,'telefono','Teléfono','Telefono')}</td>
+    <td>${get(x,'pais','País','Pais')}</td>
+    <td>${get(x,'emprendimiento','Proyecto','Nombre del emprendimiento')}</td>
+    <td>${get(x,'sector','Sector')}</td>
+    <td>${get(x,'ruta','Ruta','semaforo')}</td>
+    <td>${get(x,'npe','NPE','puntaje')}</td>
+    <td>${get(x,'dominante','Dominante','dimension_dominante')}</td>
+  </tr>`).join('');
+}
+
+function findCode(){
+  const code=document.getElementById('searchCode').value.trim().toUpperCase();
+  const box=document.getElementById('codeResult');
+
+  if(!code){box.innerHTML='';return;}
+
+  const r=records.find(x=>String(get(x,'codigo_solicitud','Código de solicitud','codigoSolicitud')).toUpperCase()===code);
+
+  if(!r){
+    box.innerHTML='<p class="warn"><strong>No encontrado.</strong> Verifica el código en Google Sheets.</p>';
+    return;
+  }
+
+  const nombre=get(r,'nombre','Nombre')||'';
+  const unlock=get(r,'codigo_desbloqueo','Código de desbloqueo','codigoDesbloqueo')||'';
+
+  const msg=`Hola ${nombre}. Gracias por tu pago. Tu código de desbloqueo del Informe Profesional de Emprende Seguro™ es: ${unlock}. Ingresa este código en la aplicación para ver tu informe.`;
+
+  box.innerHTML=`
+  <p class="ok"><strong>Registro encontrado.</strong></p>
+  <p><strong>Nombre:</strong> ${nombre}</p>
+  <p><strong>Código de desbloqueo:</strong> ${unlock}</p>
+  <textarea id="waMsg" style="min-height:110px">${msg}</textarea>
+  <div class="actions"><button onclick="copyMsg()">Copiar mensaje</button></div>`;
+}
+
+function copyMsg(){
+  navigator.clipboard.writeText(document.getElementById('waMsg').value);
+  alert('Mensaje copiado');
+}
+
+function csvEscape(v){
+  v=v==null?'':String(v);
+  return '"'+v.replaceAll('"','""')+'"';
+}
+
+function downloadCSV(){
+  if(!records.length){alert('No hay datos cargados.');return;}
+  const cols=Object.keys(records[0]);
+  const csv=[cols.join(',')].concat(records.map(x=>cols.map(c=>csvEscape(x[c])).join(','))).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='emprende-seguro-google-sheets.csv';
+  a.click();
+}
+
+function downloadJSON(){
+  const blob=new Blob([JSON.stringify(records,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='emprende-seguro-google-sheets.json';
+  a.click();
+}
 </script>
-</body></html>
+</body>
+</html>
