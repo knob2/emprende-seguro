@@ -249,9 +249,13 @@ function showFree(){
       <h3>📱 Pago por Yappy</h3>
       <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
       <div class="actions"><button class="btn-secondary" onclick="copyText('62735084')">📋 Copiar número</button></div>
-      <div class="ticket"><p class="muted">Código de solicitud</p><div class="ticket-code" id="requestCode">${payload.request_code}</div><button class="btn-secondary" onclick="copyText('${payload.request_code}')">📋 Copiar código</button></div>
-      <p class="muted">Luego de pagar, envía el comprobante por WhatsApp junto con tu código de solicitud.</p>
-      <div class="actions"><button onclick="openWhatsApp('${payload.request_code}')">📲 Ya realicé mi pago</button></div>
+      <div class="ticket"><p class="muted">🧾 Referencia de tu solicitud</p><div class="ticket-code" id="requestCode">${payload.request_code}</div><button class="btn-secondary" onclick="copyText('${payload.request_code}')">📋 Copiar referencia</button></div>
+      <p class="muted">Conserva esta referencia. Nos permite identificar tu diagnóstico y validar tu pago correctamente.</p>
+      <div class="actions">
+        <button onclick="requestPaymentInstructions('${payload.request_code}')">💬 Solicitar instrucciones de pago</button>
+        <button class="btn-secondary" onclick="openWhatsApp('${payload.request_code}')">✅ Ya pagué y deseo desbloquear mi informe</button>
+      </div>
+      <p class="scorehint">⏱️ Tiempo promedio de entrega del código: menos de 10 minutos en horario de atención, una vez confirmado el pago.</p>
       <label>Código de desbloqueo</label><input id="approvalCode" placeholder="Ejemplo: ES-123456" maxlength="12">
       <div class="actions"><button class="btn-premium" onclick="verifyPremiumCode()">🔓 Desbloquear mi informe</button></div>
     </div>
@@ -260,7 +264,8 @@ function showFree(){
   setTimeout(()=>{document.getElementById('analysisBox').classList.add('hidden');document.getElementById('freeResult').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});},1200);
 }
 function copyText(t){navigator.clipboard?.writeText(t).then(()=>alert('Copiado: '+t)).catch(()=>prompt('Copia este dato:',t));}
-function openWhatsApp(requestCode){const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro.%0A%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
+function requestPaymentInstructions(requestCode){const msg=`Hola, acabo de completar mi diagnóstico en Emprende Seguro™.%0A%0AMi código de solicitud es: ${requestCode}%0A%0ADeseo desbloquear mi Informe Profesional. ¿Me indicas cómo realizar el pago por Yappy?`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
+function openWhatsApp(requestCode){const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro™.%0A%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago para recibir mi código de desbloqueo.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
 function recommendation(k){return {RF:'Revise capital disponible, deuda, fondo de emergencia, monto total requerido y tiempo estimado de recuperación de la inversión.',CVM:'Valide clientes, analice competencia, confirme disposición de pago y defina con claridad el segmento objetivo.',PN:'Fortalezca conocimientos sobre costos, operación, recursos críticos, permisos, requisitos legales y capacidades necesarias.',RPF:'Proteja activos esenciales, evite comprometer recursos familiares críticos y defina un plan de contingencia.',SEDI:'Haga una pausa, busque opiniones críticas, contraste la idea con evidencia y evite decisiones impulsivas.'}[k]}
 
 const RESOURCE_LIBRARY={
