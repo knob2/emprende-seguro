@@ -40,6 +40,9 @@
     .bar,.metricbar span{background:linear-gradient(90deg,var(--accent),#ec4899,var(--brand))}
     .badge{box-shadow:0 10px 30px rgba(0,0,0,.12)}
 
+
+    .action-plan{display:grid;gap:14px;margin-top:12px}.action-item{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#faf5ff);padding:18px}.action-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.priority-badge{display:inline-flex;align-items:center;border-radius:999px;background:#f3e8ff;color:var(--brand2);padding:7px 11px;font-weight:900;font-size:13px}.mission-title{font-size:20px;font-weight:950;margin:8px 0 4px;color:#171426}.action-list{margin:10px 0 0;padding-left:20px}.action-list li{margin:7px 0}.resource-box{margin-top:14px;border:1px solid #ddd6fe;background:#ffffff;border-radius:16px;padding:14px}.resource-tag{display:inline-block;border-radius:999px;background:#ecfeff;color:#155e75;padding:5px 9px;font-size:12px;font-weight:900;margin-bottom:8px}.resource-title{font-weight:950;margin:0 0 6px}.resource-note{font-size:13px;color:var(--muted);margin:0 0 10px}.resource-link{display:inline-flex;text-decoration:none;border-radius:12px;padding:11px 14px;font-weight:900;background:linear-gradient(135deg,#171426,#7c3aed);color:white;box-shadow:0 10px 25px rgba(124,58,237,.18)}.resource-pending{font-size:13px;color:var(--muted);background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:10px;margin-top:12px}.final-cta{background:linear-gradient(135deg,#171426,#312e81 55%,#7c3aed);color:white;border-radius:20px;padding:22px;margin-top:16px}.final-cta p{color:#ede9fe}.final-cta strong{color:#fde68a}
+
     @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
     @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
 
@@ -241,7 +244,7 @@ function showFree(){
     <div class="card" style="border:2px solid var(--brand)">
       <h2>📄 Desbloquea tu Informe Profesional</h2>
       <p>Obtén un diagnóstico completo con recomendaciones personalizadas para tomar decisiones con mayor información antes de invertir.</p>
-      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Plan de acción de 7 y 30 días</li><li>PDF descargable</li></ul>
+      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Plan de acción personalizado por prioridad</li><li>Recursos recomendados según tus resultados</li><li>PDF descargable</li></ul>
       <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 9.99</p><p>Pago único · Sin suscripciones · Sin cargos adicionales</p></div>
       <h3>📱 Pago por Yappy</h3>
       <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
@@ -259,6 +262,108 @@ function showFree(){
 function copyText(t){navigator.clipboard?.writeText(t).then(()=>alert('Copiado: '+t)).catch(()=>prompt('Copia este dato:',t));}
 function openWhatsApp(requestCode){const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro.%0A%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
 function recommendation(k){return {RF:'Revise capital disponible, deuda, fondo de emergencia, monto total requerido y tiempo estimado de recuperación de la inversión.',CVM:'Valide clientes, analice competencia, confirme disposición de pago y defina con claridad el segmento objetivo.',PN:'Fortalezca conocimientos sobre costos, operación, recursos críticos, permisos, requisitos legales y capacidades necesarias.',RPF:'Proteja activos esenciales, evite comprometer recursos familiares críticos y defina un plan de contingencia.',SEDI:'Haga una pausa, busque opiniones críticas, contraste la idea con evidencia y evite decisiones impulsivas.'}[k]}
+
+const RESOURCE_LIBRARY={
+  ES001:{
+    id:'ES-001',
+    title:'Curso Completo de Finanzas Personales para No Expertos',
+    type:'Curso',
+    status:'activo',
+    url:'https://go.hotmart.com/S106633567T?ap=8077',
+    button:'🚀 Ver recurso recomendado',
+    note:'Recurso seleccionado para fortalecer presupuesto, control financiero y toma de decisiones antes de invertir.'
+  },
+  ES004:{
+    id:'ES-004',
+    title:'Ventas Ágiles',
+    type:'Curso',
+    status:'activo',
+    url:'https://go.hotmart.com/Q106633696F?ap=e58c',
+    button:'📈 Fortalecer mis ventas',
+    note:'Recurso seleccionado para estructurar mejor el proceso comercial y mejorar la conversión de clientes.'
+  }
+};
+
+const ACTION_LIBRARY={
+  RF:{
+    icon:'💰',
+    mission:'Fortalece tu estabilidad financiera',
+    detected:'Tu diagnóstico indica que la gestión financiera es una de las áreas que más puede impactar la seguridad de tu emprendimiento.',
+    actions:[
+      'Separa tus finanzas personales de las finanzas del negocio.',
+      'Define un presupuesto inicial y un monto máximo de inversión.',
+      'Calcula tu punto de equilibrio y el tiempo estimado de recuperación.',
+      'Evita comprometer dinero que afecte obligaciones familiares o esenciales.'
+    ],
+    resources:['ES001']
+  },
+  CVM:{
+    icon:'🎯',
+    mission:'Valida el mercado antes de invertir más',
+    detected:'El resultado muestra que necesitas fortalecer la evidencia sobre clientes, competencia y disposición real de pago.',
+    actions:[
+      'Conversa con clientes potenciales antes de comprar inventario o equipos.',
+      'Define con claridad quién es tu cliente ideal y qué problema le resuelves.',
+      'Prueba una oferta simple y mide si las personas están dispuestas a pagar.',
+      'Compara alternativas existentes y ajusta tu propuesta de valor.'
+    ],
+    resources:['ES004']
+  },
+  PN:{
+    icon:'🧩',
+    mission:'Organiza la preparación operativa del negocio',
+    detected:'Tu evaluación sugiere que conviene reforzar conocimientos, procesos, costos, permisos y capacidades antes de avanzar.',
+    actions:[
+      'Enumera los recursos críticos que necesitas para operar.',
+      'Identifica costos fijos, costos variables y requisitos legales básicos.',
+      'Documenta el proceso mínimo para entregar tu producto o servicio.',
+      'Fortalece las habilidades comerciales necesarias para vender de forma consistente.'
+    ],
+    resources:['ES004']
+  },
+  RPF:{
+    icon:'🛡️',
+    mission:'Protege tu patrimonio y tu estabilidad familiar',
+    detected:'El diagnóstico muestra que debes cuidar los recursos esenciales y evitar que el emprendimiento ponga en riesgo tu base familiar.',
+    actions:[
+      'Define qué activos o ingresos no deben ponerse en riesgo.',
+      'Establece un límite claro de pérdida aceptable.',
+      'Conversa con tu familia sobre escenarios, tiempos y responsabilidades.',
+      'Prepara un plan de contingencia antes de asumir compromisos mayores.'
+    ],
+    resources:[]
+  },
+  SEDI:{
+    icon:'🧠',
+    mission:'Reduce decisiones impulsivas y valida con evidencia',
+    detected:'Tus respuestas sugieren que conviene pausar, contrastar información y evitar avanzar solo por emoción o presión externa.',
+    actions:[
+      'Escribe los supuestos principales de tu idea y busca evidencia para confirmarlos.',
+      'Pide una opinión crítica a alguien que no tenga interés económico en el proyecto.',
+      'Espera 48 horas antes de tomar decisiones financieras importantes.',
+      'Compara al menos tres escenarios: optimista, realista y conservador.'
+    ],
+    resources:[]
+  }
+};
+
+function renderResource(resourceId){
+  const res=RESOURCE_LIBRARY[resourceId];
+  if(!res || res.status!=='activo' || !res.url) return '';
+  return `<div class="resource-box"><span class="resource-tag">${res.id} · ${res.type} recomendado</span><p class="resource-title">${res.title}</p><p class="resource-note">${res.note}</p><a class="resource-link" href="${res.url}" target="_blank" rel="noopener noreferrer">${res.button}</a></div>`;
+}
+
+function renderActionPlan(r){
+  const sorted=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>r.scores[b]-r.scores[a]).slice(0,5);
+  const items=sorted.map((key,index)=>{
+    const item=ACTION_LIBRARY[key];
+    const resources=(item.resources||[]).map(renderResource).join('');
+    const pending=!resources?'<div class="resource-pending">Por ahora esta misión incluye acciones prácticas. La herramienta recomendada se activará cuando haya un recurso aprobado en la Biblioteca Oficial Emprende Seguro™.</div>':'';
+    return `<div class="action-item"><div class="action-head"><span class="priority-badge">Prioridad ${index+1}</span><span class="pill route-${r.route}">${dimName(key)} · Preparación ${prepScore(r.scores[key]).toFixed(2)}/5</span></div><p class="mission-title">${item.icon} ${item.mission}</p><p><strong>¿Qué detectamos?</strong> ${item.detected}</p><p><strong>¿Qué debes hacer ahora?</strong></p><ul class="action-list">${item.actions.map(a=>`<li>${a}</li>`).join('')}</ul>${resources}${pending}</div>`;
+  }).join('');
+  return `<div class="card pagebreak"><h2>🚀 Tu Plan de Acción Personalizado</h2><p>Estas son las 5 áreas que más puedes mejorar según tu diagnóstico. El orden responde directamente a tus resultados y prioriza las dimensiones con mayor oportunidad de fortalecimiento.</p><div class="action-plan">${items}</div><div class="final-cta"><h2>🎯 Tu siguiente paso comienza hoy</h2><p>Tu evaluación ya identificó dónde puedes aumentar las probabilidades de éxito de tu emprendimiento. El verdadero cambio comienza cuando conviertes este diagnóstico en acciones.</p><p><strong>Empieza por la Prioridad 1 y vuelve a evaluar tu proyecto después de implementar mejoras.</strong></p></div></div>`;
+}
+
 function verifyPremiumCode(){const payload=saveEvaluation('intento_desbloqueo');const entered=(val('approvalCode')||'').trim().toUpperCase();const expected=generateApprovalCode(payload);if(entered!==expected){alert('Código incorrecto. Verifica el pago y el código de desbloqueo recibido.');return}document.getElementById('freeGate').innerHTML=`<div class="success"><h1>🎉 Pago verificado</h1><p>Gracias por confiar en Emprende Seguro.</p><p>Tu informe profesional está listo.</p><button onclick="showPremium('premium_aprobado')">Ver mi informe</button></div>`;window.scrollTo({top:0,behavior:'smooth'});}
 function showPremium(stage='premium_view'){
   const r=calc();saveEvaluation(stage);document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
@@ -275,7 +380,7 @@ function showPremium(stage='premium_view'){
   <div class="actions no-print"><button onclick="window.print()">Descargar / Imprimir PDF</button><button class="btn-secondary" onclick="exportJSON()">Exportar datos JSON</button><button class="btn-ghost" onclick="location.reload()">Nueva evaluación</button></div></div>
   <div class="card pagebreak"><h2>Perfil por dimensión</h2><div class="grid2">${metrics}</div></div>
   <div class="card pagebreak"><h2>Fortalezas principales</h2><ol class="risklist">${strengths}</ol><h2>Aspectos por fortalecer</h2><ol class="risklist">${risks}</ol></div>
-  <div class="card pagebreak"><h2>Plan de acción recomendado</h2><h3>Próximos 7 días</h3><ul><li>Documenta los supuestos críticos del negocio.</li><li>Conversa con al menos 5 clientes potenciales.</li><li>Define el monto máximo que puedes arriesgar sin afectar tu estabilidad familiar.</li></ul><h3>Próximos 30 días</h3><ul><li>Realiza una prueba piloto de bajo costo.</li><li>Valida disposición de pago, competencia y costos reales.</li><li>Prepara un plan de contingencia financiero y familiar.</li></ul><h3>Antes de invertir</h3><ul><li>Confirma demanda real.</li><li>Calcula recuperación de inversión.</li><li>Protege activos esenciales.</li><li>Repite la evaluación después de implementar mejoras.</li></ul></div>
+  ${renderActionPlan(r)}
   <div class="card pagebreak"><h2>Nota metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});
 }
 function val(id){const e=document.getElementById(id);return e?e.value:''}
