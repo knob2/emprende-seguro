@@ -3,69 +3,107 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emprende Seguro™ | Diagnóstico Profesional</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <title>Emprende Seguro™ | Diagnóstico para Emprendedores</title>
+  <meta name="description" content="Evalúa el nivel de preparación de tu emprendimiento antes de invertir. Recibe un diagnóstico estructurado y recomendaciones para tomar mejores decisiones.">
+  <meta property="og:title" content="Emprende Seguro™ | Diagnóstico para Emprendedores">
+  <meta property="og:description" content="Evalúa tu idea de negocio antes de invertir. Identifica riesgos, fortalezas y próximos pasos en menos de 10 minutos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://knob2.github.io/emprende-seguro/">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root{
-      --bg:#f8fafc;--surface:#ffffff;--card:#ffffff;--text:#1f2937;--muted:#64748b;--brand:#0f766e;--brand2:#1e3a5f;
-      --brand-soft:#e6f4f1;--green:#16a34a;--yellow:#f59e0b;--orange:#ea580c;--red:#dc2626;--line:#e2e8f0;
-      --shadow:0 16px 45px rgba(15,23,42,.08);--radius:22px;
+      --bg:#fbf7ff;--card:#ffffff;--text:#171426;--muted:#6b6478;--brand:#7c3aed;--brand2:#312e81;--accent:#f59e0b;
+      --green:#16a34a;--yellow:#ca8a04;--orange:#ea580c;--red:#dc2626;--black:#111827;--line:#eadff7;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
-    header{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 72%,#eef7f5 100%);color:var(--text);padding:22px 18px 48px;border-bottom:1px solid var(--line)}
-    .wrap{max-width:1120px;margin:0 auto}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;padding-top:28px}
-    .brandbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.logo{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--brand2);letter-spacing:.2px}.logo-mark{width:42px;height:42px;border-radius:14px;background:var(--brand);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 10px 25px rgba(15,118,110,.2)}
-    h1,h2,h3{font-family:Poppins,Inter,sans-serif;color:var(--brand2)}
-    h1{font-size:48px;line-height:1.04;margin:12px 0 16px;letter-spacing:-1.2px} h2{font-size:28px;margin:0 0 14px} h3{margin:0 0 10px;font-size:18px}.lead{font-size:19px;line-height:1.65;color:#475569;max-width:690px}.badge{display:inline-flex;align-items:center;gap:8px;background:#eef7f5;border:1px solid #c7e8e3;color:var(--brand);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px}
-    .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:'';position:absolute;right:-60px;top:-60px;width:190px;height:190px;border-radius:999px;background:#e6f4f1}.hero-card>*{position:relative}.mini-stat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.mini-stat div{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px}.mini-stat strong{display:block;font-size:24px;color:var(--brand2)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 28px rgba(15,23,42,.045);margin:20px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.benefit{border:1px solid var(--line);background:#fff;border-radius:20px;padding:20px}.benefit-icon{width:42px;height:42px;border-radius:14px;background:var(--brand-soft);display:grid;place-items:center;margin-bottom:10px;font-size:20px}
-    label{font-weight:800;font-size:14px;display:block;margin:8px 0 6px;color:#334155} input,select,textarea{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:14px;font-size:15px;background:white;outline:none} input:focus,select:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 4px rgba(15,118,110,.12)} textarea{min-height:80px}.muted{color:var(--muted)}
-    button{border:0;border-radius:14px;padding:14px 20px;font-weight:900;cursor:pointer;background:var(--brand);color:white;font-size:15px;box-shadow:0 10px 20px rgba(15,118,110,.18);transition:.18s}button:hover{transform:translateY(-1px)}.btn-secondary{background:#e6f4f1;color:var(--brand);box-shadow:none}.btn-ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);box-shadow:none}.btn-premium{background:var(--brand2);box-shadow:0 10px 24px rgba(30,58,95,.22)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
-    .stepper{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:18px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),#14b8a6);transition:.3s}.question{border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;background:#fff}.qtitle{font-weight:800;margin-bottom:12px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale label{font-weight:700;margin:0;border:1px solid #d6dde8;border-radius:14px;padding:11px;text-align:center;cursor:pointer;background:#fafafa;transition:.15s}.scale input{display:none}.scale label:has(input:checked){border-color:var(--brand);background:#e6f4f1;color:var(--brand2);box-shadow:0 0 0 3px rgba(15,118,110,.10)}
-    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-weight:900}.status-card{border-radius:22px;padding:20px;border:2px solid var(--line);margin:16px 0}.status-title{font-size:30px;font-weight:950;margin:0 0 6px;color:inherit}.status-sub{margin:0;color:inherit;opacity:.85}.status-preparado{background:#ecfdf5;border-color:#22c55e;color:#14532d}.status-reforzar{background:#fffbeb;border-color:#f59e0b;color:#78350f}.status-revisar{background:#fff7ed;border-color:#f97316;color:#7c2d12}.status-detener{background:#fef2f2;border-color:#ef4444;color:#7f1d1d}.route-Verde{background:#dcfce7;color:#166534}.route-Amarilla{background:#fef9c3;color:#854d0e}.route-Naranja{background:#ffedd5;color:#9a3412}.route-Roja{background:#fee2e2;color:#991b1b}.route-Crítica,.route-CríticaMáxima{background:#e5e7eb;color:#111827}.bigscore{font-size:56px;font-weight:950;margin:0;color:var(--brand2);letter-spacing:-1px}.scorelabel{font-weight:900;color:var(--brand);margin-top:8px;text-transform:uppercase;font-size:12px;letter-spacing:.7px}.scorehint{font-size:13px;color:var(--muted);margin-top:2px}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.metric{padding:16px;border:1px solid var(--line);border-radius:18px;background:#f8fafc}.metricbar{height:10px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-top:8px}.metricbar span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#14b8a6);width:50%}.risklist li{margin:10px 0}.lock{filter:blur(3px);user-select:none}.watermark{position:relative;background:#f8fafc}.watermark:after{content:'Informe Profesional';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:950;color:rgba(30,58,95,.22);pointer-events:none}.footer{padding:32px 18px;text-align:center;color:var(--muted);border-top:1px solid var(--line);background:white}.disclaimer{font-size:12px;color:#475467;background:#f8fafc;border-left:4px solid #94a3b8;padding:12px;border-radius:10px}.pagebreak{break-before:page}.print-only{display:none}
-    @media(max-width:850px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:34px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:40px}.brandbar{align-items:flex-start;flex-direction:column}}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top left,#fff7ed 0,#fbf7ff 28%,#f8fafc 72%);color:var(--text)}
+    header{background:radial-gradient(circle at 15% 20%,rgba(245,158,11,.35),transparent 26%),radial-gradient(circle at 82% 12%,rgba(236,72,153,.28),transparent 22%),linear-gradient(135deg,#171426 0%,#312e81 48%,#7c3aed 100%);color:white;padding:32px 18px;position:relative;overflow:hidden}
+    header:before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent)}
+    header .wrap{position:relative;z-index:1}
+    .wrap{max-width:1050px;margin:0 auto}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center}
+    h1{font-size:42px;line-height:1.05;margin:12px 0} h2{font-size:26px;margin:0 0 14px} h3{margin:0 0 10px}.lead{font-size:18px;line-height:1.5;color:#f5f3ff}.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 12px;font-weight:700}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 16px 45px rgba(49,46,129,.10);margin:18px 0}
+    .hero .card{color:var(--text)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    label{font-weight:700;font-size:14px;display:block;margin:8px 0 6px} input,select,textarea{width:100%;padding:12px;border:1px solid #cfd7e3;border-radius:12px;font-size:15px;background:white} textarea{min-height:80px}.muted{color:var(--muted)}
+    button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;background:var(--brand);color:white;font-size:15px}.btn-secondary{background:#f3e8ff;color:var(--brand2)}.btn-ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}.btn-premium{background:#111827}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}
+    .stepper{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:16px 0}.bar{height:100%;width:0;background:var(--brand);transition:.3s}.question{border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;background:#fff}.qtitle{font-weight:750;margin-bottom:10px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale label{font-weight:600;margin:0;border:1px solid #d6dde8;border-radius:12px;padding:10px;text-align:center;cursor:pointer;background:#fff}.scale input{display:none}.scale label:has(input:checked){border-color:var(--brand);background:#f3e8ff;color:var(--brand2)}
+    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-weight:800}.status-card{border-radius:18px;padding:18px;border:2px solid var(--line);margin:14px 0}.status-title{font-size:28px;font-weight:950;margin:0 0 5px}.status-sub{margin:0;color:var(--muted)}.status-preparado{background:#dcfce7;border-color:#22c55e;color:#14532d}.status-reforzar{background:#fef9c3;border-color:#eab308;color:#713f12}.status-revisar{background:#ffedd5;border-color:#f97316;color:#7c2d12}.status-detener{background:#fee2e2;border-color:#ef4444;color:#7f1d1d}.route-Verde{background:#dcfce7;color:#166534}.route-Amarilla{background:#fef9c3;color:#854d0e}.route-Naranja{background:#ffedd5;color:#9a3412}.route-Roja{background:#fee2e2;color:#991b1b}.route-Crítica,.route-CríticaMáxima{background:#e5e7eb;color:#111827}.bigscore{font-size:52px;font-weight:900;margin:0}.scorelabel{font-weight:800;color:var(--brand2);margin-top:6px}.scorehint{font-size:13px;color:var(--muted);margin-top:2px}.resultgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.metric{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.metricbar{height:10px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:8px}.metricbar span{display:block;height:100%;background:var(--brand);width:50%}.risklist li{margin:8px 0}.lock{filter:blur(3px);user-select:none}.watermark{position:relative}.watermark:after{content:'Informe Premium';position:absolute;inset:0;display:grid;place-items:center;font-size:28px;font-weight:900;color:rgba(17,24,39,.28);pointer-events:none}.footer{padding:28px;text-align:center;color:var(--muted)}
+    .print-only{display:none} table{border-collapse:collapse;width:100%;font-size:14px} th,td{border:1px solid var(--line);padding:8px;text-align:left} th{background:#f8fafc}.disclaimer{font-size:12px;color:#475467;background:#f8fafc;border-left:4px solid #94a3b8;padding:12px;border-radius:10px}.pagebreak{break-before:page}
+
+    .logo{font-weight:950;letter-spacing:-.5px}.trustrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.trust{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 12px;font-weight:800;color:white}.progressText{font-weight:800;color:var(--brand2);margin-top:12px}.ticket{border:2px dashed var(--brand);background:linear-gradient(180deg,#faf5ff,#fff7ed);border-radius:18px;padding:18px;text-align:center}.ticket-code{font-size:34px;font-weight:950;letter-spacing:1px;margin:8px 0;color:var(--brand2)}.price{font-size:44px;font-weight:950;margin:4px 0;color:#111827}.paybox{background:linear-gradient(180deg,#fff7ed,#faf5ff);border:1px solid #fed7aa;border-radius:18px;padding:18px}.premium-cover{border-radius:22px;background:radial-gradient(circle at 20% 20%,rgba(245,158,11,.40),transparent 28%),linear-gradient(145deg,#171426,#312e81 55%,#7c3aed);color:white;padding:26px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 35px rgba(17,24,39,.18)}.premium-cover small{color:#fde68a}.success{border:1px solid #ddd6fe;background:linear-gradient(180deg,#faf5ff,#ffffff);border-radius:20px;padding:22px;text-align:center}.checklist{list-style:none;padding-left:0}.checklist li{margin:10px 0}.checklist li:before{content:'✓ ';font-weight:900;color:var(--green)}.analysisBox{padding:24px;text-align:center}.analysisLine{margin:10px 0;font-weight:700;color:var(--brand2)}
+
+    .card{position:relative;overflow:hidden}
+    .card:before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--accent),#ec4899,var(--brand));opacity:.9}
+    .hero .card{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.45)}
+    button{box-shadow:0 10px 25px rgba(124,58,237,.18);transition:transform .15s ease,box-shadow .15s ease}
+    button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(124,58,237,.24)}
+    .btn-premium{background:linear-gradient(135deg,#171426,#7c3aed)}
+    .bar,.metricbar span{background:linear-gradient(90deg,var(--accent),#ec4899,var(--brand))}
+    .badge{box-shadow:0 10px 30px rgba(0,0,0,.12)}
+
+    @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
     @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
+
+    .section-title{font-size:28px;margin:4px 0 10px;color:var(--brand2)}
+    .mini{font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+    .benefit{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(180deg,#fff,#fbf7ff)}
+    .steps{counter-reset:step}.step{position:relative;padding-left:54px;min-height:48px}.step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:38px;height:38px;border-radius:12px;background:var(--brand);color:white;display:grid;place-items:center;font-weight:900;box-shadow:0 12px 24px rgba(124,58,237,.20)}
+    .trustline{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.trustline span{background:#f3e8ff;color:var(--brand2);border:1px solid #e9d5ff;border-radius:999px;padding:8px 10px;font-weight:800;font-size:13px}
+    .faq{border-top:1px solid var(--line);padding:14px 0}.faq:first-child{border-top:0}.faq b{color:var(--brand2)}
+    .cta-band{background:linear-gradient(135deg,#111827,#312e81 55%,#7c3aed);color:white;border:0}.cta-band .muted{color:#e9d5ff}.cta-band button{background:#f59e0b;color:#111827}
   </style>
 </head>
 <body>
 <header>
-  <div class="wrap">
-    <div class="brandbar">
-      <div class="logo"><span class="logo-mark">ES</span><span>EMPRENDE SEGURO™</span></div>
-      <span class="badge">Metodología CERE v2.0 · Fase piloto</span>
+  <div class="wrap hero">
+    <div>
+      <span class="badge">Decisiones inteligentes antes de invertir</span>
+      <h1>¿Invertirías tus ahorros sin saber si tu idea está lista?</h1>
+      <p class="lead">Evalúa tu preparación emprendedora en menos de 10 minutos, identifica riesgos clave y toma mejores decisiones antes de comprometer dinero, tiempo o recursos familiares.</p>
+      <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
+      <p style="margin:10px 0 0;color:#fde68a;font-weight:800">⏱ Solo toma entre 6 y 10 minutos</p>
+      <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe profesional opcional</span></div>
     </div>
-    <div class="hero">
-      <div>
-        <span class="badge">Decisiones inteligentes antes de invertir</span>
-        <h1>Evalúa tu nivel de preparación antes de emprender</h1>
-        <p class="lead">Conoce tus fortalezas, identifica áreas de atención y recibe una orientación inicial antes de comprometer dinero, tiempo o recursos familiares.</p>
-        <div class="actions"><button onclick="go('register')">Comenzar evaluación</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo de resultado</button></div>
-      </div>
-      <div class="hero-card">
-        <h3>Diagnóstico profesional para emprendedores</h3>
-        <p class="muted">Una herramienta estructurada para ayudarte a tomar decisiones con mayor claridad antes de invertir.</p>
-        <div class="mini-stat">
-          <div><strong>30</strong><span class="muted">ítems evaluados</span></div>
-          <div><strong>5</strong><span class="muted">dimensiones clave</span></div>
-          <div><strong>+60</strong><span class="muted">pilotos iniciales</span></div>
-          <div><strong>CERE</strong><span class="muted">v2.0 validado</span></div>
-        </div>
-      </div>
+    <div class="card">
+      <p class="mini" style="color:#7c3aed">Metodología estructurada • Piloto validado • Diagnóstico confidencial</p>
+      <h3>Diagnóstico profesional para emprendedores</h3>
+      <p class="muted">Una herramienta estructurada para ayudarte a ver con claridad qué fortalecer antes de invertir.</p>
+      <ul class="muted"><li>🕒 6 a 10 minutos aprox.</li><li>✔ Diagnóstico personalizado</li><li>🔒 Respuestas confidenciales</li><li>📈 Informe Premium con recomendaciones priorizadas</li></ul>
     </div>
   </div>
 </header>
 <main class="wrap">
 <section id="landing" class="card">
-  <h2>Una evaluación para decidir mejor</h2>
+  <p class="mini">Qué descubrirás</p>
+  <h2 class="section-title">Antes de invertir, identifica lo que puede fortalecer o frenar tu proyecto</h2>
   <div class="grid">
-    <div class="benefit"><div class="benefit-icon">🛡️</div><h3>Protege tu inversión</h3><p class="muted">Evalúa exposición financiera, patrimonial y familiar antes de comprometer recursos.</p></div>
-    <div class="benefit"><div class="benefit-icon">📈</div><h3>Fortalece tu preparación</h3><p class="muted">Identifica brechas en mercado, operación y conocimiento del negocio.</p></div>
-    <div class="benefit"><div class="benefit-icon">🧭</div><h3>Toma decisiones con claridad</h3><p class="muted">Recibe una ruta inicial y recomendaciones orientadas a la acción.</p></div>
+    <div class="benefit"><h3>📊 Riesgos clave</h3><p class="muted">Evalúa mercado, preparación, finanzas, patrimonio familiar y forma de decisión.</p></div>
+    <div class="benefit"><h3>💡 Fortalezas</h3><p class="muted">Reconoce los aspectos donde ya tienes una base para avanzar con más claridad.</p></div>
+    <div class="benefit"><h3>📄 Plan accionable</h3><p class="muted">Recibe una orientación inicial y, si lo deseas, un informe profesional con pasos concretos.</p></div>
   </div>
+</section>
+<section class="card">
+  <p class="mini">Cómo funciona</p>
+  <div class="grid steps">
+    <div class="step"><h3>Responde la evaluación</h3><p class="muted">Completa preguntas estructuradas sobre tu idea, inversión, mercado y preparación.</p></div>
+    <div class="step"><h3>Recibe tu Nivel de Preparación Emprendedora (NPE)</h3><p class="muted">Obtén tu resultado y la dimensión que requiere más atención antes de invertir.</p></div>
+    <div class="step"><h3>Decide con más información</h3><p class="muted">Usa el resultado para ajustar, validar o profundizar antes de invertir.</p></div>
+  </div>
+</section>
+<section class="card">
+  <p class="mini">Confianza y transparencia</p>
+  <h2 class="section-title">No prometemos éxito. Te ayudamos a tomar mejores decisiones.</h2>
+  <div class="grid2">
+    <div class="faq"><b>¿La evaluación es gratis?</b><p class="muted">Sí. El diagnóstico inicial es gratuito. El informe profesional completo es opcional.</p></div>
+    <div class="faq"><b>¿Cuánto tarda?</b><p class="muted">Aproximadamente 6 a 10 minutos, dependiendo del nivel de detalle de tus respuestas.</p></div>
+    <div class="faq"><b>¿Mis datos son confidenciales?</b><p class="muted">Sí. Se usan para generar tu resultado y mejorar la herramienta con fines estadísticos.</p></div>
+    <div class="faq"><b>¿Garantiza que mi negocio funcionará?</b><p class="muted">No. Es una herramienta de orientación, no una promesa de éxito ni asesoría financiera o legal.</p></div>
+    <div class="faq"><b>¿Debo tener un negocio funcionando?</b><p class="muted">No. También puedes usarla si estás evaluando una idea antes de invertir tiempo, dinero o recursos familiares.</p></div>
+  </div>
+</section>
+<section class="card cta-band">
+  <h2>La mejor inversión es una decisión informada</h2>
+  <p class="muted">Un diagnóstico oportuno puede ayudarte a evitar decisiones impulsivas y enfocar mejor tus recursos antes de comprometer tus ahorros.</p>
+  <div class="actions"><button onclick="go('register')">🚀 Iniciar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button></div>
 </section>
 <section id="register" class="card hidden">
   <h2>1. Registro y emprendimiento</h2>
@@ -83,7 +121,7 @@
   <div class="actions"><button onclick="startQuiz()">Iniciar evaluación</button></div>
 </section>
 <section id="quizSection" class="card hidden">
-  <h2 id="dimTitle"></h2><p id="dimDesc" class="muted"></p><div class="stepper"><div id="progress" class="bar"></div></div><div id="questions"></div>
+  <h2 id="dimTitle"></h2><p id="dimDesc" class="muted"></p><div id="progressText" class="progressText">Pregunta 1 de 30</div><div class="stepper"><div id="progress" class="bar"></div></div><div id="questions"></div>
   <div class="actions"><button class="btn-secondary" onclick="prevDim()">Anterior</button><button onclick="nextDim()">Siguiente</button></div>
 </section>
 <section id="freeGate" class="card hidden"></section>
@@ -92,53 +130,21 @@
   <h2>Ejemplo de salida</h2><p class="muted">El usuario ve gratis su semáforo y puede desbloquear el informe completo.</p>
   <div class="status-card status-revisar"><p class="status-title">🟠 REVISAR</p><p class="status-sub">Se recomienda revisar aspectos críticos antes de invertir.</p></div><p>Área principal de atención: Mercado</p><p class="muted">El informe completo muestra fortalezas, áreas de atención y plan de acción.</p>
 </section>
-</main><div class="footer"><strong>Emprende Seguro™</strong><br>Evaluación de preparación emprendedora · Organización impulsora: Ecomente<br><span class="muted">Herramienta orientativa. No sustituye asesoría financiera, legal o profesional.</span></div>
+<section id="admin" class="card hidden">
+  <h2>Panel local de respuestas</h2>
+  <p class="muted"><strong>Operación activa:</strong> esta versión puede registrar automáticamente las evaluaciones en tu Google Sheets cuando pegues la URL del Apps Script.</p>
+  <p class="muted">Modo operativo: guarda respaldo local en este navegador y, con Apps Script configurado, envía cada evaluación a tu panel en Google Sheets para seguimiento y aprobación manual de pagos.</p>
+  <div id="adminSummary" class="grid"></div>
+  <div class="actions">
+    <button onclick="downloadCSV()">Descargar base CSV</button>
+    <button class="btn-secondary" onclick="downloadAllJSON()">Descargar base JSON</button>
+    <button class="btn-ghost" onclick="clearLocalData()">Borrar base local</button>
+  </div>
+  <div id="adminTable" style="overflow:auto;margin-top:16px"></div>
+</section>
+
+</main><div class="footer">Emprende Seguro™ · Emprender con claridad, no con impulsos</div>
 <script>
-// ===============================
-// CONFIGURACIÓN MVP
-// ===============================
-// Pega aquí la URL publicada de Google Apps Script para enviar registros a Google Sheets.
-// Si queda vacío, la app funciona con respaldo local del navegador.
-const APPS_SCRIPT_URL = '';
-const STORAGE_KEY = 'ES_records_v2';
-const PRODUCT_PRICE = 'USD 9.99';
-const WHATSAPP_NUMBER = ''; // Ejemplo: 5076XXXXXXX sin símbolos, opcional.
-
-function randCode(prefix){return prefix+'-'+Math.floor(100000+Math.random()*900000)}
-function getRecords(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return []}}
-function setRecords(records){localStorage.setItem(STORAGE_KEY,JSON.stringify(records))}
-function upsertRecord(record){const records=getRecords();const i=records.findIndex(r=>r.codigo_solicitud===record.codigo_solicitud);if(i>=0)records[i]={...records[i],...record,ultima_actualizacion:new Date().toISOString()};else records.push({...record,ultima_actualizacion:new Date().toISOString()});setRecords(records);return record}
-async function sendToSheet(record){
-  if(!APPS_SCRIPT_URL) return {ok:false,local:true};
-  try{
-    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(record)});
-    return {ok:true};
-  }catch(e){console.warn('No se pudo enviar a Google Sheets. Se mantiene respaldo local.',e);return {ok:false,error:String(e)}}
-}
-function buildPayload(stage, extra={}){
-  const r=calc();
-  const existing=window.currentSubmission||{};
-  const codigo_solicitud=existing.codigo_solicitud||randCode('RQ');
-  const codigo_desbloqueo=existing.codigo_desbloqueo||randCode('ES');
-  const payload={
-    fecha_registro: existing.fecha_registro||new Date().toISOString(),
-    ultima_actualizacion:new Date().toISOString(),
-    etapa:stage,
-    codigo_solicitud,codigo_desbloqueo,
-    nombre:val('nombre'),correo:val('correo'),telefono:val('telefono'),pais:val('pais'),
-    emprendimiento:val('proyecto'),sector:val('sector'),estado_emprendimiento:val('estado'),inversion_estimada:val('inversion'),
-    ruta:r.route,npe:prepScore(r.scores.IRE).toFixed(2),dominante:dimName(r.dominant),
-    rf:r.scores.RF.toFixed(2),cvm:r.scores.CVM.toFixed(2),pn:r.scores.PN.toFixed(2),rpf:r.scores.RPF.toFixed(2),sedi:r.scores.SEDI.toFixed(2),
-    ips:r.scores.IPS.toFixed(2),imv:r.scores.IMV.toFixed(2),ijd:r.scores.IJD.toFixed(2),ire:r.scores.IRE.toFixed(2),
-    respuestas:{...answers},
-    ...extra
-  };
-  window.currentSubmission=payload;
-  upsertRecord(payload);
-  sendToSheet(payload);
-  return payload;
-}
-
 const dims=[
 {key:'RF',name:'Riesgo Financiero',desc:'Inversión y estabilidad financiera necesaria para emprender.',items:[
 ['RF1','Necesitaría endeudarme para iniciar este emprendimiento.',false],['RF2','Podría iniciar este emprendimiento usando principalmente capital propio.',true],['RF3','Tengo claridad sobre cuánto dinero necesito para iniciar.',true],['RF4','Cuento con un fondo de emergencia independiente del dinero que invertiría.',true],['RF5','Tengo claridad sobre cuánto tiempo tomaría recuperar la inversión realizada.',true]]},
@@ -206,64 +212,110 @@ function calc(){let scores={};dims.forEach(d=>{scores[d.key]=avg(d.items.map(([c
 function dimName(k){return {RF:'Riesgo Financiero',CVM:'Conocimiento y Validación del Mercado',PN:'Preparación del Negocio',RPF:'Riesgo Patrimonial y Familiar',SEDI:'Sesgo Emocional y Decisión Impulsiva'}[k]||k}
 function showFree(){
   const r=calc();
-  const payload=buildPayload('evaluacion_finalizada');
+  const payload=saveEvaluation('pendiente_pago');
   go('freeGate');
+  const sorted=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>r.scores[b]-r.scores[a]);
+  const fortaleza=sorted.slice(-1)[0];
+  const oportunidad=sorted[0];
   document.getElementById('freeGate').innerHTML=`
-    <h2>Resultado gratuito</h2>
-    ${statusCard(r.route)}
-    ${scoreBlock(r)}
+  <div class="card analysisBox" id="analysisBox">
+    <h2>Analizando tu preparación...</h2>
+    <div class="analysisLine">✓ Evaluando preparación financiera</div>
+    <div class="analysisLine">✓ Analizando validación de mercado</div>
+    <div class="analysisLine">✓ Calculando nivel de preparación</div>
+    <div class="analysisLine">✓ Preparando tu resultado</div>
+  </div>
+  <div id="freeResult" class="hidden">
+    <h2>Tu diagnóstico gratuito</h2>
+    ${statusCard(r.route)}${scoreBlock(r)}
+    <div class="grid2">
+      <div class="metric"><strong>Fortaleza visible</strong><p>${dimName(fortaleza)} muestra un mejor comportamiento relativo en tu evaluación.</p><p class="scorehint">El informe profesional muestra el perfil completo de fortalezas.</p></div>
+      <div class="metric"><strong>Principal oportunidad de mejora</strong><p>${dimName(oportunidad)} requiere atención antes de realizar una inversión importante.</p><p class="scorehint">El informe profesional incluye recomendaciones priorizadas.</p></div>
+    </div>
     <p><strong>Lectura rápida:</strong> ${prepLevel(r.scores.IRE)}</p>
-    <p><strong>Área principal de atención:</strong> ${dimName(r.dominant)}</p>
     <p>${r.msg}</p>
-    <div class="card watermark"><div class="lock"><h3>Informe Profesional</h3><p>Incluye fortalezas principales, áreas de atención, recomendaciones personalizadas, plan de acción y PDF descargable.</p></div></div>
-    <div class="actions">
-      <button class="btn-premium" onclick="requestPremium()">🔓 Solicitar Informe Profesional - ${PRODUCT_PRICE}</button>
-      <button class="btn-secondary" onclick="document.getElementById('unlockBox').classList.toggle('hidden')">Ya tengo código de desbloqueo</button>
+    <div class="premium-cover">
+      <div><small>EMPRENDE SEGURO™</small><h2>Informe Profesional de Preparación Emprendedora</h2></div>
+      <div><p>Incluye perfil completo, fortalezas, aspectos a fortalecer, recomendaciones y plan de acción.</p><strong>Oferta de lanzamiento · USD 9.99</strong></div>
     </div>
-    <div id="paymentBox" class="card hidden"></div>
-    <div id="unlockBox" class="card hidden">
-      <h3>Desbloquear informe</h3>
-      <p class="muted">Ingresa el código de desbloqueo recibido después de la aprobación del pago.</p>
-      <label>Código de desbloqueo</label>
-      <input id="unlockCode" placeholder="Ej. ES-123456" />
-      <div class="actions"><button onclick="unlockPremium()">Desbloquear informe</button></div>
-      <p id="unlockMsg" class="muted"></p>
+    <div class="card" style="border:2px solid var(--brand)">
+      <h2>📄 Desbloquea tu Informe Profesional</h2>
+      <p>Obtén un diagnóstico completo con recomendaciones personalizadas para tomar decisiones con mayor información antes de invertir.</p>
+      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Plan de acción de 7 y 30 días</li><li>PDF descargable</li></ul>
+      <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 9.99</p><p>Pago único · Sin suscripciones · Sin cargos adicionales</p></div>
+      <h3>📱 Pago por Yappy</h3>
+      <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
+      <div class="actions"><button class="btn-secondary" onclick="copyText('62735084')">📋 Copiar número</button></div>
+      <div class="ticket"><p class="muted">Código de solicitud</p><div class="ticket-code" id="requestCode">${payload.request_code}</div><button class="btn-secondary" onclick="copyText('${payload.request_code}')">📋 Copiar código</button></div>
+      <p class="muted">Luego de pagar, envía el comprobante por WhatsApp junto con tu código de solicitud.</p>
+      <div class="actions"><button onclick="openWhatsApp('${payload.request_code}')">📲 Ya realicé mi pago</button></div>
+      <label>Código de desbloqueo</label><input id="approvalCode" placeholder="Ejemplo: ES-123456" maxlength="12">
+      <div class="actions"><button class="btn-premium" onclick="verifyPremiumCode()">🔓 Desbloquear mi informe</button></div>
     </div>
-    <p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. Es una orientación basada en las respuestas suministradas.</p>`;
+    <p class="disclaimer">Emprende Seguro no predice el éxito o fracaso de un negocio. Su propósito es ayudarte a identificar aspectos que puedes fortalecer para tomar decisiones con mayor información y preparación.</p>
+  </div>`;
+  setTimeout(()=>{document.getElementById('analysisBox').classList.add('hidden');document.getElementById('freeResult').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});},1200);
 }
-function requestPremium(){
-  const payload=buildPayload('pendiente_pago');
-  const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro.\n\nCódigo de solicitud: ${payload.codigo_solicitud}\n\nAdjunto comprobante de pago.`;
-  const wa = WHATSAPP_NUMBER ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}` : '';
-  document.getElementById('paymentBox').classList.remove('hidden');
-  document.getElementById('paymentBox').innerHTML=`
-    <h3>Solicitud de Informe Profesional</h3>
-    <p>Tu código de solicitud es:</p>
-    <p class="bigscore" style="font-size:34px">${payload.codigo_solicitud}</p>
-    <p class="muted">Realiza el pago de <strong>${PRODUCT_PRICE}</strong> por el medio indicado por Ecomente y envía el comprobante junto con tu código de solicitud.</p>
-    <div class="actions">
-      ${wa?`<a href="${wa}" target="_blank"><button>Enviar comprobante por WhatsApp</button></a>`:''}
-      <button class="btn-secondary" onclick="copyText('${payload.codigo_solicitud}')">Copiar código</button>
-    </div>
-    <p class="disclaimer">Después de validar el pago, recibirás un código de desbloqueo para acceder al informe profesional.</p>`;
-}
-function copyText(t){navigator.clipboard&&navigator.clipboard.writeText(t);alert('Código copiado: '+t)}
-function unlockPremium(){
-  const code=(document.getElementById('unlockCode').value||'').trim().toUpperCase();
-  const p=window.currentSubmission;
-  if(!p){document.getElementById('unlockMsg').textContent='Primero completa la evaluación.';return;}
-  if(code===String(p.codigo_desbloqueo).toUpperCase()){
-    buildPayload('premium_aprobado',{codigo_usado:code});
-    showPremium();
-  }else{
-    buildPayload('intento_desbloqueo',{codigo_intentado:code});
-    document.getElementById('unlockMsg').textContent='Código no válido. Verifica que esté escrito correctamente.';
-  }
-}
+function copyText(t){navigator.clipboard?.writeText(t).then(()=>alert('Copiado: '+t)).catch(()=>prompt('Copia este dato:',t));}
+function openWhatsApp(requestCode){const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro.%0A%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
 function recommendation(k){return {RF:'Revise capital disponible, deuda, fondo de emergencia, monto total requerido y tiempo estimado de recuperación de la inversión.',CVM:'Valide clientes, analice competencia, confirme disposición de pago y defina con claridad el segmento objetivo.',PN:'Fortalezca conocimientos sobre costos, operación, recursos críticos, permisos, requisitos legales y capacidades necesarias.',RPF:'Proteja activos esenciales, evite comprometer recursos familiares críticos y defina un plan de contingencia.',SEDI:'Haga una pausa, busque opiniones críticas, contraste la idea con evidencia y evite decisiones impulsivas.'}[k]}
-function showPremium(){const r=calc();document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));const data={nombre:val('nombre')||'Usuario',proyecto:val('proyecto')||'Proyecto evaluado',pais:val('pais')||'',sector:val('sector')||'',estado:val('estado')||'',inversion:val('inversion')||''};let metrics=['RF','CVM','PN','RPF','SEDI'].map(k=>`<div class="metric"><strong>${dimName(k)}</strong><br><span>Preparación: ${prepScore(r.scores[k]).toFixed(2)} / 5 · Riesgo: ${level(r.scores[k])}</span><div class="metricbar"><span style="width:${prepScore(r.scores[k])/5*100}%"></span></div><p class="scorehint">5 es mejor en la barra de preparación. Riesgo interno: ${r.scores[k].toFixed(2)} / 5.</p><p class="muted">${recommendation(k)}</p></div>`).join('');let sorted=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>r.scores[b]-r.scores[a]);let risks=sorted.slice(0,3).map(k=>`<li><strong>${dimName(k)}</strong>: ${recommendation(k)}</li>`).join('');let strengths=sorted.slice(-3).reverse().map(k=>`<li><strong>${dimName(k)}</strong>: presenta menor nivel de riesgo relativo.</li>`).join('');document.getElementById('premium').classList.remove('hidden');document.getElementById('premium').innerHTML=`<div class="card"><h2>Informe Premium Emprende Seguro™</h2><p><strong>Proyecto:</strong> ${data.proyecto} · <strong>Sector:</strong> ${data.sector} · <strong>Estado:</strong> ${data.estado}</p><div class="resultgrid"><div>${statusCard(r.route)}${scoreBlock(r)}<p><strong>Lectura rápida:</strong> ${prepLevel(r.scores.IRE)}</p><p><strong>Dimensión dominante:</strong> ${dimName(r.dominant)}</p></div><div><h3>Interpretación general</h3><p>${r.msg}</p></div></div><div class="actions no-print"><button onclick="window.print()">Descargar / Imprimir PDF</button><button class="btn-ghost" onclick="location.reload()">Nueva evaluación</button></div></div><div class="card pagebreak"><h2>Perfil de riesgo</h2><div class="grid2">${metrics}</div></div><div class="card pagebreak"><h2>Principales fortalezas relativas</h2><ol class="risklist">${strengths}</ol><h2>Áreas de atención prioritarias</h2><ol class="risklist">${risks}</ol></div><div class="card pagebreak"><h2>Plan de acción recomendado</h2><h3>Próximos 7 días</h3><ul><li>Identificar y documentar los supuestos críticos del negocio.</li><li>Entrevistar al menos 5 clientes potenciales.</li><li>Revisar presupuesto preliminar y monto máximo de pérdida aceptable.</li></ul><h3>Próximos 30 días</h3><ul><li>Realizar una prueba piloto de bajo costo.</li><li>Validar disposición de pago y competencia.</li><li>Definir plan de contingencia financiero y familiar.</li></ul><h3>Antes de invertir</h3><ul><li>Confirmar demanda.</li><li>Calcular recuperación de inversión.</li><li>Proteger activos familiares.</li><li>Repetir la evaluación luego de implementar mejoras.</li></ul></div><div class="card pagebreak"><h2>Advertencia metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+function verifyPremiumCode(){const payload=saveEvaluation('intento_desbloqueo');const entered=(val('approvalCode')||'').trim().toUpperCase();const expected=generateApprovalCode(payload);if(entered!==expected){alert('Código incorrecto. Verifica el pago y el código de desbloqueo recibido.');return}document.getElementById('freeGate').innerHTML=`<div class="success"><h1>🎉 Pago verificado</h1><p>Gracias por confiar en Emprende Seguro.</p><p>Tu informe profesional está listo.</p><button onclick="showPremium('premium_aprobado')">Ver mi informe</button></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+function showPremium(stage='premium_view'){
+  const r=calc();saveEvaluation(stage);document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+  const data={nombre:val('nombre')||'Usuario',proyecto:val('proyecto')||'Proyecto evaluado',pais:val('pais')||'',sector:val('sector')||'',estado:val('estado')||'',inversion:val('inversion')||''};
+  let metrics=['RF','CVM','PN','RPF','SEDI'].map(k=>`<div class="metric"><strong>${dimName(k)}</strong><br><span>Preparación: ${prepScore(r.scores[k]).toFixed(2)} / 5 · ${level(r.scores[k])}</span><div class="metricbar"><span style="width:${prepScore(r.scores[k])/5*100}%"></span></div><p class="scorehint">5 representa mayor preparación en esta dimensión.</p><p class="muted">${recommendation(k)}</p></div>`).join('');
+  let sorted=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>r.scores[b]-r.scores[a]);
+  let risks=sorted.slice(0,3).map(k=>`<li><strong>${dimName(k)}</strong>: ${recommendation(k)}</li>`).join('');
+  let strengths=sorted.slice(-3).reverse().map(k=>`<li><strong>${dimName(k)}</strong>: muestra una base favorable sobre la cual puedes construir.</li>`).join('');
+  document.getElementById('premium').classList.remove('hidden');
+  document.getElementById('premium').innerHTML=`
+  <div class="card"><div class="premium-cover"><div><small>EMPRENDE SEGURO™</small><h1>Informe Profesional de Preparación Emprendedora</h1></div><div><p><strong>Proyecto:</strong> ${data.proyecto}</p><p>${new Date().toLocaleDateString('es-PA')}</p></div></div>
+  <p><strong>Sector:</strong> ${data.sector} · <strong>Estado:</strong> ${data.estado} · <strong>Inversión estimada:</strong> ${data.inversion}</p>
+  <div class="resultgrid"><div>${statusCard(r.route)}${scoreBlock(r)}<p><strong>Lectura rápida:</strong> ${prepLevel(r.scores.IRE)}</p><p><strong>Dimensión prioritaria:</strong> ${dimName(r.dominant)}</p></div><div><h3>Interpretación profesional</h3><p>${r.msg}</p><p>Este diagnóstico permite identificar condiciones que conviene fortalecer antes de comprometer recursos importantes.</p></div></div>
+  <div class="actions no-print"><button onclick="window.print()">Descargar / Imprimir PDF</button><button class="btn-secondary" onclick="exportJSON()">Exportar datos JSON</button><button class="btn-ghost" onclick="location.reload()">Nueva evaluación</button></div></div>
+  <div class="card pagebreak"><h2>Perfil por dimensión</h2><div class="grid2">${metrics}</div></div>
+  <div class="card pagebreak"><h2>Fortalezas principales</h2><ol class="risklist">${strengths}</ol><h2>Aspectos por fortalecer</h2><ol class="risklist">${risks}</ol></div>
+  <div class="card pagebreak"><h2>Plan de acción recomendado</h2><h3>Próximos 7 días</h3><ul><li>Documenta los supuestos críticos del negocio.</li><li>Conversa con al menos 5 clientes potenciales.</li><li>Define el monto máximo que puedes arriesgar sin afectar tu estabilidad familiar.</li></ul><h3>Próximos 30 días</h3><ul><li>Realiza una prueba piloto de bajo costo.</li><li>Valida disposición de pago, competencia y costos reales.</li><li>Prepara un plan de contingencia financiero y familiar.</li></ul><h3>Antes de invertir</h3><ul><li>Confirma demanda real.</li><li>Calcula recuperación de inversión.</li><li>Protege activos esenciales.</li><li>Repite la evaluación después de implementar mejoras.</li></ul></div>
+  <div class="card pagebreak"><h2>Nota metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});
+}
 function val(id){const e=document.getElementById(id);return e?e.value:''}
-function exportJSON(){const payload={usuario:{nombre:val('nombre'),correo:val('correo'),pais:val('pais'),telefono:val('telefono')},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:answers,resultado:calc(),fecha:new Date().toISOString()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-evaluacion.json';a.click();}
+const STORAGE_KEY='emprendeSeguroEvaluaciones_comercial_1_3';
+const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec';
+const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
+function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
+function buildPayload(stage='completed'){
+  const resultado=calc();
+  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:val('nombre'),correo:val('correo'),pais:val('pais'),telefono:val('telefono')},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado};
+  base.request_code=generateRequestCode(base);
+  base.approval_code=generateApprovalCode(base);
+  return base;
+}
+function generateRequestCode(payload){const correo=(payload.usuario?.correo||'').trim().toLowerCase();const proyecto=(payload.emprendimiento?.nombre||'').trim().toLowerCase();return 'RQ-'+simpleHash(correo+'|'+proyecto+'|'+payload.resultado?.key)}
+function generateApprovalCode(payload){return 'ES-'+simpleHash(APPROVAL_SECRET+'|'+payload.request_code+'|'+(payload.usuario?.correo||'').trim().toLowerCase())}
+function getEvaluations(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return []}}
+function saveEvaluation(stage='completed'){
+  const payload=buildPayload(stage);let data=getEvaluations();
+  const correo=(payload.usuario.correo||'').trim().toLowerCase(); const proyecto=(payload.emprendimiento.nombre||'').trim().toLowerCase();
+  const idx=data.findIndex(x=>(x.usuario?.correo||'').trim().toLowerCase()===correo && (x.emprendimiento?.nombre||'').trim().toLowerCase()===proyecto && correo && proyecto);
+  if(idx>=0){payload.id=data[idx].id;payload.request_code=data[idx].request_code||payload.request_code;payload.approval_code=generateApprovalCode(payload);data[idx]=payload}else{data.push(payload)}
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+  saveToGoogleSheets(payload);
+  return payload;
+}
+function saveToGoogleSheets(payload){
+  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('PEGA_AQUI')){console.log('Google Sheets no configurado todavía.');return;}
+  try{
+    fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+  }catch(e){console.warn('No se pudo enviar a Google Sheets:',e)}
+}
+function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-seguro-evaluacion.json')}
+function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
+function downloadAllJSON(){downloadJSON(getEvaluations(),'emprende-seguro-base-local.json')}
+function csvEscape(v){v=(v===undefined||v===null)?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
+function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,codigo_aprobacion:x.approval_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
+function downloadCSV(){const rows=getEvaluations().map(flattenRow);if(!rows.length){alert('Aún no hay evaluaciones guardadas en este navegador.');return}const headers=Object.keys(rows[0]);const csv=[headers.join(',')].concat(rows.map(r=>headers.map(h=>csvEscape(r[h])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-base-local.csv';a.click();URL.revokeObjectURL(a.href)}
+function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
+function clearLocalData(){if(confirm('¿Seguro que deseas borrar la base local de este navegador? Primero descarga CSV/JSON si necesitas respaldo.')){localStorage.removeItem(STORAGE_KEY);renderAdmin()}}
 </script>
 </body>
 </html>
