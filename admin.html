@@ -3,103 +3,129 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Emprende Seguro™ | Centro de Inteligencia</title>
+<title>Emprende Seguro™ | Centro Comercial</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#64748b;--brand:#0f766e;--navy:#1e3a5f;--line:#e2e8f0;--red:#dc2626;--green:#16a34a;--amber:#f59e0b;--shadow:0 16px 40px rgba(15,23,42,.08)}
+:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#64748b;--brand:#0f766e;--navy:#1e3a5f;--line:#e2e8f0;--red:#dc2626;--green:#16a34a;--amber:#f59e0b;--blue:#2563eb;--purple:#7c3aed;--shadow:0 16px 40px rgba(15,23,42,.08)}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.wrap{max-width:1220px;margin:auto;padding:22px}
-header{background:linear-gradient(135deg,#0f766e,#1e3a5f);color:white;padding:30px 22px}
+.wrap{max-width:1280px;margin:auto;padding:22px}
+header{background:radial-gradient(circle at 10% 20%,rgba(245,158,11,.23),transparent 24%),linear-gradient(135deg,#0f766e,#1e3a5f);color:white;padding:30px 22px}
 .brand{display:flex;gap:14px;align-items:center}
 .mark{width:50px;height:50px;border-radius:16px;background:white;color:#0f766e;display:grid;place-items:center;font-weight:900}
-h1,h2{font-family:Poppins,Inter,sans-serif;margin:0}
-h1{font-size:34px}
-.muted{color:var(--muted)}
-header .muted{color:#dbeafe}
+h1,h2,h3{font-family:Poppins,Inter,sans-serif;margin:0}
+h1{font-size:34px} h2{font-size:24px} h3{font-size:18px}
+.muted{color:var(--muted)} header .muted{color:#dbeafe}
 .card{background:white;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin:18px 0}
-input,textarea{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:14px;font-size:15px}
+input,textarea,select{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:14px;font-size:15px;background:white}
+textarea{min-height:112px}
 label{font-weight:800;font-size:14px;display:block;margin:10px 0 6px}
-button{border:0;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--brand);color:white}
-.btn2{background:#e6f4f1;color:#134e4a}
-.btn3{background:var(--navy)}
+button{border:0;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--brand);color:white;transition:.15s}
+button:hover{transform:translateY(-1px);box-shadow:0 10px 25px rgba(15,118,110,.18)}
+.btn2{background:#e6f4f1;color:#134e4a} .btn3{background:var(--navy)} .btn-red{background:#fee2e2;color:#991b1b} .btn-blue{background:#dbeafe;color:#1e3a8a} .btn-purple{background:#ede9fe;color:#5b21b6} .btn-amber{background:#fef3c7;color:#92400e}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .hidden{display:none!important}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
 .metric{background:#f8fafc;border:1px solid var(--line);border-radius:20px;padding:18px}
 .metric span{font-size:13px;color:var(--muted);font-weight:800}
 .metric strong{display:block;font-size:32px;color:var(--navy);margin-top:4px}
 .status{padding:10px 14px;border-radius:14px;background:#f1f5f9;font-weight:800;display:inline-block}
-.ok{color:var(--green);font-weight:900}
-.warn{color:#92400e;font-weight:900}
-.bad{color:var(--red);font-weight:900}
-.tablewrap{overflow:auto;max-height:560px;border-radius:18px;border:1px solid var(--line)}
+.ok{color:var(--green);font-weight:900} .warn{color:#92400e;font-weight:900} .bad{color:var(--red);font-weight:900}
+.tablewrap{overflow:auto;max-height:620px;border-radius:18px;border:1px solid var(--line)}
 table{width:100%;border-collapse:collapse;background:white}
-th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:left;font-size:13px;white-space:nowrap}
+th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:left;font-size:13px;white-space:nowrap;vertical-align:top}
 th{background:#f1f5f9;position:sticky;top:0;z-index:1}
-.badge{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:900}
-.b-red{background:#fee2e2;color:#991b1b}
-.b-yellow{background:#fef3c7;color:#92400e}
-.b-green{background:#dcfce7;color:#166534}
-.b-blue{background:#dbeafe;color:#1e3a8a}
-@media(max-width:850px){.grid{grid-template-columns:1fr}}
+.badge{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:900;display:inline-block}
+.b-red{background:#fee2e2;color:#991b1b} .b-yellow{background:#fef3c7;color:#92400e} .b-green{background:#dcfce7;color:#166534} .b-blue{background:#dbeafe;color:#1e3a8a} .b-purple{background:#ede9fe;color:#5b21b6} .b-gray{background:#f1f5f9;color:#334155}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tab{background:#f8fafc;color:#334155;border:1px solid var(--line);box-shadow:none}
+.tab.active{background:var(--navy);color:white}
+.row-urgent{background:#fff7ed} .row-new{background:#fefce8} .row-done{background:#f0fdf4}
+.queue{border:1px solid var(--line);border-radius:20px;padding:16px;background:linear-gradient(180deg,#fff,#f8fafc)}
+.queue strong{font-size:26px;display:block;color:var(--navy)}
+.quickbar{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px;align-items:end}
+.small{font-size:12px;color:var(--muted)}
+.nowrap{white-space:nowrap}
+@media(max-width:950px){.grid,.grid3,.quickbar{grid-template-columns:1fr} h1{font-size:28px}}
 </style>
 </head>
-
 <body>
 <header>
 <div class="wrap">
 <div class="brand">
 <div class="mark">ES</div>
 <div>
-<h1>Centro de Inteligencia</h1>
-<p class="muted">Emprende Seguro™ · Panel Administrador conectado a Google Sheets</p>
+<h1>Centro Comercial</h1>
+<p class="muted">Emprende Seguro™ · Administrador de ventas, pagos y códigos de desbloqueo</p>
 </div>
 </div>
 </div>
 </header>
 
 <main class="wrap">
-
 <section id="login" class="card">
 <h2>Acceso administrador</h2>
 <p class="muted">Uso interno. No compartir este enlace.</p>
 <label>Clave de acceso</label>
-<input id="pin" type="password" placeholder="Clave admin"/>
+<input id="pin" type="password" placeholder="Clave admin" onkeydown="if(event.key==='Enter')login()"/>
 <div class="actions"><button onclick="login()">Entrar</button></div>
 <p id="loginMsg" class="bad"></p>
 </section>
 
 <section id="admin" class="hidden">
-
 <div class="card">
-<h2>Dashboard ejecutivo</h2>
+<div class="quickbar">
+<div>
+<h2>Dashboard comercial</h2>
 <p id="sourceStatus" class="status">Conectando con Google Sheets...</p>
-
-<div class="grid">
-<div class="metric"><span>Total evaluaciones</span><strong id="mTotal">0</strong></div>
-<div class="metric"><span>Pendientes de pago</span><strong id="mPend">0</strong></div>
-<div class="metric"><span>Premium aprobados</span><strong id="mPrem">0</strong></div>
-<div class="metric"><span>Último registro</span><strong id="mLast" style="font-size:15px">-</strong></div>
+</div>
+<div>
+<label>Buscar rápido</label>
+<input id="globalSearch" placeholder="Nombre, correo, teléfono, solicitud..." oninput="render()"/>
+</div>
+<div>
+<label>Orden</label>
+<select id="sortMode" onchange="render()"><option value="newest">Más recientes primero</option><option value="oldest">Más antiguos primero</option><option value="priority">Prioridad comercial</option></select>
+</div>
 </div>
 
 <div class="grid">
-<div class="metric"><span>Riesgo alto</span><strong id="mRojo">0</strong></div>
-<div class="metric"><span>Riesgo medio</span><strong id="mAmarillo">0</strong></div>
-<div class="metric"><span>Riesgo bajo</span><strong id="mVerde">0</strong></div>
-<div class="metric"><span>Registros cargados</span><strong id="mLoaded">0</strong></div>
+<div class="metric"><span>Total evaluaciones</span><strong id="mTotal">0</strong></div>
+<div class="metric"><span>Esperando contacto/pago</span><strong id="mPend">0</strong></div>
+<div class="metric"><span>Pagos por verificar</span><strong id="mPay">0</strong></div>
+<div class="metric"><span>Informes entregados</span><strong id="mDone">0</strong></div>
+</div>
+
+<div class="grid">
+<div class="metric"><span>Diagnósticos hoy</span><strong id="mToday">0</strong></div>
+<div class="metric"><span>Conversión estimada</span><strong id="mConv">0%</strong></div>
+<div class="metric"><span>Ingreso estimado</span><strong id="mRevenue">$0</strong></div>
+<div class="metric"><span>Último registro</span><strong id="mLast" style="font-size:15px">-</strong></div>
 </div>
 
 <div class="actions">
 <button onclick="loadData()">Actualizar datos</button>
 <button class="btn2" onclick="downloadCSV()">Descargar CSV</button>
 <button class="btn3" onclick="downloadJSON()">Descargar JSON</button>
+<button class="btn-red" onclick="clearWorkflow()">Limpiar estados locales</button>
+</div>
+<p class="small">Los estados operativos de contacto, pago y entrega se guardan localmente en este navegador para no modificar Google Sheets. La base oficial sigue siendo Google Sheets.</p>
+</div>
+
+<div class="card">
+<h2>🔔 Cola de trabajo</h2>
+<p class="muted">Gestiona primero lo que puede convertirse en venta.</p>
+<div class="grid3">
+<div class="queue"><span class="badge b-yellow">Acción inmediata</span><strong id="qContact">0</strong><p>Clientes para contactar o enviar instrucciones de pago.</p><button class="btn-amber" onclick="setTab('contactar')">Ver cola</button></div>
+<div class="queue"><span class="badge b-purple">Verificar</span><strong id="qVerify">0</strong><p>Usuarios que intentaron desbloquear o reportaron pago.</p><button class="btn-purple" onclick="setTab('verificar')">Ver cola</button></div>
+<div class="queue"><span class="badge b-green">Cerrar venta</span><strong id="qSend">0</strong><p>Códigos listos para copiar y enviar por WhatsApp.</p><button class="btn2" onclick="setTab('codigo')">Ver cola</button></div>
 </div>
 </div>
 
 <div class="card">
-<h2>Enviar código de desbloqueo</h2>
-<p class="muted">Busca el código de solicitud y copia el mensaje para WhatsApp.</p>
+<h2>Enviar código o mensaje por WhatsApp</h2>
+<p class="muted">Busca por código de solicitud y copia el mensaje correcto.</p>
 <label>Código de solicitud</label>
 <input id="searchCode" placeholder="Ej. RQ-078509" oninput="findCode()"/>
 <div id="codeResult" style="margin-top:14px"></div>
@@ -107,171 +133,206 @@ th{background:#f1f5f9;position:sticky;top:0;z-index:1}
 
 <div class="card">
 <h2>Base oficial Google Sheets</h2>
-<div class="tablewrap">
+<div class="tabs" id="tabs"></div>
+<div class="tablewrap" style="margin-top:14px">
 <table id="tbl">
 <thead>
 <tr>
-<th>Fecha</th>
-<th>Etapa</th>
-<th>Solicitud</th>
-<th>Desbloqueo</th>
-<th>Nombre</th>
-<th>Correo</th>
-<th>Teléfono</th>
-<th>País</th>
-<th>Proyecto</th>
-<th>Sector</th>
-<th>Ruta</th>
-<th>NPE</th>
-<th>Dominante</th>
+<th>Acciones</th><th>Estado</th><th>Fecha</th><th>Etapa</th><th>Solicitud</th><th>Desbloqueo</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>País</th><th>Proyecto</th><th>Sector</th><th>Ruta</th><th>NPE</th><th>Dominante</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
 </div>
 </div>
-
 </section>
 </main>
 
 <script>
 const ADMIN_PIN='ES-ADMIN-2026';
-
 const SHEET_API_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec';
+const PRICE=9.99;
+const WA_NUMBER='50762735084';
+const WORKFLOW_KEY='emprendeSeguroAdminWorkflow_v1_2';
 
 let records=[];
+let activeTab='todos';
+let workflow=getWorkflow();
+
+const tabs=[
+  ['todos','Todos'],['contactar','Contactar'],['verificar','Pago por verificar'],['codigo','Enviar código'],['entregado','Entregados'],['riesgo','Riesgo alto']
+];
 
 function login(){
   if(document.getElementById('pin').value===ADMIN_PIN){
     document.getElementById('login').classList.add('hidden');
     document.getElementById('admin').classList.remove('hidden');
-    loadData();
-  }else{
-    document.getElementById('loginMsg').textContent='Clave incorrecta.';
-  }
+    renderTabs(); loadData();
+  }else{document.getElementById('loginMsg').textContent='Clave incorrecta.';}
 }
 
 async function loadData(){
   const status=document.getElementById('sourceStatus');
-  status.textContent='Conectando con Google Sheets...';
-  status.className='status warn';
-
+  status.textContent='Conectando con Google Sheets...'; status.className='status warn';
   try{
-    const res=await fetch(SHEET_API_URL);
+    const res=await fetch(SHEET_API_URL+'?t='+Date.now());
     const json=await res.json();
     records=Array.isArray(json)?json:(json.data||[]);
-    status.textContent='Conectado a Google Sheets · '+records.length+' registros cargados';
-    status.className='status ok';
+    status.textContent='Conectado a Google Sheets · '+records.length+' registros cargados'; status.className='status ok';
     render();
-  }catch(e){
-    console.error(e);
-    status.textContent='No se pudo conectar con Google Sheets. Revisa Apps Script.';
-    status.className='status bad';
-  }
+  }catch(e){console.error(e); status.textContent='No se pudo conectar con Google Sheets. Revisa Apps Script.'; status.className='status bad';}
 }
 
 function norm(v){return (v??'').toString().trim();}
 function lower(v){return norm(v).toLowerCase();}
-function get(x,...keys){
-  for(const k of keys){
-    if(x[k]!==undefined&&x[k]!==null&&x[k]!=='') return x[k];
-  }
-  return '';
-}
+function get(x,...keys){for(const k of keys){if(x[k]!==undefined&&x[k]!==null&&x[k]!=='') return x[k];} return '';}
+function codeOf(x){return norm(get(x,'codigo_solicitud','Código de solicitud','codigoSolicitud','request_code')).toUpperCase();}
+function unlockOf(x){return norm(get(x,'codigo_desbloqueo','Código de desbloqueo','codigoDesbloqueo','approval_code')).toUpperCase();}
+function phoneOf(x){return norm(get(x,'telefono','Teléfono','Telefono','phone')).replace(/\D/g,'');}
+function nameOf(x){return norm(get(x,'nombre','Nombre'))||'emprendedor';}
+function dateOf(x){return norm(get(x,'fecha_registro','Fecha','timestamp','ultima_actualizacion'))||'';}
 
-function badgeEtapa(v){
-  const e=lower(v);
-  if(e.includes('premium')||e.includes('aprobado'))return `<span class="badge b-green">${v}</span>`;
-  if(e.includes('pend'))return `<span class="badge b-yellow">${v}</span>`;
-  if(e.includes('rechaz')||e.includes('cancel'))return `<span class="badge b-red">${v}</span>`;
-  return `<span class="badge b-blue">${v||'registro'}</span>`;
+function getWorkflow(){try{return JSON.parse(localStorage.getItem(WORKFLOW_KEY)||'{}')}catch(e){return {}}}
+function saveWorkflow(){localStorage.setItem(WORKFLOW_KEY,JSON.stringify(workflow));}
+function setLocalState(code,state){if(!code)return; workflow[code]={...(workflow[code]||{}),state,updated:new Date().toISOString()}; saveWorkflow(); render(); findCode();}
+function getLocalState(x){const c=codeOf(x); return workflow[c]?.state||'';}
+function clearWorkflow(){if(confirm('¿Seguro que quieres limpiar estados locales de contacto/pago/entrega? No borra Google Sheets.')){workflow={};saveWorkflow();render();}}
+
+function derivedState(x){
+  const local=getLocalState(x); if(local) return local;
+  const e=lower(get(x,'etapa','Etapa','stage'));
+  if(e.includes('premium')||e.includes('aprob')) return 'entregado';
+  if(e.includes('intento_desbloqueo')) return 'verificar';
+  if(e.includes('pend')) return 'contactar';
+  return 'contactar';
+}
+function stateLabel(s){return {contactar:'Esperando contacto/pago',verificar:'Pago por verificar',codigo:'Código pendiente de enviar',entregado:'Informe entregado'}[s]||'Nuevo';}
+function stateBadge(s){const cls={contactar:'b-yellow',verificar:'b-purple',codigo:'b-green',entregado:'b-blue'}[s]||'b-gray'; return `<span class="badge ${cls}">${stateLabel(s)}</span>`;}
+function badgeEtapa(v){const e=lower(v); if(e.includes('premium')||e.includes('aprob'))return `<span class="badge b-green">${v}</span>`; if(e.includes('intento'))return `<span class="badge b-purple">${v}</span>`; if(e.includes('pend'))return `<span class="badge b-yellow">${v}</span>`; if(e.includes('rechaz')||e.includes('cancel'))return `<span class="badge b-red">${v}</span>`; return `<span class="badge b-blue">${v||'registro'}</span>`;}
+function riskHigh(x){const ruta=lower(get(x,'ruta','Ruta','semaforo')); return ruta.includes('roja')||ruta.includes('crítica')||ruta.includes('critica')||ruta.includes('alto');}
+
+function renderTabs(){document.getElementById('tabs').innerHTML=tabs.map(([id,label])=>`<button class="tab ${activeTab===id?'active':''}" onclick="setTab('${id}')">${label}</button>`).join('');}
+function setTab(id){activeTab=id; renderTabs(); render();}
+
+function filteredRecords(){
+  const q=lower(document.getElementById('globalSearch')?.value||'');
+  let arr=records.filter(x=>{
+    const s=derivedState(x);
+    if(activeTab==='contactar'&&s!=='contactar') return false;
+    if(activeTab==='verificar'&&s!=='verificar') return false;
+    if(activeTab==='codigo'&&s!=='codigo') return false;
+    if(activeTab==='entregado'&&s!=='entregado') return false;
+    if(activeTab==='riesgo'&&!riskHigh(x)) return false;
+    if(!q) return true;
+    return lower(JSON.stringify(x)).includes(q);
+  });
+  const mode=document.getElementById('sortMode')?.value||'newest';
+  const priority={verificar:1,codigo:2,contactar:3,entregado:4};
+  arr.sort((a,b)=>{
+    if(mode==='priority') return (priority[derivedState(a)]||9)-(priority[derivedState(b)]||9);
+    const da=new Date(dateOf(a)).getTime()||0, db=new Date(dateOf(b)).getTime()||0;
+    return mode==='oldest'?da-db:db-da;
+  });
+  return arr;
 }
 
 function render(){
-  document.getElementById('mTotal').textContent=records.length;
-  document.getElementById('mPend').textContent=records.filter(x=>lower(get(x,'etapa','Etapa')).includes('pend')).length;
-  document.getElementById('mPrem').textContent=records.filter(x=>lower(get(x,'etapa','Etapa')).includes('premium')||lower(get(x,'etapa','Etapa')).includes('aprob')).length;
-  document.getElementById('mLoaded').textContent=records.length;
+  const total=records.length;
+  const contact=records.filter(x=>derivedState(x)==='contactar').length;
+  const verify=records.filter(x=>derivedState(x)==='verificar').length;
+  const send=records.filter(x=>derivedState(x)==='codigo').length;
+  const done=records.filter(x=>derivedState(x)==='entregado').length;
+  const today=new Date().toISOString().slice(0,10);
+  const todayCount=records.filter(x=>dateOf(x).slice(0,10)===today).length;
+  document.getElementById('mTotal').textContent=total;
+  document.getElementById('mPend').textContent=contact;
+  document.getElementById('mPay').textContent=verify;
+  document.getElementById('mDone').textContent=done;
+  document.getElementById('mToday').textContent=todayCount;
+  document.getElementById('mConv').textContent=total?Math.round(done/total*100)+'%':'0%';
+  document.getElementById('mRevenue').textContent='$'+(done*PRICE).toFixed(2);
+  document.getElementById('mLast').textContent=total?(dateOf(records[records.length-1])||'-'):'-';
+  document.getElementById('qContact').textContent=contact;
+  document.getElementById('qVerify').textContent=verify;
+  document.getElementById('qSend').textContent=send;
 
-  const last=records.length?get(records[records.length-1],'ultima_actualizacion','fecha_registro','Fecha','timestamp'):'-';
-  document.getElementById('mLast').textContent=last||'-';
+  const arr=filteredRecords();
+  document.querySelector('#tbl tbody').innerHTML=arr.map(x=>rowHTML(x)).join('')||`<tr><td colspan="15">No hay registros para este filtro.</td></tr>`;
+}
 
-  document.getElementById('mRojo').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('rojo')||lower(get(x,'ruta','Ruta','semaforo')).includes('alto')).length;
-  document.getElementById('mAmarillo').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('amarillo')||lower(get(x,'ruta','Ruta','semaforo')).includes('medio')).length;
-  document.getElementById('mVerde').textContent=records.filter(x=>lower(get(x,'ruta','Ruta','semaforo')).includes('verde')||lower(get(x,'ruta','Ruta','semaforo')).includes('bajo')).length;
-
-  document.querySelector('#tbl tbody').innerHTML=records.map(x=>`
-  <tr>
-    <td>${get(x,'fecha_registro','Fecha','timestamp')}</td>
-    <td>${badgeEtapa(get(x,'etapa','Etapa'))}</td>
-    <td>${get(x,'codigo_solicitud','Código de solicitud','codigoSolicitud')}</td>
-    <td><strong>${get(x,'codigo_desbloqueo','Código de desbloqueo','codigoDesbloqueo')}</strong></td>
-    <td>${get(x,'nombre','Nombre')}</td>
+function rowHTML(x){
+  const code=codeOf(x), phone=phoneOf(x), s=derivedState(x);
+  const cls=s==='verificar'?'row-urgent':s==='contactar'?'row-new':s==='entregado'?'row-done':'';
+  return `<tr class="${cls}">
+    <td>${actionButtons(x)}</td>
+    <td>${stateBadge(s)}</td>
+    <td>${dateOf(x)}</td>
+    <td>${badgeEtapa(get(x,'etapa','Etapa','stage'))}</td>
+    <td><strong>${code}</strong></td>
+    <td><strong>${unlockOf(x)}</strong></td>
+    <td>${nameOf(x)}</td>
     <td>${get(x,'correo','Correo','email')}</td>
-    <td>${get(x,'telefono','Teléfono','Telefono')}</td>
+    <td>${phone}</td>
     <td>${get(x,'pais','País','Pais')}</td>
     <td>${get(x,'emprendimiento','Proyecto','Nombre del emprendimiento')}</td>
     <td>${get(x,'sector','Sector')}</td>
     <td>${get(x,'ruta','Ruta','semaforo')}</td>
     <td>${get(x,'npe','NPE','puntaje')}</td>
     <td>${get(x,'dominante','Dominante','dimension_dominante')}</td>
-  </tr>`).join('');
+  </tr>`;
 }
+function actionButtons(x){
+  const code=codeOf(x); const phone=phoneOf(x);
+  return `<div class="actions" style="margin:0;gap:6px">
+    <button class="btn-amber" onclick="copyPaymentMsg('${code}')">Pago</button>
+    <button class="btn-purple" onclick="setLocalState('${code}','verificar')">Verificar</button>
+    <button class="btn2" onclick="setLocalState('${code}','codigo')">Código</button>
+    <button class="btn-blue" onclick="copyUnlockMsg('${code}')">Copiar</button>
+    ${phone?`<button class="btn3" onclick="openWA('${code}','unlock')">WA</button>`:''}
+    <button class="btn2" onclick="setLocalState('${code}','entregado')">OK</button>
+  </div>`;
+}
+
+function findByCode(code){return records.find(x=>codeOf(x)===norm(code).toUpperCase());}
+function paymentMsg(r){return `Hola ${nameOf(r)}. Gracias por completar tu diagnóstico en Emprende Seguro™.
+
+Tu referencia de solicitud es: ${codeOf(r)}.
+
+Para desbloquear tu Informe Profesional, realiza el pago único de USD 9.99 por Yappy al 6273-5084.
+
+Cuando lo hagas, envíame por aquí el comprobante junto con tu referencia. Una vez verificado, recibirás tu código de desbloqueo.`;}
+function unlockMsg(r){return `Hola ${nameOf(r)}. Gracias por tu pago.
+
+Tu código de desbloqueo del Informe Profesional de Emprende Seguro™ es: ${unlockOf(r)}.
+
+Ingresa este código en la aplicación para ver tu informe personalizado.`;}
+function verifyMsg(r){return `Hola ${nameOf(r)}. Recibí tu solicitud ${codeOf(r)}. Estoy verificando el pago y apenas esté confirmado te envío el código de desbloqueo de tu informe.`;}
+function selectedMsg(r,type){return type==='payment'?paymentMsg(r):type==='verify'?verifyMsg(r):unlockMsg(r);}
+function copyToClipboard(text){navigator.clipboard?.writeText(text).then(()=>alert('Mensaje copiado')).catch(()=>prompt('Copia este mensaje:',text));}
+function copyPaymentMsg(code){const r=findByCode(code); if(!r)return; copyToClipboard(paymentMsg(r)); setLocalState(code,'contactar');}
+function copyUnlockMsg(code){const r=findByCode(code); if(!r)return; copyToClipboard(unlockMsg(r)); setLocalState(code,'codigo');}
+function openWA(code,type='unlock'){const r=findByCode(code); if(!r)return; const phone=phoneOf(r); if(!phone){alert('Este registro no tiene teléfono.');return;} const msg=encodeURIComponent(selectedMsg(r,type)); window.open(`https://wa.me/${phone}?text=${msg}`,'_blank'); if(type==='unlock') setLocalState(code,'codigo');}
 
 function findCode(){
   const code=document.getElementById('searchCode').value.trim().toUpperCase();
   const box=document.getElementById('codeResult');
-
   if(!code){box.innerHTML='';return;}
-
-  const r=records.find(x=>String(get(x,'codigo_solicitud','Código de solicitud','codigoSolicitud')).toUpperCase()===code);
-
-  if(!r){
-    box.innerHTML='<p class="warn"><strong>No encontrado.</strong> Verifica el código en Google Sheets.</p>';
-    return;
-  }
-
-  const nombre=get(r,'nombre','Nombre')||'';
-  const unlock=get(r,'codigo_desbloqueo','Código de desbloqueo','codigoDesbloqueo')||'';
-
-  const msg=`Hola ${nombre}. Gracias por tu pago. Tu código de desbloqueo del Informe Profesional de Emprende Seguro™ es: ${unlock}. Ingresa este código en la aplicación para ver tu informe.`;
-
+  const r=findByCode(code);
+  if(!r){box.innerHTML='<p class="warn"><strong>No encontrado.</strong> Verifica el código en Google Sheets.</p>';return;}
+  const phone=phoneOf(r);
   box.innerHTML=`
-  <p class="ok"><strong>Registro encontrado.</strong></p>
-  <p><strong>Nombre:</strong> ${nombre}</p>
-  <p><strong>Código de desbloqueo:</strong> ${unlock}</p>
-  <textarea id="waMsg" style="min-height:110px">${msg}</textarea>
-  <div class="actions"><button onclick="copyMsg()">Copiar mensaje</button></div>`;
+  <p class="ok"><strong>Registro encontrado.</strong> ${stateBadge(derivedState(r))}</p>
+  <p><strong>Nombre:</strong> ${nameOf(r)} · <strong>Teléfono:</strong> ${phone||'Sin teléfono'} · <strong>Código:</strong> ${unlockOf(r)}</p>
+  <label>Mensaje de instrucciones de pago</label><textarea id="payMsg">${paymentMsg(r)}</textarea>
+  <div class="actions"><button class="btn-amber" onclick="copyToClipboard(document.getElementById('payMsg').value);setLocalState('${code}','contactar')">Copiar pago</button>${phone?`<button class="btn3" onclick="openWA('${code}','payment')">Abrir WhatsApp pago</button>`:''}</div>
+  <label>Mensaje de código de desbloqueo</label><textarea id="waMsg">${unlockMsg(r)}</textarea>
+  <div class="actions"><button onclick="copyToClipboard(document.getElementById('waMsg').value);setLocalState('${code}','codigo')">Copiar código</button>${phone?`<button class="btn3" onclick="openWA('${code}','unlock')">Abrir WhatsApp código</button>`:''}<button class="btn2" onclick="setLocalState('${code}','entregado')">Marcar entregado</button></div>`;
 }
 
-function copyMsg(){
-  navigator.clipboard.writeText(document.getElementById('waMsg').value);
-  alert('Mensaje copiado');
-}
-
-function csvEscape(v){
-  v=v==null?'':String(v);
-  return '"'+v.replaceAll('"','""')+'"';
-}
-
-function downloadCSV(){
-  if(!records.length){alert('No hay datos cargados.');return;}
-  const cols=Object.keys(records[0]);
-  const csv=[cols.join(',')].concat(records.map(x=>cols.map(c=>csvEscape(x[c])).join(','))).join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='emprende-seguro-google-sheets.csv';
-  a.click();
-}
-
-function downloadJSON(){
-  const blob=new Blob([JSON.stringify(records,null,2)],{type:'application/json'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='emprende-seguro-google-sheets.json';
-  a.click();
-}
+function csvEscape(v){v=v==null?'':String(v); return '"'+v.replaceAll('"','""')+'"';}
+function downloadCSV(){if(!records.length){alert('No hay datos cargados.');return;} const cols=Object.keys(records[0]); const csv=[cols.join(',')].concat(records.map(x=>cols.map(c=>csvEscape(x[c])).join(','))).join('
+'); const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='emprende-seguro-google-sheets.csv'; a.click();}
+function downloadJSON(){const blob=new Blob([JSON.stringify(records,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='emprende-seguro-google-sheets.json'; a.click();}
 </script>
 </body>
 </html>
