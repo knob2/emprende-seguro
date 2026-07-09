@@ -43,6 +43,9 @@
 
     .action-plan{display:grid;gap:14px;margin-top:12px}.action-item{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#faf5ff);padding:18px}.action-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.priority-badge{display:inline-flex;align-items:center;border-radius:999px;background:#f3e8ff;color:var(--brand2);padding:7px 11px;font-weight:900;font-size:13px}.mission-title{font-size:20px;font-weight:950;margin:8px 0 4px;color:#171426}.action-list{margin:10px 0 0;padding-left:20px}.action-list li{margin:7px 0}.resource-box{margin-top:14px;border:1px solid #ddd6fe;background:#ffffff;border-radius:16px;padding:14px}.resource-tag{display:inline-block;border-radius:999px;background:#ecfeff;color:#155e75;padding:5px 9px;font-size:12px;font-weight:900;margin-bottom:8px}.resource-title{font-weight:950;margin:0 0 6px}.resource-note{font-size:13px;color:var(--muted);margin:0 0 10px}.resource-link{display:inline-flex;text-decoration:none;border-radius:12px;padding:11px 14px;font-weight:900;background:linear-gradient(135deg,#171426,#7c3aed);color:white;box-shadow:0 10px 25px rgba(124,58,237,.18)}.resource-pending{font-size:13px;color:var(--muted);background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:10px;margin-top:12px}.final-cta{background:linear-gradient(135deg,#171426,#312e81 55%,#7c3aed);color:white;border-radius:20px;padding:22px;margin-top:16px}.final-cta p{color:#ede9fe}.final-cta strong{color:#fde68a}
 
+
+    .required{color:var(--red);font-weight:950}.field-error{display:block;color:var(--red);font-weight:800;margin-top:6px;min-height:16px}.input-error{border-color:var(--red)!important;background:#fff1f2!important;box-shadow:0 0 0 3px rgba(220,38,38,.10)}.lead-consent{margin-top:18px;border:1px solid #ddd6fe;background:linear-gradient(180deg,#faf5ff,#ffffff);border-radius:16px;padding:16px}.check-consent{display:flex;gap:10px;align-items:flex-start;font-weight:700;line-height:1.4;margin:0}.check-consent input{width:auto;margin-top:4px;transform:scale(1.15)}
+
     @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
     @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
 
@@ -110,18 +113,45 @@
 </section>
 <section id="register" class="card hidden">
   <h2>1. Registro y emprendimiento</h2>
-  <p class="muted">Estos datos permiten generar tu informe. Para investigación, se pueden anonimizar.</p>
+  <p class="muted"><strong>Importante:</strong> estos datos nos permiten enviarte tu código de desbloqueo y dar seguimiento a tu informe si decides adquirirlo.</p>
   <div class="grid2">
-    <div><label>Nombre</label><input id="nombre" placeholder="Tu nombre" /></div>
-    <div><label>Correo</label><input id="correo" type="email" placeholder="correo@email.com" /></div>
-    <div><label>País</label><input id="pais" placeholder="País" /></div>
-    <div><label>Teléfono opcional</label><input id="telefono" placeholder="Opcional" /></div>
+    <div>
+      <label>Nombre completo <span class="required">*</span></label>
+      <input id="nombre" placeholder="Nombre y apellido" autocomplete="name" required oninput="clearFieldError('nombre')" />
+      <small id="error-nombre" class="field-error"></small>
+    </div>
+    <div>
+      <label>Correo <span class="required">*</span></label>
+      <input id="correo" type="email" placeholder="correo@email.com" autocomplete="email" required oninput="clearFieldError('correo')" />
+      <small id="error-correo" class="field-error"></small>
+    </div>
+    <div>
+      <label>País <span class="required">*</span></label>
+      <input id="pais" placeholder="País" autocomplete="country-name" required oninput="clearFieldError('pais')" />
+      <small id="error-pais" class="field-error"></small>
+    </div>
+    <div>
+      <label>WhatsApp <span class="required">*</span></label>
+      <input id="telefono" placeholder="Ej. 62735084" inputmode="tel" autocomplete="tel" required oninput="clearFieldError('telefono')" />
+      <small id="error-telefono" class="field-error"></small>
+    </div>
     <div><label>Nombre del emprendimiento</label><input id="proyecto" placeholder="Ej. Café Luna" /></div>
     <div><label>Sector</label><select id="sector"><option>Comercio</option><option>Servicios</option><option>Tecnología</option><option>Educación</option><option>Salud</option><option>Manufactura</option><option>Alimentos</option><option>Otro</option></select></div>
     <div><label>Estado actual</label><select id="estado"><option>Idea</option><option>Validando</option><option>Lanzando</option><option>Operando</option></select></div>
     <div><label>Inversión estimada</label><select id="inversion"><option>Menos de USD 500</option><option>USD 500 - 2,000</option><option>USD 2,001 - 10,000</option><option>Más de USD 10,000</option></select></div>
   </div>
+
+  <div class="lead-consent">
+    <label class="check-consent">
+      <input id="contacto_autorizado" type="checkbox" onchange="clearFieldError('contacto_autorizado')" />
+      <span>Autorizo a Emprende Seguro™ a contactarme por WhatsApp y/o correo para enviarme mi resultado, instrucciones de pago, código de desbloqueo y seguimiento relacionado con mi diagnóstico.</span>
+    </label>
+    <small id="error-contacto_autorizado" class="field-error"></small>
+    <p class="scorehint">Tus datos serán usados únicamente para gestionar tu diagnóstico, seguimiento comercial y mejora de la herramienta. No vendemos tu información.</p>
+  </div>
+
   <div class="actions"><button onclick="startQuiz()">Iniciar evaluación</button></div>
+  <p class="scorehint"><span class="required">*</span> Campos obligatorios para poder enviarte el código de desbloqueo.</p>
 </section>
 <section id="quizSection" class="card hidden">
   <h2 id="dimTitle"></h2><p id="dimDesc" class="muted"></p><div id="progressText" class="progressText">Pregunta 1 de 30</div><div class="stepper"><div id="progress" class="bar"></div></div><div id="questions"></div>
@@ -195,7 +225,39 @@ const scenarios={
 };
 let current=0,answers={};
 function go(id){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
-function startQuiz(){go('quizSection');current=0;renderDim();}
+function cleanText(value){return (value||'').trim().replace(/\s+/g,' ')}
+function digitsOnly(value){return (value||'').replace(/\D/g,'')}
+function isValidEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanText(value).toLowerCase())}
+function setFieldError(id,msg){const el=document.getElementById(id);const er=document.getElementById('error-'+id);if(el)el.classList.add('input-error');if(er)er.textContent=msg}
+function clearFieldError(id){const el=document.getElementById(id);const er=document.getElementById('error-'+id);if(el)el.classList.remove('input-error');if(er)er.textContent=''}
+function validateLeadForm(){
+  ['nombre','correo','pais','telefono','contacto_autorizado'].forEach(clearFieldError);
+  const nombre=cleanText(val('nombre'));
+  const correo=cleanText(val('correo')).toLowerCase();
+  const pais=cleanText(val('pais'));
+  const telefono=digitsOnly(val('telefono'));
+  const autorizado=document.getElementById('contacto_autorizado')?.checked;
+  let ok=true;
+  if(nombre.split(' ').filter(Boolean).length<2){setFieldError('nombre','Escribe tu nombre y apellido para identificar tu diagnóstico.');ok=false}
+  if(!isValidEmail(correo)){setFieldError('correo','Escribe un correo válido. Ejemplo: nombre@email.com');ok=false}
+  if(pais.length<2){setFieldError('pais','Escribe tu país.');ok=false}
+  if(telefono.length<8){setFieldError('telefono','Escribe un WhatsApp válido con mínimo 8 dígitos.');ok=false}
+  if(!autorizado){setFieldError('contacto_autorizado','Debes autorizar el contacto para poder enviarte tu código de desbloqueo.');ok=false}
+  if(ok){
+    document.getElementById('nombre').value=nombre;
+    document.getElementById('correo').value=correo;
+    document.getElementById('pais').value=pais;
+    document.getElementById('telefono').value=telefono;
+  }else{
+    alert('Revisa los campos obligatorios antes de iniciar la evaluación.');
+    document.querySelector('.input-error')?.focus();
+  }
+  return ok;
+}
+function startQuiz(){
+  if(!validateLeadForm()) return;
+  go('quizSection');current=0;renderDim();
+}
 function renderDim(){const d=dims[current];document.getElementById('dimTitle').textContent=(current+1)+'. '+d.name;document.getElementById('dimDesc').textContent=d.desc;document.getElementById('progress').style.width=((current)/dims.length*100)+'%';let html='';d.items.forEach(([code,text])=>{html+=`<div class="question"><div class="qtitle">${text}</div><div class="scale">${[1,2,3,4,5].map(v=>`<label><input type="radio" name="${code}" value="${v}" ${answers[code]==v?'checked':''} onchange="answers['${code}']=${v}"><strong>${v}</strong><br><small>${['Totalmente en desacuerdo','En desacuerdo','Ni de acuerdo ni en desacuerdo','De acuerdo','Totalmente de acuerdo'][v-1]}</small></label>`).join('')}</div></div>`});document.getElementById('questions').innerHTML=html;}
 function validateDim(){return dims[current].items.every(([c])=>answers[c]);}
 function nextDim(){if(!validateDim()){alert('Por favor responde todas las preguntas de esta sección.');return;} if(current<dims.length-1){current++;renderDim();}else{showFree();}}
@@ -395,7 +457,7 @@ const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
 function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
 function buildPayload(stage='completed'){
   const resultado=calc();
-  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:val('nombre'),correo:val('correo'),pais:val('pais'),telefono:val('telefono')},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado};
+  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:cleanText(val('nombre')),correo:cleanText(val('correo')).toLowerCase(),pais:cleanText(val('pais')),telefono:digitsOnly(val('telefono')),contacto_autorizado:document.getElementById('contacto_autorizado')?.checked?'Sí':'No'},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado};
   base.request_code=generateRequestCode(base);
   base.approval_code=generateApprovalCode(base);
   return base;
@@ -422,9 +484,9 @@ function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-segur
 function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
 function downloadAllJSON(){downloadJSON(getEvaluations(),'emprende-seguro-base-local.json')}
 function csvEscape(v){v=(v===undefined||v===null)?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
-function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,codigo_aprobacion:x.approval_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
+function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,codigo_aprobacion:x.approval_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,contacto_autorizado:x.usuario?.contacto_autorizado,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
 function downloadCSV(){const rows=getEvaluations().map(flattenRow);if(!rows.length){alert('Aún no hay evaluaciones guardadas en este navegador.');return}const headers=Object.keys(rows[0]);const csv=[headers.join(',')].concat(rows.map(r=>headers.map(h=>csvEscape(r[h])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-base-local.csv';a.click();URL.revokeObjectURL(a.href)}
-function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
+function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Autorizó contacto</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.contacto_autorizado||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
 function clearLocalData(){if(confirm('¿Seguro que deseas borrar la base local de este navegador? Primero descarga CSV/JSON si necesitas respaldo.')){localStorage.removeItem(STORAGE_KEY);renderAdmin()}}
 </script>
 </body>
