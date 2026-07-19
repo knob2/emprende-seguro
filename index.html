@@ -216,15 +216,15 @@
 </main><div class="footer">Emprende Seguro™ · Emprender con claridad, no con impulsos</div>
 <script>
 const dims=[
-{key:'RF',name:'Riesgo Financiero',desc:'Inversión y estabilidad financiera necesaria para emprender.',items:[
+{key:'RF',name:'Finanzas',desc:'Evalúa tu capacidad financiera para emprender sin comprometer tu estabilidad.',items:[
 ['RF1','Necesitaría endeudarme para iniciar este emprendimiento.',false],['RF2','Podría iniciar este emprendimiento usando principalmente capital propio.',true],['RF3','Tengo claridad sobre cuánto dinero necesito para iniciar.',true],['RF4','Cuento con un fondo de emergencia independiente del dinero que invertiría.',true],['RF5','Tengo claridad sobre cuánto tiempo tomaría recuperar la inversión realizada.',true]]},
-{key:'CVM',name:'Conocimiento y Validación del Mercado',desc:'Conocimiento del cliente, demanda, competencia y diferenciación.',items:[
+{key:'CVM',name:'Mercado',desc:'Evalúa cuánto conoces a tus clientes, la demanda, la competencia y tu diferenciación.',items:[
 ['CVM1','He conversado con posibles clientes antes de decidir invertir.',true],['CVM2','Tengo evidencia de que las personas pagarían por este producto o servicio.',true],['CVM3','Conozco quiénes serían mis clientes principales.',true],['CVM4','He identificado competidores directos o indirectos.',true],['CVM5','Mi propuesta ofrece una diferencia clara frente a lo que ya existe.',true],['CVM6','Tengo claramente identificado el segmento de clientes al que deseo dirigirme.',true],['CVM7','Comprendo cuáles son los principales factores por los que un cliente elegiría mi producto o servicio frente a otras alternativas.',true]]},
-{key:'PN',name:'Preparación del Negocio',desc:'Experiencia, costos, permisos, recursos y conocimiento operativo.',items:[
+{key:'PN',name:'Preparación',desc:'Evalúa tu experiencia, costos, permisos, recursos y capacidad para operar el negocio.',items:[
 ['PN1','Tengo experiencia previa en el sector donde deseo emprender.',true],['PN2','Conozco los costos principales de operación de este negocio.',true],['PN3','Sé qué recursos humanos, técnicos o materiales necesitaría.',true],['PN4','Conozco los permisos, normas o requisitos legales aplicables.',true],['PN5','He realizado actividades similares antes, aunque no hayan sido formalmente un negocio.',true],['PN6','Tengo claridad sobre si lo que ofreceré es principalmente un producto o un servicio.',true],['PN7','Tengo identificados los recursos críticos necesarios para operar el negocio.',true]]},
-{key:'RPF',name:'Riesgo Patrimonial y Familiar',desc:'Impacto del emprendimiento sobre patrimonio personal y familiar.',items:[
+{key:'RPF',name:'Patrimonio familiar',desc:'Evalúa el impacto que el emprendimiento puede tener sobre tus recursos personales y familiares.',items:[
 ['RPF1','La inversión comprometería recursos importantes de mi familia.',false],['RPF2','El emprendimiento pondría en riesgo activos importantes como vehículo, vivienda o ahorros familiares.',false],['RPF3','Tengo una alternativa económica si el emprendimiento no genera ingresos al inicio.',true],['RPF4','Si este emprendimiento fracasa, el impacto económico sobre mi familia sería significativo.',false]]},
-{key:'SEDI',name:'Sesgo Emocional y Decisión Impulsiva',desc:'Forma en que se está tomando la decisión de emprender.',items:[
+{key:'SEDI',name:'Decisión',desc:'Evalúa si tu decisión de emprender está respaldada por evidencia o influida por presión o impulso.',items:[
 ['SEDI1','Aunque otras personas cuestionen mi idea, seguiría adelante porque confío mucho en ella.',false],['SEDI2','Me entusiasma tanto este negocio que prefiero empezar rápido antes que seguir analizando.',false],['SEDI3','Si una prueba inicial saliera mal, igual continuaría invirtiendo.',false],['SEDI4','Estoy considerando esta idea principalmente porque necesito resolver una situación económica urgente.',false],['SEDI5','Antes de invertir, estaría dispuesto(a) a cambiar mi idea si la evidencia demuestra que no es viable.',true],['SEDI6','He dedicado tiempo suficiente a analizar esta decisión antes de comprometer recursos económicos.',true],['SEDI7','He buscado opiniones críticas sobre esta idea antes de decidir emprender.',true]]}
 ];
 const scenarios={
@@ -311,7 +311,7 @@ function statusCard(route){const [t,c,sub]=userStatus(route);return `<div class=
 function scoreBlock(r){return `<p class="scorelabel">Nivel de Preparación Emprendedora</p><p class="bigscore">${prepScore(r.scores.IRE).toFixed(2)} / 5</p><p class="scorehint">En esta lectura, 5 es mejor. El riesgo técnico queda como dato interno: ${r.scores.IRE.toFixed(2)} / 5, donde menor riesgo es mejor.</p>`}
 function severity(r){return ['Verde','Amarilla','Naranja','Roja','Crítica','CríticaMáxima'].indexOf(r)}
 function calc(){let scores={};dims.forEach(d=>{scores[d.key]=avg(d.items.map(([c])=>adjusted(c,+answers[c])))});scores.IPS=avg([scores.RF,scores.RPF]);scores.IMV=avg([scores.CVM,scores.PN]);scores.IJD=scores.SEDI;scores.IRE=avg([scores.IPS,scores.IMV,scores.IJD]);const key=['RF','CVM','PN','RPF','SEDI'].map(k=>functional(scores[k])).join('');let route=routeByScore(scores.IRE),msg='';if(scenarios[key]){const [sr,sm]=scenarios[key]; if(severity(sr)>severity(route)) route=sr; msg=sm;} else {msg='Se identifican factores que conviene revisar antes de comprometer recursos significativos.'} const dominant=['RF','CVM','PN','RPF','SEDI'].sort((a,b)=>scores[b]-scores[a])[0];return {scores,key,route,msg,dominant};}
-function dimName(k){return {RF:'Riesgo Financiero',CVM:'Conocimiento y Validación del Mercado',PN:'Preparación del Negocio',RPF:'Riesgo Patrimonial y Familiar',SEDI:'Sesgo Emocional y Decisión Impulsiva'}[k]||k}
+function dimName(k){return {RF:'Finanzas',CVM:'Mercado',PN:'Preparación',RPF:'Patrimonio familiar',SEDI:'Decisión'}[k]||k}
 function showFree(){
   const r=calc();
   const payload=saveEvaluation('pendiente_pago');
