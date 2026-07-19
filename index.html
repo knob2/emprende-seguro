@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Emprende Seguro™ 2.0 Comercial -->
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -46,7 +47,9 @@
 
     .required{color:var(--red);font-weight:950}.field-error{display:block;color:var(--red);font-weight:800;margin-top:6px;min-height:16px}.input-error{border-color:var(--red)!important;background:#fff1f2!important;box-shadow:0 0 0 3px rgba(220,38,38,.10)}.lead-consent{margin-top:18px;border:1px solid #ddd6fe;background:linear-gradient(180deg,#faf5ff,#ffffff);border-radius:16px;padding:16px}.check-consent{display:flex;gap:10px;align-items:flex-start;font-weight:700;line-height:1.4;margin:0}.check-consent input{width:auto;margin-top:4px;transform:scale(1.15)}
 
-    @media(max-width:800px){.hero,.grid,.grid2,.resultgrid{grid-template-columns:1fr} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
+    .sample-hero{background:linear-gradient(135deg,#171426,#312e81 55%,#7c3aed);color:white;border-radius:20px;padding:22px;margin-bottom:16px}.sample-hero .muted{color:#e9d5ff}.sample-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.sample-metric{border:1px solid var(--line);border-radius:16px;padding:14px;background:white}.sample-score{font-size:28px;font-weight:950;color:var(--brand2);margin:6px 0}.preview-lock{position:relative;border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}.preview-lock:after{content:'🔒 Continúa en el Informe Premium';position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.78);backdrop-filter:blur(3px);font-weight:950;color:var(--brand2);font-size:20px;text-align:center;padding:20px}.orientation-card{border:2px solid #c4b5fd;background:linear-gradient(180deg,#faf5ff,#ffffff);border-radius:20px;padding:22px}.orientation-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.orientation-form .full{grid-column:1/-1}.specialist-note{border-left:4px solid var(--accent);background:#fff7ed;padding:14px;border-radius:12px;color:#7c2d12}.value-stack{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.value-stack div{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff;font-weight:800}.small-caps{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:900;color:var(--brand)}
+
+    @media(max-width:800px){.hero,.grid,.grid2,.resultgrid,.orientation-form{grid-template-columns:1fr}.sample-grid{grid-template-columns:1fr}.orientation-form .full{grid-column:auto} h1{font-size:32px}.grid5{grid-template-columns:1fr}.scale{grid-template-columns:1fr}.scale label{text-align:left}.bigscore{font-size:38px}}
     @media print{header,.no-print,#landing,#register,#quizSection,#freeGate{display:none!important} body{background:white}.card{box-shadow:none;border:1px solid #ddd}.print-only{display:block}.pagebreak{break-before:page}}
 
     .section-title{font-size:28px;margin:4px 0 10px;color:var(--brand2)}
@@ -65,9 +68,9 @@
       <span class="badge">Decisiones inteligentes antes de invertir</span>
       <h1>¿Invertirías tus ahorros sin saber si tu idea está lista?</h1>
       <p class="lead">Evalúa tu preparación emprendedora en menos de 10 minutos, identifica riesgos clave y toma mejores decisiones antes de comprometer dinero, tiempo o recursos familiares.</p>
-      <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
+      <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">👀 Ver informe de ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
       <p style="margin:10px 0 0;color:#fde68a;font-weight:800">⏱ Solo toma entre 6 y 10 minutos</p>
-      <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe profesional opcional</span></div>
+      <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe Premium desde USD 5.99</span></div>
     </div>
     <div class="card">
       <p class="mini" style="color:#7c3aed">Metodología estructurada • Piloto validado • Diagnóstico confidencial</p>
@@ -84,8 +87,14 @@
   <div class="grid">
     <div class="benefit"><h3>📊 Riesgos clave</h3><p class="muted">Evalúa mercado, preparación, finanzas, patrimonio familiar y forma de decisión.</p></div>
     <div class="benefit"><h3>💡 Fortalezas</h3><p class="muted">Reconoce los aspectos donde ya tienes una base para avanzar con más claridad.</p></div>
-    <div class="benefit"><h3>📄 Plan accionable</h3><p class="muted">Recibe una orientación inicial y, si lo deseas, un informe profesional con pasos concretos.</p></div>
+    <div class="benefit"><h3>📄 Ruta de crecimiento</h3><p class="muted">Recibe una orientación inicial gratuita y, si lo deseas, desbloquea tu Informe Premium con una Ruta de Crecimiento personalizada.</p></div>
   </div>
+</section>
+<section class="card">
+  <p class="mini">Qué obtienes con el Informe Premium</p>
+  <h2 class="section-title">No recibes solo un resultado: recibes claridad para decidir qué hacer después</h2>
+  <div class="value-stack"><div>✓ Interpretación por dimensión</div><div>✓ Riesgos y fortalezas priorizados</div><div>✓ Ruta de Crecimiento personalizada</div><div>✓ Recursos recomendados</div><div>✓ Orientación estratégica inicial</div><div>✓ Posible conexión con especialistas</div></div>
+  <div class="paybox" style="margin-top:16px"><p class="muted">Precio de lanzamiento</p><p class="price">USD 5.99</p><p>El diagnóstico sigue siendo gratuito. Solo pagas si deseas desbloquear el Informe Premium.</p></div>
 </section>
 <section class="card">
   <p class="mini">Cómo funciona</p>
@@ -99,7 +108,7 @@
   <p class="mini">Confianza y transparencia</p>
   <h2 class="section-title">No prometemos éxito. Te ayudamos a tomar mejores decisiones.</h2>
   <div class="grid2">
-    <div class="faq"><b>¿La evaluación es gratis?</b><p class="muted">Sí. El diagnóstico inicial es gratuito. El informe profesional completo es opcional.</p></div>
+    <div class="faq"><b>¿La evaluación es gratis?</b><p class="muted">Sí. El diagnóstico inicial es gratuito. El diagnóstico inicial es gratuito. El Informe Premium es opcional y tiene un precio de lanzamiento de USD 5.99.</p></div>
     <div class="faq"><b>¿Cuánto tarda?</b><p class="muted">Aproximadamente 6 a 10 minutos, dependiendo del nivel de detalle de tus respuestas.</p></div>
     <div class="faq"><b>¿Mis datos son confidenciales?</b><p class="muted">Sí. Se usan para generar tu resultado y mejorar la herramienta con fines estadísticos.</p></div>
     <div class="faq"><b>¿Garantiza que mi negocio funcionará?</b><p class="muted">No. Es una herramienta de orientación, no una promesa de éxito ni asesoría financiera o legal.</p></div>
@@ -109,7 +118,7 @@
 <section class="card cta-band">
   <h2>La mejor inversión es una decisión informada</h2>
   <p class="muted">Un diagnóstico oportuno puede ayudarte a evitar decisiones impulsivas y enfocar mejor tus recursos antes de comprometer tus ahorros.</p>
-  <div class="actions"><button onclick="go('register')">🚀 Iniciar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">Ver ejemplo</button></div>
+  <div class="actions"><button onclick="go('register')">🚀 Iniciar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">👀 Ver informe de ejemplo</button></div>
 </section>
 <section id="register" class="card hidden">
   <h2>1. Registro y emprendimiento</h2>
@@ -160,8 +169,36 @@
 <section id="freeGate" class="card hidden"></section>
 <section id="premium" class="hidden"></section>
 <section id="sample" class="card hidden">
-  <h2>Ejemplo de salida</h2><p class="muted">El usuario ve gratis su semáforo y puede desbloquear el informe completo.</p>
-  <div class="status-card status-revisar"><p class="status-title">🟠 REVISAR</p><p class="status-sub">Se recomienda revisar aspectos críticos antes de invertir.</p></div><p>Área principal de atención: Mercado</p><p class="muted">El informe completo muestra fortalezas, áreas de atención y plan de acción.</p>
+  <div class="sample-hero">
+    <p class="small-caps" style="color:#fde68a">Caso ficticio de demostración</p>
+    <h2 style="margin-bottom:8px">Así se verán tus resultados</h2>
+    <p class="muted">Conoce el caso de “Café Aurora”, un emprendimiento con buenas ideas de mercado, pero con riesgos financieros y patrimoniales que conviene atender antes de invertir.</p>
+  </div>
+  <div class="status-card status-revisar"><p class="status-title">🟠 REVISAR</p><p class="status-sub">El proyecto tiene potencial, pero necesita fortalecer áreas clave antes de realizar una inversión importante.</p></div>
+  <p class="scorelabel">Nivel de Preparación Emprendedora</p><p class="bigscore">3.08 / 5</p><p class="scorehint">En esta lectura, 5 representa una mayor preparación.</p>
+  <h3>Resultados por dimensión</h3>
+  <div class="sample-grid">
+    <div class="sample-metric"><strong>Mercado</strong><p class="sample-score">4.20</p><div class="metricbar"><span style="width:84%"></span></div><p class="scorehint">Base favorable</p></div>
+    <div class="sample-metric"><strong>Preparación</strong><p class="sample-score">3.55</p><div class="metricbar"><span style="width:71%"></span></div><p class="scorehint">En desarrollo</p></div>
+    <div class="sample-metric"><strong>Finanzas</strong><p class="sample-score">2.10</p><div class="metricbar"><span style="width:42%"></span></div><p class="scorehint">Requiere atención</p></div>
+    <div class="sample-metric"><strong>Patrimonio familiar</strong><p class="sample-score">2.35</p><div class="metricbar"><span style="width:47%"></span></div><p class="scorehint">Requiere atención</p></div>
+    <div class="sample-metric"><strong>Decisión</strong><p class="sample-score">3.20</p><div class="metricbar"><span style="width:64%"></span></div><p class="scorehint">En desarrollo</p></div>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="metric"><strong>💡 Fortaleza visible</strong><p>La persona conoce mejor a su cliente y ha conversado con posibles compradores.</p></div>
+    <div class="metric"><strong>⚠️ Prioridad principal</strong><p>Debe proteger sus ahorros familiares y definir un monto máximo de inversión.</p></div>
+  </div>
+  <div class="card" style="margin:16px 0">
+    <h3>🚀 Vista previa de la Ruta de Crecimiento</h3>
+    <ol class="risklist"><li><strong>Prioridad 1:</strong> separar finanzas personales y del negocio.</li><li><strong>Prioridad 2:</strong> calcular punto de equilibrio y recuperación.</li><li><strong>Prioridad 3:</strong> validar la oferta con una prueba pequeña.</li></ol>
+    <div class="preview-lock"><p>El Informe Premium profundiza en cada dimensión, explica los riesgos, organiza las acciones por prioridad y recomienda recursos según el resultado.</p><p>También incluye la posibilidad de solicitar una Sesión de Orientación Estratégica para aterrizar el diagnóstico al negocio real.</p></div>
+  </div>
+  <div class="paybox">
+    <p class="mini">El Informe Premium incluye</p>
+    <div class="value-stack"><div>✓ Interpretación completa</div><div>✓ Fortalezas y riesgos</div><div>✓ Ruta de Crecimiento</div><div>✓ Recursos recomendados</div><div>✓ Orientación estratégica inicial</div><div>✓ Posible vinculación con especialistas</div></div>
+    <p class="price">USD 5.99</p><p>Precio de lanzamiento · Pago único</p>
+  </div>
+  <div class="final-cta"><h2>¿Quieres saber cómo saldría tu emprendimiento?</h2><p>Este fue un caso ficticio. Completa tu diagnóstico gratuito y descubre tu resultado real antes de invertir.</p><div class="actions"><button onclick="go('register')">🚀 Comenzar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('landing')">Volver al inicio</button></div></div>
 </section>
 <section id="admin" class="card hidden">
   <h2>Panel local de respuestas</h2>
@@ -301,13 +338,13 @@ function showFree(){
     <p>${r.msg}</p>
     <div class="premium-cover">
       <div><small>EMPRENDE SEGURO™</small><h2>Informe Profesional de Preparación Emprendedora</h2></div>
-      <div><p>Incluye perfil completo, fortalezas, aspectos a fortalecer, recomendaciones y plan de acción.</p><strong>Oferta de lanzamiento · USD 9.99</strong></div>
+      <div><p>Incluye interpretación completa, fortalezas, riesgos priorizados, Ruta de Crecimiento y acceso a orientación estratégica inicial.</p><strong>Precio de lanzamiento · USD 5.99</strong></div>
     </div>
     <div class="card" style="border:2px solid var(--brand)">
       <h2>📄 Desbloquea tu Informe Profesional</h2>
       <p>Obtén un diagnóstico completo con recomendaciones personalizadas para tomar decisiones con mayor información antes de invertir.</p>
-      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Plan de acción personalizado por prioridad</li><li>Recursos recomendados según tus resultados</li><li>PDF descargable</li></ul>
-      <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 9.99</p><p>Pago único · Sin suscripciones · Sin cargos adicionales</p></div>
+      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Ruta de Crecimiento personalizada por prioridad</li><li>Recursos recomendados según tus resultados</li><li>Sesión de Orientación Estratégica para aterrizar el diagnóstico a tu negocio</li><li>Posible vinculación con especialistas, cuando realmente sea necesaria</li><li>PDF descargable</li></ul>
+      <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 5.99</p><p>Pago único · Sin suscripciones · Sin cargos adicionales</p></div>
       <h3>📱 Pago por Yappy</h3>
       <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
       <div class="actions"><button class="btn-secondary" onclick="copyText('62735084')">📋 Copiar número</button></div>
@@ -428,9 +465,35 @@ function renderActionPlan(r){
     const pending=!resources?'<div class="resource-pending">Por ahora esta misión incluye acciones prácticas. La herramienta recomendada se activará cuando haya un recurso aprobado en la Biblioteca Oficial Emprende Seguro™.</div>':'';
     return `<div class="action-item"><div class="action-head"><span class="priority-badge">Prioridad ${index+1}</span><span class="pill route-${r.route}">${dimName(key)} · Preparación ${prepScore(r.scores[key]).toFixed(2)}/5</span></div><p class="mission-title">${item.icon} ${item.mission}</p><p><strong>¿Qué detectamos?</strong> ${item.detected}</p><p><strong>¿Qué debes hacer ahora?</strong></p><ul class="action-list">${item.actions.map(a=>`<li>${a}</li>`).join('')}</ul>${resources}${pending}</div>`;
   }).join('');
-  return `<div class="card pagebreak"><h2>🚀 Tu Plan de Acción Personalizado</h2><p>Estas son las 5 áreas que más puedes mejorar según tu diagnóstico. El orden responde directamente a tus resultados y prioriza las dimensiones con mayor oportunidad de fortalecimiento.</p><div class="action-plan">${items}</div><div class="final-cta"><h2>🎯 Tu siguiente paso comienza hoy</h2><p>Tu evaluación ya identificó dónde puedes aumentar las probabilidades de éxito de tu emprendimiento. El verdadero cambio comienza cuando conviertes este diagnóstico en acciones.</p><p><strong>Empieza por la Prioridad 1 y vuelve a evaluar tu proyecto después de implementar mejoras.</strong></p></div></div>`;
+  return `<div class="card pagebreak"><h2>🚀 Tu Ruta de Crecimiento Emprende Seguro™</h2><p>Estas son las áreas que más puedes fortalecer según tu diagnóstico. El orden responde directamente a tus resultados y convierte la evaluación en una Ruta de Crecimiento priorizada.</p><div class="action-plan">${items}</div><div class="final-cta"><h2>🎯 Tu siguiente paso comienza hoy</h2><p>Tu evaluación ya identificó dónde puedes aumentar las probabilidades de éxito de tu emprendimiento. El verdadero cambio comienza cuando conviertes este diagnóstico en acciones.</p><p><strong>Empieza por la Prioridad 1 y vuelve a evaluar tu proyecto después de implementar mejoras.</strong></p></div></div>`;
 }
 
+
+let orientationData={};
+function submitOrientationRequest(){
+  const required=['orientacion_descripcion','orientacion_etapa','orientacion_reto','orientacion_objetivo'];
+  let ok=true;
+  required.forEach(id=>{clearFieldError(id);if(!cleanText(val(id))){setFieldError(id,'Completa este campo para preparar tu orientación.');ok=false}});
+  if(!ok){alert('Completa la información principal antes de enviar tu solicitud.');document.querySelector('.input-error')?.focus();return;}
+  orientationData={
+    descripcion:cleanText(val('orientacion_descripcion')),
+    etapa:cleanText(val('orientacion_etapa')),
+    reto:cleanText(val('orientacion_reto')),
+    objetivo:cleanText(val('orientacion_objetivo')),
+    informacion_adicional:cleanText(val('orientacion_adicional')),
+    disponibilidad:cleanText(val('orientacion_disponibilidad')),
+    solicita_orientacion:'Sí',
+    fecha_solicitud:new Date().toISOString()
+  };
+  const payload=saveEvaluation('orientation_requested');
+  const msg=`Hola, deseo solicitar mi Sesión de Orientación Estratégica de Emprende Seguro™.%0A%0ACódigo de solicitud: ${payload.request_code}%0AProyecto: ${encodeURIComponent(payload.emprendimiento?.nombre||'')}.%0A%0AYa completé el formulario de preparación en mi Informe Premium.`;
+  document.getElementById('orientationConfirmation').classList.remove('hidden');
+  document.getElementById('orientationFormBox').classList.add('hidden');
+  window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');
+}
+function orientationSection(){
+  return `<div class="card pagebreak orientation-card"><p class="small-caps">Beneficio exclusivo del Informe Premium</p><h2>🤝 Sesión de Orientación Estratégica</h2><p>Tu diagnóstico nos muestra tu nivel de preparación, pero no conoce todos los detalles de tu negocio. Por eso, puedes solicitar una conversación inicial para aterrizar los resultados a tu realidad, priorizar el siguiente paso y determinar si realmente necesitas apoyo especializado.</p><div class="specialist-note"><strong>Importante:</strong> la orientación inicial forma parte de la experiencia Premium. Los servicios posteriores de abogados, contadores, especialistas en marketing, finanzas, tecnología u otros profesionales no están incluidos y, si decides contratarlos, tendrán un costo adicional acordado directamente con el especialista.</div><div id="orientationFormBox"><h3 style="margin-top:18px">Cuéntanos sobre tu negocio antes de reunirnos</h3><p class="muted">Esta información nos permitirá revisar tu caso y aprovechar mejor la conversación.</p><div class="orientation-form"><div class="full"><label>¿Qué vendes o qué deseas emprender? <span class="required">*</span></label><textarea id="orientacion_descripcion" placeholder="Describe brevemente tu producto, servicio y cliente" oninput="clearFieldError('orientacion_descripcion')"></textarea><small id="error-orientacion_descripcion" class="field-error"></small></div><div><label>¿En qué etapa estás? <span class="required">*</span></label><select id="orientacion_etapa" onchange="clearFieldError('orientacion_etapa')"><option value="">Selecciona una opción</option><option>Solo tengo una idea</option><option>Estoy validando</option><option>Estoy lanzando</option><option>Ya vendo</option><option>Quiero crecer</option><option>Mi negocio está estancado</option></select><small id="error-orientacion_etapa" class="field-error"></small></div><div><label>¿Cuál es hoy tu mayor reto? <span class="required">*</span></label><select id="orientacion_reto" onchange="clearFieldError('orientacion_reto')"><option value="">Selecciona una opción</option><option>Validar mi idea</option><option>Conseguir clientes</option><option>Ventas</option><option>Finanzas o inversión</option><option>Marketing y marca</option><option>Organización y procesos</option><option>Aspectos legales o contables</option><option>Tecnología o inteligencia artificial</option><option>Otro</option></select><small id="error-orientacion_reto" class="field-error"></small></div><div class="full"><label>¿Qué esperas lograr con esta orientación? <span class="required">*</span></label><textarea id="orientacion_objetivo" placeholder="Cuéntanos qué decisión necesitas tomar o qué te gustaría aclarar" oninput="clearFieldError('orientacion_objetivo')"></textarea><small id="error-orientacion_objetivo" class="field-error"></small></div><div class="full"><label>¿Hay algo más que debamos conocer?</label><textarea id="orientacion_adicional" placeholder="Información adicional, limitaciones, inversión realizada, equipo, urgencias u otros datos relevantes"></textarea></div><div class="full"><label>Disponibilidad aproximada</label><input id="orientacion_disponibilidad" placeholder="Ej. lunes a viernes después de las 6:00 p. m." /></div></div><div class="actions"><button onclick="submitOrientationRequest()">📩 Solicitar mi orientación</button></div><p class="scorehint">Revisaremos la información y te contactaremos para coordinar la sesión.</p></div><div id="orientationConfirmation" class="success hidden"><h2>✅ Solicitud recibida</h2><p>Ya contamos con la información inicial para preparar tu caso. Te contactaremos por WhatsApp o correo para coordinar la sesión.</p></div><div class="final-cta"><h3>¿Y si necesitas un especialista?</h3><p>Después de interpretar el diagnóstico y conocer tu negocio, podremos orientarte sobre el tipo de profesional que realmente aporta valor en esta etapa. La vinculación se realizará solo cuando sea necesaria y con tu aprobación.</p></div></div>`;
+}
 function verifyPremiumCode(){const payload=saveEvaluation('intento_desbloqueo');const entered=(val('approvalCode')||'').trim().toUpperCase();const expected=generateApprovalCode(payload);if(entered!==expected){alert('Código incorrecto. Verifica el pago y el código de desbloqueo recibido.');return}document.getElementById('freeGate').innerHTML=`<div class="success"><h1>🎉 Pago verificado</h1><p>Gracias por confiar en Emprende Seguro.</p><p>Tu informe profesional está listo.</p><button onclick="showPremium('premium_aprobado')">Ver mi informe</button></div>`;window.scrollTo({top:0,behavior:'smooth'});}
 function showPremium(stage='premium_view'){
   const r=calc();saveEvaluation(stage);document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
@@ -448,6 +511,7 @@ function showPremium(stage='premium_view'){
   <div class="card pagebreak"><h2>Perfil por dimensión</h2><div class="grid2">${metrics}</div></div>
   <div class="card pagebreak"><h2>Fortalezas principales</h2><ol class="risklist">${strengths}</ol><h2>Aspectos por fortalecer</h2><ol class="risklist">${risks}</ol></div>
   ${renderActionPlan(r)}
+  ${orientationSection()}
   <div class="card pagebreak"><h2>Nota metodológica</h2><p class="disclaimer">Este resultado no garantiza el éxito ni el fracaso del emprendimiento. La herramienta ofrece una orientación basada en las respuestas suministradas y debe utilizarse como apoyo para la toma de decisiones, no como sustituto de asesoría financiera, legal o profesional especializada.</p></div>`;window.scrollTo({top:0,behavior:'smooth'});
 }
 function val(id){const e=document.getElementById(id);return e?e.value:''}
@@ -457,7 +521,7 @@ const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
 function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
 function buildPayload(stage='completed'){
   const resultado=calc();
-  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:cleanText(val('nombre')),correo:cleanText(val('correo')).toLowerCase(),pais:cleanText(val('pais')),telefono:digitsOnly(val('telefono')),contacto_autorizado:document.getElementById('contacto_autorizado')?.checked?'Sí':'No'},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado};
+  const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:cleanText(val('nombre')),correo:cleanText(val('correo')).toLowerCase(),pais:cleanText(val('pais')),telefono:digitsOnly(val('telefono')),contacto_autorizado:document.getElementById('contacto_autorizado')?.checked?'Sí':'No'},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado,orientacion:{...orientationData}};
   base.request_code=generateRequestCode(base);
   base.approval_code=generateApprovalCode(base);
   return base;
