@@ -59,6 +59,12 @@
     .trustline{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.trustline span{background:#f3e8ff;color:var(--brand2);border:1px solid #e9d5ff;border-radius:999px;padding:8px 10px;font-weight:800;font-size:13px}
     .faq{border-top:1px solid var(--line);padding:14px 0}.faq:first-child{border-top:0}.faq b{color:var(--brand2)}
     .cta-band{background:linear-gradient(135deg,#111827,#312e81 55%,#7c3aed);color:white;border:0}.cta-band .muted{color:#e9d5ff}.cta-band button{background:#f59e0b;color:#111827}
+    .payment-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+    .payment-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+    .payment-card h3{margin-bottom:8px}
+    .payment-card .price-mini{font-size:26px;font-weight:950;color:var(--brand2);margin:4px 0 10px}
+    .btn-cuanto{background:linear-gradient(135deg,#171426,#312e81 55%,#7c3aed)}
+    @media(max-width:800px){.payment-options{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -70,7 +76,7 @@
       <p class="lead">Evalúa tu preparación emprendedora en menos de 10 minutos, identifica riesgos clave y toma mejores decisiones antes de comprometer dinero, tiempo o recursos familiares.</p>
       <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">👀 Ver informe de ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
       <p style="margin:10px 0 0;color:#fde68a;font-weight:800">⏱ Solo toma entre 6 y 10 minutos</p>
-      <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe Premium desde USD 5.99</span></div>
+      <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe Premium desde USD 9.99</span></div>
     </div>
     <div class="card">
       <p class="mini" style="color:#7c3aed">Metodología estructurada • Piloto validado • Diagnóstico confidencial</p>
@@ -93,8 +99,8 @@
 <section class="card">
   <p class="mini">Qué obtienes con el Informe Premium</p>
   <h2 class="section-title">No recibes solo un resultado: recibes claridad para decidir qué hacer después</h2>
-  <div class="value-stack"><div>✓ Interpretación por dimensión</div><div>✓ Riesgos y fortalezas priorizados</div><div>✓ Ruta de Crecimiento personalizada</div><div>✓ Recursos recomendados</div><div>✓ Orientación estratégica inicial</div><div>✓ Posible conexión con especialistas</div></div>
-  <div class="paybox" style="margin-top:16px"><p class="muted">Precio de lanzamiento</p><p class="price">USD 5.99</p><p>El diagnóstico sigue siendo gratuito. Solo pagas si deseas desbloquear el Informe Premium.</p></div>
+  <div class="value-stack"><div>✓ Interpretación por dimensión</div><div>✓ Riesgos y fortalezas priorizados</div><div>✓ Ruta de Crecimiento personalizada</div><div>✓ Recursos recomendados</div><div>✓ Opción de solicitar orientación estratégica</div><div>✓ Posible conexión con especialistas</div></div>
+  <div class="paybox" style="margin-top:16px"><p class="muted">Precio de lanzamiento</p><p class="price">USD 9.99</p><p>El diagnóstico sigue siendo gratuito. Solo pagas si deseas desbloquear el Informe Premium.</p></div>
 </section>
 <section class="card">
   <p class="mini">Cómo funciona</p>
@@ -108,7 +114,7 @@
   <p class="mini">Confianza y transparencia</p>
   <h2 class="section-title">No prometemos éxito. Te ayudamos a tomar mejores decisiones.</h2>
   <div class="grid2">
-    <div class="faq"><b>¿La evaluación es gratis?</b><p class="muted">Sí. El diagnóstico inicial es gratuito. El diagnóstico inicial es gratuito. El Informe Premium es opcional y tiene un precio de lanzamiento de USD 5.99.</p></div>
+    <div class="faq"><b>¿La evaluación es gratis?</b><p class="muted">Sí. El diagnóstico inicial es gratuito. El Informe Premium es opcional y tiene un precio de lanzamiento de USD 9.99.</p></div>
     <div class="faq"><b>¿Cuánto tarda?</b><p class="muted">Aproximadamente 6 a 10 minutos, dependiendo del nivel de detalle de tus respuestas.</p></div>
     <div class="faq"><b>¿Mis datos son confidenciales?</b><p class="muted">Sí. Se usan para generar tu resultado y mejorar la herramienta con fines estadísticos.</p></div>
     <div class="faq"><b>¿Garantiza que mi negocio funcionará?</b><p class="muted">No. Es una herramienta de orientación, no una promesa de éxito ni asesoría financiera o legal.</p></div>
@@ -191,12 +197,12 @@
   <div class="card" style="margin:16px 0">
     <h3>🚀 Vista previa de la Ruta de Crecimiento</h3>
     <ol class="risklist"><li><strong>Prioridad 1:</strong> separar finanzas personales y del negocio.</li><li><strong>Prioridad 2:</strong> calcular punto de equilibrio y recuperación.</li><li><strong>Prioridad 3:</strong> validar la oferta con una prueba pequeña.</li></ol>
-    <div class="preview-lock"><p>El Informe Premium profundiza en cada dimensión, explica los riesgos, organiza las acciones por prioridad y recomienda recursos según el resultado.</p><p>También incluye la posibilidad de solicitar una Sesión de Orientación Estratégica para aterrizar el diagnóstico al negocio real.</p></div>
+    <div class="preview-lock"><p>El Informe Premium profundiza en cada dimensión, explica los riesgos, organiza las acciones por prioridad y recomienda recursos según el resultado.</p><p>También incluye la posibilidad de solicitar orientación estratégica adicional para aterrizar el diagnóstico al negocio real.</p></div>
   </div>
   <div class="paybox">
     <p class="mini">El Informe Premium incluye</p>
-    <div class="value-stack"><div>✓ Interpretación completa</div><div>✓ Fortalezas y riesgos</div><div>✓ Ruta de Crecimiento</div><div>✓ Recursos recomendados</div><div>✓ Orientación estratégica inicial</div><div>✓ Posible vinculación con especialistas</div></div>
-    <p class="price">USD 5.99</p><p>Precio de lanzamiento · Pago único</p>
+    <div class="value-stack"><div>✓ Interpretación completa</div><div>✓ Fortalezas y riesgos</div><div>✓ Ruta de Crecimiento</div><div>✓ Recursos recomendados</div><div>✓ Opción de solicitar orientación estratégica</div><div>✓ Posible vinculación con especialistas</div></div>
+    <p class="price">USD 9.99</p><p>Precio de lanzamiento · Pago único</p>
   </div>
   <div class="final-cta"><h2>¿Quieres saber cómo saldría tu emprendimiento?</h2><p>Este fue un caso ficticio. Completa tu diagnóstico gratuito y descubre tu resultado real antes de invertir.</p><div class="actions"><button onclick="go('register')">🚀 Comenzar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('landing')">Volver al inicio</button></div></div>
 </section>
@@ -338,23 +344,36 @@ function showFree(){
     <p>${r.msg}</p>
     <div class="premium-cover">
       <div><small>EMPRENDE SEGURO™</small><h2>Informe Profesional de Preparación Emprendedora</h2></div>
-      <div><p>Incluye interpretación completa, fortalezas, riesgos priorizados, Ruta de Crecimiento y acceso a orientación estratégica inicial.</p><strong>Precio de lanzamiento · USD 5.99</strong></div>
+      <div><p>Incluye interpretación completa, fortalezas, riesgos priorizados y Ruta de Crecimiento personalizada.</p><strong>Precio de lanzamiento · USD 9.99</strong></div>
     </div>
     <div class="card" style="border:2px solid var(--brand)">
       <h2>📄 Desbloquea tu Informe Profesional</h2>
       <p>Obtén un diagnóstico completo con recomendaciones personalizadas para tomar decisiones con mayor información antes de invertir.</p>
-      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Ruta de Crecimiento personalizada por prioridad</li><li>Recursos recomendados según tus resultados</li><li>Sesión de Orientación Estratégica para aterrizar el diagnóstico a tu negocio</li><li>Posible vinculación con especialistas, cuando realmente sea necesaria</li><li>PDF descargable</li></ul>
-      <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 5.99</p><p>Pago único · Sin suscripciones · Sin cargos adicionales</p></div>
-      <h3>📱 Pago por Yappy</h3>
-      <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
-      <div class="actions"><button class="btn-secondary" onclick="copyText('62735084')">📋 Copiar número</button></div>
+      <ul class="checklist"><li>Perfil completo de Preparación Emprendedora</li><li>Fortalezas principales</li><li>Aspectos por fortalecer</li><li>Ruta de Crecimiento personalizada por prioridad</li><li>Recursos recomendados según tus resultados</li><li>Opción de solicitar orientación estratégica adicional</li><li>Posible vinculación con especialistas, cuando realmente sea necesaria</li><li>PDF descargable</li></ul>
+      <div class="paybox"><p class="muted">Inversión</p><p class="price">USD 9.99</p><p>Pago único · Sin suscripciones</p></div>
       <div class="ticket"><p class="muted">🧾 Referencia de tu solicitud</p><div class="ticket-code" id="requestCode">${payload.request_code}</div><button class="btn-secondary" onclick="copyText('${payload.request_code}')">📋 Copiar referencia</button></div>
       <p class="muted">Conserva esta referencia. Nos permite identificar tu diagnóstico y validar tu pago correctamente.</p>
-      <div class="actions">
-        <button onclick="requestPaymentInstructions('${payload.request_code}')">💬 Solicitar instrucciones de pago</button>
-        <button class="btn-secondary" onclick="openWhatsApp('${payload.request_code}')">✅ Ya pagué y deseo desbloquear mi informe</button>
+      <div class="payment-options">
+        <div class="payment-card">
+          <h3>🇵🇦 Panamá · Yappy</h3>
+          <p class="price-mini">USD 9.99</p>
+          <p class="muted">Si estás en Panamá, puedes pagar por Yappy.</p>
+          <p><strong>Número:</strong> <span id="yappyNumber">6273-5084</span></p>
+          <div class="actions">
+            <button class="btn-secondary" onclick="copyText('62735084')">📋 Copiar número</button>
+            <button onclick="requestPaymentInstructions('${payload.request_code}')">💬 Instrucciones Yappy</button>
+          </div>
+          <div class="actions"><button class="btn-secondary" onclick="openWhatsApp('${payload.request_code}','Yappy')">✅ Ya pagué con Yappy</button></div>
+        </div>
+        <div class="payment-card">
+          <h3>🌎 Internacional · Tarjeta</h3>
+          <p class="price-mini">USD 9.99</p>
+          <p class="muted">Si estás fuera de Panamá, paga con tarjeta mediante Cuanto.</p>
+          <div class="actions"><button class="btn-cuanto" onclick="openCuanto('${payload.request_code}')">💳 Pagar con tarjeta</button></div>
+          <div class="actions"><button class="btn-secondary" onclick="openWhatsApp('${payload.request_code}','Cuanto / tarjeta')">✅ Ya pagué con tarjeta</button></div>
+        </div>
       </div>
-      <p class="scorehint">⏱️ Tiempo promedio de entrega del código: menos de 10 minutos en horario de atención, una vez confirmado el pago.</p>
+      <p class="scorehint">⏱️ El desbloqueo se realiza después de validar el pago. En esta etapa la confirmación es manual.</p>
       <label>Código de desbloqueo</label><input id="approvalCode" placeholder="Ejemplo: ES-123456" maxlength="12">
       <div class="actions"><button class="btn-premium" onclick="verifyPremiumCode()">🔓 Desbloquear mi informe</button></div>
     </div>
@@ -363,8 +382,10 @@ function showFree(){
   setTimeout(()=>{document.getElementById('analysisBox').classList.add('hidden');document.getElementById('freeResult').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});},1200);
 }
 function copyText(t){navigator.clipboard?.writeText(t).then(()=>alert('Copiado: '+t)).catch(()=>prompt('Copia este dato:',t));}
-function requestPaymentInstructions(requestCode){const msg=`Hola, acabo de completar mi diagnóstico en Emprende Seguro™.%0A%0AMi código de solicitud es: ${requestCode}%0A%0ADeseo desbloquear mi Informe Profesional. ¿Me indicas cómo realizar el pago por Yappy?`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
-function openWhatsApp(requestCode){const msg=`Hola, ya realicé el pago del Informe Profesional de Emprende Seguro™.%0A%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago para recibir mi código de desbloqueo.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
+const CUANTO_PAYMENT_URL='https://cuanto.app/emprseguro';
+function requestPaymentInstructions(requestCode){const msg=`Hola, acabo de completar mi diagnóstico en Emprende Seguro™.%0A%0AMi código de solicitud es: ${requestCode}%0A%0ADeseo desbloquear mi Informe Premium de USD 9.99 y pagar por Yappy. ¿Me indicas las instrucciones?`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
+function openCuanto(requestCode){saveEvaluation('pago_cuanto_iniciado');window.open(CUANTO_PAYMENT_URL,'_blank','noopener');}
+function openWhatsApp(requestCode,metodo='Pago'){const msg=`Hola, ya realicé el pago del Informe Premium de Emprende Seguro™ por USD 9.99.%0A%0AMétodo: ${encodeURIComponent(metodo)}%0ACódigo de solicitud: ${requestCode}%0A%0AAdjunto comprobante de pago para recibir mi código de desbloqueo.`;window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');}
 function recommendation(k){return {RF:'Revise capital disponible, deuda, fondo de emergencia, monto total requerido y tiempo estimado de recuperación de la inversión.',CVM:'Valide clientes, analice competencia, confirme disposición de pago y defina con claridad el segmento objetivo.',PN:'Fortalezca conocimientos sobre costos, operación, recursos críticos, permisos, requisitos legales y capacidades necesarias.',RPF:'Proteja activos esenciales, evite comprometer recursos familiares críticos y defina un plan de contingencia.',SEDI:'Haga una pausa, busque opiniones críticas, contraste la idea con evidencia y evite decisiones impulsivas.'}[k]}
 
 const RESOURCE_LIBRARY={
@@ -492,9 +513,28 @@ function submitOrientationRequest(){
   window.open(`https://wa.me/50762735084?text=${msg}`,'_blank');
 }
 function orientationSection(){
-  return `<div class="card pagebreak orientation-card"><p class="small-caps">Beneficio exclusivo del Informe Premium</p><h2>🤝 Sesión de Orientación Estratégica</h2><p>Tu diagnóstico nos muestra tu nivel de preparación, pero no conoce todos los detalles de tu negocio. Por eso, puedes solicitar una conversación inicial para aterrizar los resultados a tu realidad, priorizar el siguiente paso y determinar si realmente necesitas apoyo especializado.</p><div class="specialist-note"><strong>Importante:</strong> la orientación inicial forma parte de la experiencia Premium. Los servicios posteriores de abogados, contadores, especialistas en marketing, finanzas, tecnología u otros profesionales no están incluidos y, si decides contratarlos, tendrán un costo adicional acordado directamente con el especialista.</div><div id="orientationFormBox"><h3 style="margin-top:18px">Cuéntanos sobre tu negocio antes de reunirnos</h3><p class="muted">Esta información nos permitirá revisar tu caso y aprovechar mejor la conversación.</p><div class="orientation-form"><div class="full"><label>¿Qué vendes o qué deseas emprender? <span class="required">*</span></label><textarea id="orientacion_descripcion" placeholder="Describe brevemente tu producto, servicio y cliente" oninput="clearFieldError('orientacion_descripcion')"></textarea><small id="error-orientacion_descripcion" class="field-error"></small></div><div><label>¿En qué etapa estás? <span class="required">*</span></label><select id="orientacion_etapa" onchange="clearFieldError('orientacion_etapa')"><option value="">Selecciona una opción</option><option>Solo tengo una idea</option><option>Estoy validando</option><option>Estoy lanzando</option><option>Ya vendo</option><option>Quiero crecer</option><option>Mi negocio está estancado</option></select><small id="error-orientacion_etapa" class="field-error"></small></div><div><label>¿Cuál es hoy tu mayor reto? <span class="required">*</span></label><select id="orientacion_reto" onchange="clearFieldError('orientacion_reto')"><option value="">Selecciona una opción</option><option>Validar mi idea</option><option>Conseguir clientes</option><option>Ventas</option><option>Finanzas o inversión</option><option>Marketing y marca</option><option>Organización y procesos</option><option>Aspectos legales o contables</option><option>Tecnología o inteligencia artificial</option><option>Otro</option></select><small id="error-orientacion_reto" class="field-error"></small></div><div class="full"><label>¿Qué esperas lograr con esta orientación? <span class="required">*</span></label><textarea id="orientacion_objetivo" placeholder="Cuéntanos qué decisión necesitas tomar o qué te gustaría aclarar" oninput="clearFieldError('orientacion_objetivo')"></textarea><small id="error-orientacion_objetivo" class="field-error"></small></div><div class="full"><label>¿Hay algo más que debamos conocer?</label><textarea id="orientacion_adicional" placeholder="Información adicional, limitaciones, inversión realizada, equipo, urgencias u otros datos relevantes"></textarea></div><div class="full"><label>Disponibilidad aproximada</label><input id="orientacion_disponibilidad" placeholder="Ej. lunes a viernes después de las 6:00 p. m." /></div></div><div class="actions"><button onclick="submitOrientationRequest()">📩 Solicitar mi orientación</button></div><p class="scorehint">Revisaremos la información y te contactaremos para coordinar la sesión.</p></div><div id="orientationConfirmation" class="success hidden"><h2>✅ Solicitud recibida</h2><p>Ya contamos con la información inicial para preparar tu caso. Te contactaremos por WhatsApp o correo para coordinar la sesión.</p></div><div class="final-cta"><h3>¿Y si necesitas un especialista?</h3><p>Después de interpretar el diagnóstico y conocer tu negocio, podremos orientarte sobre el tipo de profesional que realmente aporta valor en esta etapa. La vinculación se realizará solo cuando sea necesaria y con tu aprobación.</p></div></div>`;
+  return `<div class="card pagebreak orientation-card"><p class="small-caps">Servicio adicional disponible</p><h2>🤝 Orientación Estratégica</h2><p>Tu diagnóstico nos muestra tu nivel de preparación, pero no conoce todos los detalles de tu negocio. Por eso, puedes solicitar una orientación adicional para aterrizar los resultados a tu realidad, priorizar el siguiente paso y determinar si realmente necesitas apoyo especializado.</p><div class="specialist-note"><strong>Importante:</strong> la orientación personalizada es un servicio adicional al Informe Premium y puede tener un costo independiente. Los servicios de abogados, contadores, especialistas en marketing, finanzas, tecnología u otros profesionales tampoco están incluidos y, si decides contratarlos, tendrán un costo adicional acordado directamente con el especialista.</div><div id="orientationFormBox"><h3 style="margin-top:18px">Cuéntanos sobre tu negocio antes de reunirnos</h3><p class="muted">Esta información nos permitirá revisar tu caso y aprovechar mejor la conversación.</p><div class="orientation-form"><div class="full"><label>¿Qué vendes o qué deseas emprender? <span class="required">*</span></label><textarea id="orientacion_descripcion" placeholder="Describe brevemente tu producto, servicio y cliente" oninput="clearFieldError('orientacion_descripcion')"></textarea><small id="error-orientacion_descripcion" class="field-error"></small></div><div><label>¿En qué etapa estás? <span class="required">*</span></label><select id="orientacion_etapa" onchange="clearFieldError('orientacion_etapa')"><option value="">Selecciona una opción</option><option>Solo tengo una idea</option><option>Estoy validando</option><option>Estoy lanzando</option><option>Ya vendo</option><option>Quiero crecer</option><option>Mi negocio está estancado</option></select><small id="error-orientacion_etapa" class="field-error"></small></div><div><label>¿Cuál es hoy tu mayor reto? <span class="required">*</span></label><select id="orientacion_reto" onchange="clearFieldError('orientacion_reto')"><option value="">Selecciona una opción</option><option>Validar mi idea</option><option>Conseguir clientes</option><option>Ventas</option><option>Finanzas o inversión</option><option>Marketing y marca</option><option>Organización y procesos</option><option>Aspectos legales o contables</option><option>Tecnología o inteligencia artificial</option><option>Otro</option></select><small id="error-orientacion_reto" class="field-error"></small></div><div class="full"><label>¿Qué esperas lograr con esta orientación? <span class="required">*</span></label><textarea id="orientacion_objetivo" placeholder="Cuéntanos qué decisión necesitas tomar o qué te gustaría aclarar" oninput="clearFieldError('orientacion_objetivo')"></textarea><small id="error-orientacion_objetivo" class="field-error"></small></div><div class="full"><label>¿Hay algo más que debamos conocer?</label><textarea id="orientacion_adicional" placeholder="Información adicional, limitaciones, inversión realizada, equipo, urgencias u otros datos relevantes"></textarea></div><div class="full"><label>Disponibilidad aproximada</label><input id="orientacion_disponibilidad" placeholder="Ej. lunes a viernes después de las 6:00 p. m." /></div></div><div class="actions"><button onclick="submitOrientationRequest()">📩 Solicitar mi orientación</button></div><p class="scorehint">Revisaremos la información y te contactaremos para coordinar la sesión.</p></div><div id="orientationConfirmation" class="success hidden"><h2>✅ Solicitud recibida</h2><p>Ya contamos con la información inicial para preparar tu caso. Te contactaremos por WhatsApp o correo para coordinar la sesión.</p></div><div class="final-cta"><h3>¿Y si necesitas un especialista?</h3><p>Después de interpretar el diagnóstico y conocer tu negocio, podremos orientarte sobre el tipo de profesional que realmente aporta valor en esta etapa. La vinculación se realizará solo cuando sea necesaria y con tu aprobación.</p></div></div>`;
 }
-function verifyPremiumCode(){const payload=saveEvaluation('intento_desbloqueo');const entered=(val('approvalCode')||'').trim().toUpperCase();const expected=generateApprovalCode(payload);if(entered!==expected){alert('Código incorrecto. Verifica el pago y el código de desbloqueo recibido.');return}document.getElementById('freeGate').innerHTML=`<div class="success"><h1>🎉 Pago verificado</h1><p>Gracias por confiar en Emprende Seguro.</p><p>Tu informe profesional está listo.</p><button onclick="showPremium('premium_aprobado')">Ver mi informe</button></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+async function verifyPremiumCode(){
+  const payload=saveEvaluation('intento_desbloqueo');
+  const entered=(val('approvalCode')||'').trim().toUpperCase();
+  if(!entered){alert('Ingresa el código de desbloqueo recibido.');return;}
+  try{
+    const url=`${GOOGLE_SCRIPT_URL}?action=verify&request_code=${encodeURIComponent(payload.request_code)}&email=${encodeURIComponent(payload.usuario?.correo||'')}&approval_code=${encodeURIComponent(entered)}`;
+    const res=await fetch(url,{method:'GET',cache:'no-store'});
+    if(!res.ok) throw new Error('No fue posible validar el código.');
+    const data=await res.json();
+    if(!data || data.ok!==true){
+      alert(data?.message||'Código incorrecto o pago aún no aprobado.');
+      return;
+    }
+    document.getElementById('freeGate').innerHTML=`<div class="success"><h1>🎉 Pago verificado</h1><p>Gracias por confiar en Emprende Seguro.</p><p>Tu informe profesional está listo.</p><button onclick="showPremium('premium_aprobado')">Ver mi informe</button></div>`;
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(e){
+    console.error(e);
+    alert('No pudimos validar el código en este momento. Intenta nuevamente en unos minutos.');
+  }
+}
 function showPremium(stage='premium_view'){
   const r=calc();saveEvaluation(stage);document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
   const data={nombre:val('nombre')||'Usuario',proyecto:val('proyecto')||'Proyecto evaluado',pais:val('pais')||'',sector:val('sector')||'',estado:val('estado')||'',inversion:val('inversion')||''};
@@ -516,24 +556,21 @@ function showPremium(stage='premium_view'){
 }
 function val(id){const e=document.getElementById(id);return e?e.value:''}
 const STORAGE_KEY='emprendeSeguroEvaluaciones_comercial_1_3';
-const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec';
-const APPROVAL_SECRET='ECOMENTE-EMPRENDE-SEGURO-2026';
+const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxDm8_FEyKPbHOvmtW3_9OETx35bfQRmx59ku3QWTmnDeb2ZVt8vSRSQ7-5tAbEfvyg/exec'; // verificación Premium se realiza en servidor
 function simpleHash(text){let h=0;for(let i=0;i<text.length;i++){h=((h<<5)-h)+text.charCodeAt(i);h|=0}return Math.abs(h).toString().padStart(10,'0').slice(0,6)}
 function buildPayload(stage='completed'){
   const resultado=calc();
   const base={id:'ES-'+Date.now(),stage,fecha:new Date().toISOString(),usuario:{nombre:cleanText(val('nombre')),correo:cleanText(val('correo')).toLowerCase(),pais:cleanText(val('pais')),telefono:digitsOnly(val('telefono')),contacto_autorizado:document.getElementById('contacto_autorizado')?.checked?'Sí':'No'},emprendimiento:{nombre:val('proyecto'),sector:val('sector'),estado:val('estado'),inversion:val('inversion')},respuestas:{...answers},resultado,orientacion:{...orientationData}};
   base.request_code=generateRequestCode(base);
-  base.approval_code=generateApprovalCode(base);
   return base;
 }
 function generateRequestCode(payload){const correo=(payload.usuario?.correo||'').trim().toLowerCase();const proyecto=(payload.emprendimiento?.nombre||'').trim().toLowerCase();return 'RQ-'+simpleHash(correo+'|'+proyecto+'|'+payload.resultado?.key)}
-function generateApprovalCode(payload){return 'ES-'+simpleHash(APPROVAL_SECRET+'|'+payload.request_code+'|'+(payload.usuario?.correo||'').trim().toLowerCase())}
 function getEvaluations(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]')}catch(e){return []}}
 function saveEvaluation(stage='completed'){
   const payload=buildPayload(stage);let data=getEvaluations();
   const correo=(payload.usuario.correo||'').trim().toLowerCase(); const proyecto=(payload.emprendimiento.nombre||'').trim().toLowerCase();
   const idx=data.findIndex(x=>(x.usuario?.correo||'').trim().toLowerCase()===correo && (x.emprendimiento?.nombre||'').trim().toLowerCase()===proyecto && correo && proyecto);
-  if(idx>=0){payload.id=data[idx].id;payload.request_code=data[idx].request_code||payload.request_code;payload.approval_code=generateApprovalCode(payload);data[idx]=payload}else{data.push(payload)}
+  if(idx>=0){payload.id=data[idx].id;payload.request_code=data[idx].request_code||payload.request_code;data[idx]=payload}else{data.push(payload)}
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
   saveToGoogleSheets(payload);
   return payload;
@@ -548,7 +585,7 @@ function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-segur
 function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
 function downloadAllJSON(){downloadJSON(getEvaluations(),'emprende-seguro-base-local.json')}
 function csvEscape(v){v=(v===undefined||v===null)?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
-function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,codigo_aprobacion:x.approval_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,contacto_autorizado:x.usuario?.contacto_autorizado,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
+function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,contacto_autorizado:x.usuario?.contacto_autorizado,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
 function downloadCSV(){const rows=getEvaluations().map(flattenRow);if(!rows.length){alert('Aún no hay evaluaciones guardadas en este navegador.');return}const headers=Object.keys(rows[0]);const csv=[headers.join(',')].concat(rows.map(r=>headers.map(h=>csvEscape(r[h])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-base-local.csv';a.click();URL.revokeObjectURL(a.href)}
 function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Autorizó contacto</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.contacto_autorizado||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
 function clearLocalData(){if(confirm('¿Seguro que deseas borrar la base local de este navegador? Primero descarga CSV/JSON si necesitas respaldo.')){localStorage.removeItem(STORAGE_KEY);renderAdmin()}}
