@@ -74,7 +74,7 @@
       <span class="badge">Decisiones inteligentes antes de invertir</span>
       <h1>¿Invertirías tus ahorros sin saber si tu idea está lista?</h1>
       <p class="lead">Evalúa tu preparación emprendedora en menos de 10 minutos, identifica riesgos clave y toma mejores decisiones antes de comprometer dinero, tiempo o recursos familiares.</p>
-      <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">👀 Ver informe de ejemplo</button><button class="btn-ghost" style="color:white;border-color:rgba(255,255,255,.65)" onclick="go('admin');renderAdmin()">Panel de respuestas</button></div>
+      <div class="actions"><button onclick="go('register')">🚀 Obtener diagnóstico gratuito</button><button class="btn-secondary" onclick="go('sample')">👀 Ver informe de ejemplo</button></div>
       <p style="margin:10px 0 0;color:#fde68a;font-weight:800">⏱ Solo toma entre 6 y 10 minutos</p>
       <div class="trustline"><span>🟢 Más de 60 emprendedores ya han evaluado sus proyectos</span><span>30 ítems evaluados</span><span>5 dimensiones clave</span><span>Informe Premium desde USD 9.99</span></div>
     </div>
@@ -206,19 +206,6 @@
   </div>
   <div class="final-cta"><h2>¿Quieres saber cómo saldría tu emprendimiento?</h2><p>Este fue un caso ficticio. Completa tu diagnóstico gratuito y descubre tu resultado real antes de invertir.</p><div class="actions"><button onclick="go('register')">🚀 Comenzar diagnóstico gratuito</button><button class="btn-secondary" onclick="go('landing')">Volver al inicio</button></div></div>
 </section>
-<section id="admin" class="card hidden">
-  <h2>Panel local de respuestas</h2>
-  <p class="muted"><strong>Operación activa:</strong> esta versión puede registrar automáticamente las evaluaciones en tu Google Sheets cuando pegues la URL del Apps Script.</p>
-  <p class="muted">Modo operativo: guarda respaldo local en este navegador y, con Apps Script configurado, envía cada evaluación a tu panel en Google Sheets para seguimiento y aprobación manual de pagos.</p>
-  <div id="adminSummary" class="grid"></div>
-  <div class="actions">
-    <button onclick="downloadCSV()">Descargar base CSV</button>
-    <button class="btn-secondary" onclick="downloadAllJSON()">Descargar base JSON</button>
-    <button class="btn-ghost" onclick="clearLocalData()">Borrar base local</button>
-  </div>
-  <div id="adminTable" style="overflow:auto;margin-top:16px"></div>
-</section>
-
 </main><div class="footer">Emprende Seguro™ · Emprender con claridad, no con impulsos</div>
 <script>
 const dims=[
@@ -583,12 +570,6 @@ function saveToGoogleSheets(payload){
 }
 function exportJSON(){downloadJSON(buildPayload('single_export'),'emprende-seguro-evaluacion.json')}
 function downloadJSON(obj,filename){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
-function downloadAllJSON(){downloadJSON(getEvaluations(),'emprende-seguro-base-local.json')}
-function csvEscape(v){v=(v===undefined||v===null)?'':String(v);return '"'+v.replaceAll('"','""')+'"'}
-function flattenRow(x){const s=x.resultado?.scores||{};return {fecha:x.fecha,etapa:x.stage,codigo_solicitud:x.request_code,nombre:x.usuario?.nombre,correo:x.usuario?.correo,telefono:x.usuario?.telefono,contacto_autorizado:x.usuario?.contacto_autorizado,pais:x.usuario?.pais,proyecto:x.emprendimiento?.nombre,sector:x.emprendimiento?.sector,estado:x.emprendimiento?.estado,inversion:x.emprendimiento?.inversion,ruta:x.resultado?.route,npe:(6-(s.IRE||0)).toFixed(2),dimension_dominante:x.resultado?.dominant,RF:s.RF?.toFixed(2),CVM:s.CVM?.toFixed(2),PN:s.PN?.toFixed(2),RPF:s.RPF?.toFixed(2),SEDI:s.SEDI?.toFixed(2),clave_escenario:x.resultado?.key,mensaje:x.resultado?.msg}}
-function downloadCSV(){const rows=getEvaluations().map(flattenRow);if(!rows.length){alert('Aún no hay evaluaciones guardadas en este navegador.');return}const headers=Object.keys(rows[0]);const csv=[headers.join(',')].concat(rows.map(r=>headers.map(h=>csvEscape(r[h])).join(','))).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='emprende-seguro-base-local.csv';a.click();URL.revokeObjectURL(a.href)}
-function renderAdmin(){const data=getEvaluations();const total=data.length;const premium=data.filter(x=>x.stage==='premium_view').length;const latest=data[total-1]?.fecha||'Sin registros';document.getElementById('adminSummary').innerHTML=`<div class="metric"><strong>Evaluaciones guardadas</strong><p class="bigscore" style="font-size:34px">${total}</p></div><div class="metric"><strong>Informes premium vistos</strong><p class="bigscore" style="font-size:34px">${premium}</p></div><div class="metric"><strong>Último registro</strong><p class="muted">${latest}</p></div>`;if(!total){document.getElementById('adminTable').innerHTML='<p class="muted">Todavía no hay respuestas guardadas.</p>';return}const rows=data.slice().reverse().map(flattenRow);const html='<table><thead><tr><th>Fecha</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Autorizó contacto</th><th>Proyecto</th><th>Ruta</th><th>NPE</th><th>Dominante</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r.fecha}</td><td>${r.nombre||''}</td><td>${r.correo||''}</td><td>${r.telefono||''}</td><td>${r.contacto_autorizado||''}</td><td>${r.proyecto||''}</td><td>${r.ruta||''}</td><td>${r.npe||''}</td><td>${dimName(r.dimension_dominante)||''}</td></tr>`).join('')+'</tbody></table>';document.getElementById('adminTable').innerHTML=html}
-function clearLocalData(){if(confirm('¿Seguro que deseas borrar la base local de este navegador? Primero descarga CSV/JSON si necesitas respaldo.')){localStorage.removeItem(STORAGE_KEY);renderAdmin()}}
 </script>
 </body>
 </html>
